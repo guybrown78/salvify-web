@@ -6,35 +6,35 @@ import backgroundImage from '@/images/background-faqs.jpg'
 const faqs = [
   [
     {
-      question: 'Does TaxPal handle VAT?',
+      question: 'Does Salvify handle purchases?',
       answer:
-        'Well no, but if you move your company offshore you can probably ignore it.',
+        'Salvify can create order requests, like a glorified shopping list. This is then sent to your admin and its up to them to purchase the order.',
     },
     {
       question: 'Can I pay for my subscription via purchase order?',
       answer: 'Absolutely, we are happy to take your money in all forms.',
     },
     {
-      question: 'How do I apply for a job at TaxPal?',
+      question: 'How do I apply for a job at Salvify?',
       answer:
         'We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.',
     },
   ],
   [
     {
-      question: 'What was that testimonial about tax fraud all about?',
+      question: 'What was that testimonial about pharmacutical wastage all about?',
       answer:
-        'TaxPal is just a software application, ultimately your books are your responsibility.',
+        'Salvify is just a software application, ultimately your inventories are your responsibility.',
     },
     {
       question:
-        'TaxPal sounds horrible but why do I still feel compelled to purchase?',
+        'Salvify sounds horrible but why do I still feel compelled to purchase?',
       answer:
         'This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.',
     },
     {
       question:
-        'I found other companies called TaxPal, are you sure you can use this name?',
+        'I found other companies called Salvify, are you sure you can use this name?',
       answer:
         'Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.',
     },

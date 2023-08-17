@@ -11,19 +11,19 @@ const testimonials = [
   [
     {
       content:
-        'TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+        'This software is a game-changer! It’s like having a personal assistant for our medical inventory. It has streamlined our processes and saved us valuable time.',
       author: {
         name: 'Sheryl Berge',
-        role: 'CEO at Lynch LLC',
+        role: 'CEO at hospital-on-go',
         image: avatarImage1,
       },
     },
     {
       content:
-        'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
+        'Finally, a solution that keeps our inventory in check. I can now focus more on patient care, knowing that our supplies are well-managed and readily available.',
       author: {
         name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
+        role: 'Director at Velocity Medical',
         image: avatarImage4,
       },
     },
@@ -31,19 +31,19 @@ const testimonials = [
   [
     {
       content:
-        'The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
+        'As a pharmacist, precision matters. This SaaS application has revolutionized our stock management, ensuring medications are always up to date and accessible',
       author: {
         name: 'Leland Kiehn',
-        role: 'Founder of Kiehn and Sons',
+        role: 'Pharmacist',
         image: avatarImage5,
       },
     },
     {
       content:
-        'There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.',
+        'Maintaining compliance is non-negotiable in our field. This software has become an essential tool for us, ensuring we meet regulations without the headache.',
       author: {
         name: 'Erin Powlowski',
-        role: 'COO at Armstrong Inc',
+        role: 'Healthcare Compliance Officer',
         image: avatarImage2,
       },
     },
@@ -51,19 +51,19 @@ const testimonials = [
   [
     {
       content:
-        'I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.',
+        'From surgical instruments to high-tech machinery, this SaaS app covers it all. Tracking and maintaining equipment has never been this efficient.',
       author: {
         name: 'Peter Renolds',
-        role: 'Founder of West Inc',
+        role: 'Medical Equipment Specialist',
         image: avatarImage3,
       },
     },
     {
       content:
-        'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
+        'I’ve tried various solutions, but this one takes the cake. It’s user-friendly, visually appealing, and has drastically reduced wastage – a win for both our budget and the environment.',
       author: {
         name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
+        role: 'Clinic Manager',
         image: avatarImage4,
       },
     },
@@ -91,9 +91,7 @@ export function Testimonials() {
             Loved by businesses worldwide.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our software is so simple that people can’t help but fall in love
-            with it. Simplicity is easy when you just skip tons of
-            mission-critical features.
+            Real voices, real impact – Discover how our SaaS application is transforming medical inventory management.
           </p>
         </div>
         <ul

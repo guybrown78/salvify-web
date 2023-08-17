@@ -14,27 +14,27 @@ import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Dashboard',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      "Keep up to date with a welcoming and inviting dashboard, delivering an overview of your live data",
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: 'Inventory Stockcheck',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      "Find items fast and understand all stock levels and expiries over multiple locations.",
     image: screenshotExpenses,
   },
   {
-    title: 'VAT handling',
+    title: 'Detailed Item Analysis',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      "Item specific live dashboard which highlights if any immediate action is needed.",
     image: screenshotVatReturns,
   },
   {
-    title: 'Reporting',
+    title: 'Order',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+      'Intuitive and simple order request cart with a transparent order history and timeline.',
     image: screenshotReporting,
   },
 ]
@@ -74,11 +74,10 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Everything you need to run your sickbay.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
+						Empowering you to effortlessly manage your medical inventory, anytime, anywhere – Through advanced cloud-based software for&nbsp;both&nbsp;remote&nbsp;and&nbsp;on-site&nbsp;control.
           </p>
         </div>
         <Tab.Group

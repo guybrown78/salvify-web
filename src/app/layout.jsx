@@ -5,11 +5,11 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - TaxPal',
-    default: 'TaxPal - Accounting made simple for small businesses',
+    template: '%s - Salvify',
+    default: 'Salvify - Digital Ointment for your medical inventory system ',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'A trusted medical inventory system promoting assurance of your...',
 }
 
 const inter = Inter({

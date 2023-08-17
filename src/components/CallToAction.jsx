@@ -24,11 +24,10 @@ export function CallToAction() {
             Get started today
           </h2>
           <p className="mt-4 text-lg tracking-tight text-white">
-            It’s time to take control of your books. Buy our software so you can
-            feel like you’re doing something productive.
+            It’s time to take control of your medical inventory. Save time, wastage and compliance errors with Salvify.
           </p>
           <Button href="/register" color="white" className="mt-10">
-            Get 6 months free
+            Book a demo
           </Button>
         </div>
       </Container>
