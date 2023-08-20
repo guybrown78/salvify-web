@@ -19,7 +19,7 @@ export function Hero() {
         </span>{' '}
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-				Elevate your assurance, compliance, and sustainability with Savify, the future of medical inventory excellence!
+				Elevate your assurance, compliance, and sustainability with Salvify, the future of medical inventory excellence!
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
         <Button href="/#">Sign up</Button>

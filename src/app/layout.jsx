@@ -1,4 +1,4 @@
-import { Inter, Lexend } from 'next/font/google'
+import { Lato } from 'next/font/google'
 import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
@@ -12,17 +12,18 @@ export const metadata = {
     'A trusted medical inventory system promoting assurance of your...',
 }
 
-const inter = Inter({
+const lato = Lato({
+	weight:["100","300","400","700","900"],
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-lato',
 })
 
-const lexend = Lexend({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-lexend',
-})
+// const lexend = Lexend({
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-lexend',
+// })
 
 export default function RootLayout({ children }) {
   return (
@@ -30,8 +31,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={clsx(
         'h-full scroll-smooth bg-white antialiased',
-        inter.variable,
-        lexend.variable
+        lato.variable
       )}
     >
       <body className="flex h-full flex-col">{children}</body>

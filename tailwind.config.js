@@ -22,9 +22,12 @@ module.exports = {
         '4xl': '2rem',
       },
       fontFamily: {
-        sans: 'var(--font-inter)',
-        display: 'var(--font-lexend)',
+        sans: 'var(--font-lato)',
       },
+			colors: ({ colors }) => ({
+        gray: colors.neutral,
+				dmDark: '#3A4443',
+      }),
       maxWidth: {
         '2xl': '40rem',
       },
