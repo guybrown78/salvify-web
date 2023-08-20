@@ -17,7 +17,7 @@ const features = [
     summary:
       'Updating the inventory, keeping a history on users, locations and items.',
     description:
-      'Confidently remove stock items from specific locations. These items can be marked by the user with useful pre-set reasons and job numbers',
+      'Confidently remove stock items from specific locations. These items can be marked by the user with useful pre-set reasons and patient identifier numbers',
     image: screenshotInventory,
     icon: function InventoryIcon() {
       return (
@@ -70,7 +70,7 @@ const features = [
     name: 'Reporting',
     summary: 'Stay on top of things with always up-to-date reporting features.',
     description:
-      'Understanding your stock level means you can minimise waste, run more efficiently and be assured of competence',
+      'Understanding your stock level means you can minimise waste, operate more efficiently and be assured of compeliance',
     image: screenshotProfitLoss,
     icon: function ReportingIcon() {
       let id = useId()
@@ -85,8 +85,8 @@ const features = [
               y2="15.5"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset=".194" stopColor="#fff" />
-              <stop offset={1} stopColor="#6692F1" />
+              <stop offset=".194" stopColor="#C1F6ED" />
+              <stop offset={1} stopColor="#449342" />
             </linearGradient>
           </defs>
           <path
@@ -111,7 +111,7 @@ function Feature({ feature, isActive, className, ...props }) {
       <div
         className={clsx(
           'w-9 rounded-lg',
-          isActive ? 'bg-blue-600' : 'bg-slate-500'
+          isActive ? 'bg-salvify-primary' : 'bg-salvify-secondary'
         )}
       >
         <svg aria-hidden="true" className="h-9 w-9" fill="none">
@@ -120,8 +120,8 @@ function Feature({ feature, isActive, className, ...props }) {
       </div>
       <h3
         className={clsx(
-          'mt-6 text-sm font-medium',
-          isActive ? 'text-blue-600' : 'text-slate-600'
+          'mt-6 text-sm font-semibold',
+          isActive ? 'text-salvify-primary' : 'text-salvify-secondary'
         )}
       >
         {feature.name}

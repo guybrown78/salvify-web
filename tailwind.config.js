@@ -26,7 +26,11 @@ module.exports = {
       },
 			colors: ({ colors }) => ({
         gray: colors.neutral,
-				dmDark: '#3A4443',
+				"salvify-primary": '#2EAF7D',
+				"salvify-secondary": '#02353C',
+				"salvify-accent-green": '#449342',
+				"salvify-accent-aqua": '#3FD0C9',
+				"salvify-accent-light": '#C1F6ED',
       }),
       maxWidth: {
         '2xl': '40rem',

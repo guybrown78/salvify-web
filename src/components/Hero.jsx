@@ -12,19 +12,19 @@ import logoTuple from '@/images/logos/tuple.svg'
 export function Hero() {
   return (
     <Container className="pb-16 pt-20 text-center lg:pt-32">
-      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-salvify-secondary sm:text-7xl">
         Medical Inventory{' '}
-        <span className="relative whitespace-nowrap text-blue-600">
+        <span className="relative whitespace-nowrap text-salvify-primary">
           <span className="relative">made simple</span>
         </span>{' '}
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-				Elevate your assurance, compliance, and sustainability with Salvify, the future of medical inventory excellence!
+				Elevate your assurance, compliance, and patient safety with Salvify, the future of medical inventory excellence!
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/#">Sign up</Button>
+        {/* <Button href="/#">Sign up</Button> */}
         <Button
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          // href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
         >
           {/* <svg
