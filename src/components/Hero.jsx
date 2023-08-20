@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <Container className="pb-16 pt-20 text-center lg:pt-32">
       <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-salvify-secondary sm:text-7xl">
-        Medical Inventory{' '}
+        Medical inventory{' '}
         <span className="relative whitespace-nowrap text-salvify-primary">
           <span className="relative">made simple</span>
         </span>{' '}

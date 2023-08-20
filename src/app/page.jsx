@@ -7,6 +7,8 @@ import { Benefits } from '@/components/Benefits'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { About } from '@/components/About'
+import { Demo } from '@/components/Demo'
+import { Contact } from '@/components/Contact'
 
 export default function Home() {
   return (
@@ -19,6 +21,8 @@ export default function Home() {
         <CallToAction />
         <About />
         <Benefits />
+				<Demo />
+				<Contact />
         <Faqs />
       </main>
       <Footer />
