@@ -11,21 +11,28 @@ import { Container } from '@/components/Container'
 import { TextField } from '@/components/Fields'
 import axios, { AxiosResponse } from "axios";
 import Airtable, { apiKey, endpointUrl } from "airtable";
+import { useState } from "react";
 
 export function Demo() {
 
 
+	const [isLoading, setIsLoading] = useState(false);
+	const [isSuccess, setIsSuccess] = useState(false);
+	const [isError, setIsError] = useState(false);
+
 	// Handles the submit event on form submit.
   const handleSubmit = async (event) => {
 
-		var base = new Airtable({apiKey: process.env.NEXT_PUBLIC_AIRTABLE_PERSONAL_ACCESS_TOKEN}).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE);
-
-
-
     // Stop the form from submitting and refreshing the page.
-    event.preventDefault()
-		console.log("handling")
 
+    event.preventDefault()
+
+		
+		setIsSuccess(false)
+		setIsError(false)
+		setIsLoading(true);
+
+		var base = new Airtable({apiKey: process.env.NEXT_PUBLIC_AIRTABLE_PERSONAL_ACCESS_TOKEN}).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE);
 
 		base('Demo').create([
 			{
@@ -41,58 +48,17 @@ export function Demo() {
 		], function(err, records) {
 			if (err) {
 				console.error(err);
+				setIsError(true)
+				// setIsLoading(false);
+
 				return;
 			}
 			records.forEach(function (record) {
 				console.log(record.getId());
+				setIsSuccess(true);
+				setIsLoading(false);
 			});
 		});
-
-
-    // Get data from the form.
-    /*const data = {
-			"records":[
-				{
-					fields: {
-						"Assignee": {
-							"id": "usryk9eCA5l8JlQlA",
-							"email": "guy@digitalopolis.co.uk",
-							"name": "Guy Brown"
-						},
-						Name: event.target.name.value,
-						Email: event.target.email.value,
-						Telephone: event.target.tel.value,
-						Company: event.target.company.value,
-						Message: event.target.message.value,
-					}
-				}
-			]
-				
-		}*/
-			
-/*
- 
-    // Send the data to the server in JSON format.
-    const JSONdata = JSON.stringify(data)
- 
-    // API endpoint where we send form data.
-    const endpoint = `https://api.airtable.com/v0/${process.env.NEXT_PUBLIC_AIRTABLE_BASE}/Demo`
-
- 
-    // Send the form data to our forms API on Vercel and get a response.
-    // const response = await axios(endpoint, options)
-		const response = await axios.post(endpoint, JSONdata, {
-      headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_PERSONAL_ACCESS_TOKEN}`
-      }
-    });
-
- 
-    // Get the response data from server as JSON.
-    // If server returns the name submitted, that means the form works.
-    const result = await response.json()
-    alert(`Is this your full name: ${result.data}`)
-		*/
 		
   }
 
@@ -126,13 +92,36 @@ export function Demo() {
 
 				<div className="relative mx-auto flex w-full max-w-2xl flex-col">
 
-					<div className='hidden absolute pt-6 pb-4 h-full w-full flex'>
-						<div className="-mx-4 mt-4 w-full h-full flex-1 bg-salvify-primary/60 px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
-							<div className="-mx-4 mt-4 bg-salvify-primary px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
-								<p>Success</p>
+
+					{
+						isLoading && 
+
+							<div className='absolute pt-6 pb-4 h-full w-full flex'>
+								<div className="-mx-4 mt-4 w-full h-full flex-1 bg-white opacity-40 px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
+									<div className="-mx-4 mt-4 h-full bg-white/40 px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">	
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
+
+					}
+					
+
+					{
+						isSuccess && 
+					
+							<div className='absolute pt-6 pb-4 h-full w-full flex'>
+								<div className="-mx-4 mt-4 w-full h-full flex-1 flex items-center justify-center bg-white/60 px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
+									<div className="mx-10  mt-4 bg-white/90 px-4 py-6 shadow-2xl shadow-gray-900/10 sm:flex-none rounded-3xl sm:p-24 flex items-center justify-items-end flex-col space-y-7">
+										<h5 className='text-salvify-accent-green text-2xl font-bold'>Success</h5>
+										<p className='text-salvify-secondary text-md'>Thank you. We will be in touch to arrange a demo</p>
+									</div>
+								</div>
+							</div>
+					}
+
+					
+
+
 
 					<div className="relative mt-4 sm:mt-6">
 					</div>
@@ -182,7 +171,29 @@ export function Demo() {
 							/>
 		
 						<Button type="submit" color="green" className="mt-8 w-full">
-							Request a demo
+
+							{
+								isLoading && 
+
+								<span className='flex justify-center items-center'>
+								
+									<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+											<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+											<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+									</svg>	
+									<span>Requesting demo</span>
+								</span>
+
+							}
+							{
+								!isLoading && 
+
+					
+								<span>Request a demo</span>
+						
+
+							}
+
 						</Button>
 					</form>
 
