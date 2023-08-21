@@ -10,17 +10,15 @@ export function Contact() {
     <section
       id="contact"
       aria-label="Contact"
-      className="bg-salvify-secondary py-20 sm:py-32"
+      className="bg-salvify-secondary py-10 sm:py-22"
     >
       <Container>
         <div className="md:text-center">
-          {/* <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
-            <span className="relative whitespace-nowrap">
-              <span className="relative">The benefits of Salvify</span>
-            </span>{' '}
-          </h2> */}
+         <h3 className="font-display text-xl tracking-tight text-white">
+            Contact Us
+          </h3>
           <p className="mt-4 text-lg text-slate-400">
-            contact salvify
+            Alternatively, you can contact Salvify using <a href='mailto:info@salvify.co.uk' className='text-salvify-accent-light'>info@salvify.co.uk</a>
           </p>
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">

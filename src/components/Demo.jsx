@@ -13,6 +13,48 @@ import { TextField } from '@/components/Fields'
 export function Demo() {
 
 
+	// Handles the submit event on form submit.
+  const handleSubmit = async (event) => {
+    // Stop the form from submitting and refreshing the page.
+    event.preventDefault()
+ 
+    // Get data from the form.
+    const data = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+			tel: event.target.tel.value,
+			company: event.target.company.value,
+			message: event.target.message.value,
+		}
+ 
+    // Send the data to the server in JSON format.
+    const JSONdata = JSON.stringify(data)
+ 
+    // API endpoint where we send form data.
+    const endpoint = 'https://hooks.airtable.com/workflows/v1/genericWebhook/app5678pdt4E5GjWE/wflUTu0jFsVotPM6q/wtrkoDsymsUpjJJ4l'
+ 
+    // Form the request for sending data to the server.
+    const options = {
+      // The method is POST because we are sending data.
+      method: 'POST',
+      // Tell the server we're sending JSON.
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Body of the request is the JSON data we created above.
+      body: JSONdata,
+    }
+ 
+    // Send the form data to our forms API on Vercel and get a response.
+    const response = await fetch(endpoint, options)
+ 
+    // Get the response data from server as JSON.
+    // If server returns the name submitted, that means the form works.
+    const result = await response.json()
+    alert(`Is this your full name: ${result.data}`)
+  }
+
+
   return (
     <section
       id="book-demo"
@@ -47,7 +89,7 @@ export function Demo() {
 					<div className="-mx-4 mt-4 flex-auto bg-white px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
 						
 
-					<form>
+					<form onSubmit={handleSubmit}>
 
 							<TextField
 								label="Name"
