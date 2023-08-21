@@ -9,49 +9,91 @@ import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 
 import { TextField } from '@/components/Fields'
+import axios, { AxiosResponse } from "axios";
+import Airtable, { apiKey, endpointUrl } from "airtable";
 
 export function Demo() {
 
 
 	// Handles the submit event on form submit.
   const handleSubmit = async (event) => {
+
+		var base = new Airtable({apiKey: process.env.NEXT_PUBLIC_AIRTABLE_PERSONAL_ACCESS_TOKEN}).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE);
+
+
+
     // Stop the form from submitting and refreshing the page.
     event.preventDefault()
- 
+		console.log("handling")
+
+
+		base('Demo').create([
+			{
+				"fields": {
+						Name: event.target.name.value,
+						Email: event.target.email.value,
+						Telephone: event.target.tel.value,
+						Company: event.target.company.value,
+						Message: event.target.message.value,
+				}
+			},
+
+		], function(err, records) {
+			if (err) {
+				console.error(err);
+				return;
+			}
+			records.forEach(function (record) {
+				console.log(record.getId());
+			});
+		});
+
+
     // Get data from the form.
-    const data = {
-      name: event.target.name.value,
-      email: event.target.email.value,
-			tel: event.target.tel.value,
-			company: event.target.company.value,
-			message: event.target.message.value,
-		}
+    /*const data = {
+			"records":[
+				{
+					fields: {
+						"Assignee": {
+							"id": "usryk9eCA5l8JlQlA",
+							"email": "guy@digitalopolis.co.uk",
+							"name": "Guy Brown"
+						},
+						Name: event.target.name.value,
+						Email: event.target.email.value,
+						Telephone: event.target.tel.value,
+						Company: event.target.company.value,
+						Message: event.target.message.value,
+					}
+				}
+			]
+				
+		}*/
+			
+/*
  
     // Send the data to the server in JSON format.
     const JSONdata = JSON.stringify(data)
  
     // API endpoint where we send form data.
-    const endpoint = 'https://hooks.airtable.com/workflows/v1/genericWebhook/app5678pdt4E5GjWE/wflUTu0jFsVotPM6q/wtrkoDsymsUpjJJ4l'
- 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: 'POST',
-      // Tell the server we're sending JSON.
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    }
+    const endpoint = `https://api.airtable.com/v0/${process.env.NEXT_PUBLIC_AIRTABLE_BASE}/Demo`
+
  
     // Send the form data to our forms API on Vercel and get a response.
-    const response = await fetch(endpoint, options)
+    // const response = await axios(endpoint, options)
+		const response = await axios.post(endpoint, JSONdata, {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_AIRTABLE_PERSONAL_ACCESS_TOKEN}`
+      }
+    });
+
  
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
     const result = await response.json()
     alert(`Is this your full name: ${result.data}`)
+		*/
+		
   }
 
 
@@ -82,14 +124,24 @@ export function Demo() {
 
 
 
-				<div className="mx-auto flex w-full max-w-2xl flex-col px-4 sm:px-6">
+				<div className="relative mx-auto flex w-full max-w-2xl flex-col">
+
+					<div className='hidden absolute pt-6 pb-4 h-full w-full flex'>
+						<div className="-mx-4 mt-4 w-full h-full flex-1 bg-salvify-primary/60 px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
+							<div className="-mx-4 mt-4 bg-salvify-primary px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
+								<p>Success</p>
+							</div>
+						</div>
+					</div>
 
 					<div className="relative mt-4 sm:mt-6">
 					</div>
 					<div className="-mx-4 mt-4 flex-auto bg-white px-4 py-6 shadow-2xl shadow-gray-900/10 sm:mx-0 sm:flex-none rounded-3xl sm:p-24">
 						
+					
 
-					<form onSubmit={handleSubmit}>
+					
+					<form onSubmit={(e) => handleSubmit(e)}>
 
 							<TextField
 								label="Name"
