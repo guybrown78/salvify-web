@@ -228,8 +228,7 @@ export function SecondaryFeatures() {
             Simplify everyday medic tasks.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Because you’d probably be a little confused if we suggested you
-            complicate your everyday business tasks instead.
+						Carefully crafted to enhance your workflow, reduce administrative burdens, and improve patient care.
           </p>
         </div>
         <FeaturesMobile />

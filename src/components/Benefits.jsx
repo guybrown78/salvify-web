@@ -15,8 +15,8 @@ export function Benefits() {
       <Container>
 
 			{/* <div class="mx-auto max-w-7xl px-6 sm:mt-40 lg:px-8"> */}
-      <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2 class="text-3xl font-bold tracking-tight text-slate-300 sm:text-4xl">Our values</h2>
+      <div class="mx-auto max-w-5xl lg:mx-0">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-300 sm:text-4xl">Discover the Benefits of Salvify</h2>
         <p class="mt-6 text-lg leading-8 text-slate-400">Salvify is more than just a medical inventory management solution, it is a transformative tool that revolutionises how healthcare providers operate. Our platform offers a multitude of advantages that enhance efficiency, compliance, and sustainability in the healthcare industry. Here are the top compelling benefits that make Salvify the go-to choice for healthcare inventory management:</p>
       </div>
       <dl class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base text-slate-400 leading-7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">

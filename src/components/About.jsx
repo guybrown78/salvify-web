@@ -17,11 +17,11 @@ export function About() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
           <p className="text-base font-semibold leading-7 text-salvify-primary">Work better</p>
-          <h2 className="font-display text-3xl tracking-tight text-salvify-secondary sm:text-4xl">Our Story</h2>
+          <h2 className="font-display text-3xl tracking-tight text-salvify-secondary sm:text-4xl">An Insight into Salvify</h2>
           <div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 lg:max-w-none lg:grid-cols-2">
             <div>
               <p>
-								At Salvify, we are driven by a deep passion for healthcare excellence. Our mission is clear: to simplify the intricate world of medical inventory management. We know firsthand the challenges healthcare providers face – the need for rigorous compliance, the quest for cost-efficiency, and the unwavering commitment to patient care.
+								At Salvify, we are driven by a deep passion for healthcare excellence. Our mission is clear, <span className='font-semibold'>to simplify the intricate world of medical inventory management</span>. We know firsthand the challenges healthcare providers face – the need for rigorous compliance, the quest for cost-efficiency, and the unwavering commitment to patient care.
               </p>
               <p className="mt-8">
 								Our journey is marked by innovation, integrity, and an unwavering dedication to improving healthcare. We have crafted a cutting-edge SaaS application that empowers you to meet these challenges with ease.

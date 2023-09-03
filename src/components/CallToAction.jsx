@@ -26,7 +26,7 @@ export function CallToAction() {
           <p className="mt-4 text-lg tracking-tight text-white">
             It’s time to take control of your medical inventory. Save time, wastage and compliance errors with Salvify.
           </p>
-          <Button href="/register" color="white" className="mt-10">
+          <Button href="/#book-demo" color="white" className="mt-10">
             Book a demo
           </Button>
         </div>

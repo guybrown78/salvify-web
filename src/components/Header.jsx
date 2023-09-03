@@ -83,7 +83,7 @@ function MobileNavigation() {
             <MobileNavLink href="#about">About</MobileNavLink>
             <MobileNavLink href="#benefits">Benefits</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/login">Sign in</MobileNavLink>
+            <MobileNavLink href="https://savify.io/login">Sign in</MobileNavLink>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -108,9 +108,9 @@ export function Header() {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <NavLink href="/login">Sign in</NavLink>
+              <NavLink href="https://savify.io/login">Sign in</NavLink>
             </div>
-            <Button href="/register" color="green">
+            <Button href="/#book-demo" color="green">
               <span>
                 Request a demo <span className="hidden lg:inline">today</span>
               </span>
