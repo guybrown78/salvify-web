@@ -34,7 +34,7 @@ export function Benefits() {
         </div>
         <div>
           <dt className="font-semibold text-slate-300">User-friendly interface</dt>
-          <dd className="mt-1"><span className='italic text-salvify-accent-light'>Effortless adoption</span> - Salvifys intuitive design makes onboarding and daily use a breeze, with minimal training required for your team to harness its full potential..</dd>
+          <dd className="mt-1"><span className='italic text-salvify-accent-light'>Effortless adoption</span> - Salvifys intuitive design makes onboarding and daily use a breeze, with minimal training required for your team to harness its full potential.</dd>
         </div>
         <div>
           <dt className="font-semibold text-slate-300">Sustainability champion</dt>
