@@ -7,8 +7,10 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import screenshotContacts from '@/images/screenshots/contacts.png'
-import screenshotInventory from '@/images/screenshots/inventory.png'
+
 import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
+
+import screenshotRemove from '@/images/screenshots/remove.png'
 
 const features = [
   
@@ -18,7 +20,7 @@ const features = [
       'Updating the inventory, keeping a history on users, locations and items.',
     description:
       'Confidently remove stock items from specific locations. These items can be marked by the user with useful pre-set reasons and patient identifier numbers',
-    image: screenshotInventory,
+    image: screenshotRemove,
     icon: function InventoryIcon() {
       return (
 
