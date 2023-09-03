@@ -6,11 +6,12 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import screenshotContacts from '@/images/screenshots/contacts.png'
 
-import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
+
 
 import screenshotRemove from '@/images/screenshots/remove.png'
+import screenshotAdd from '@/images/screenshots/add.png'
+import screenshotItemReport from '@/images/screenshots/itemReport.png'
 
 const features = [
   
@@ -46,7 +47,7 @@ const features = [
       'Organise all of your items in one place.',
     description:
       'Adding items from newly delivered orders is simple as you can cross check from your order history.',
-    image: screenshotContacts,
+    image: screenshotAdd,
     icon: function ContactsIcon() {
       return (
 				<>
@@ -73,7 +74,7 @@ const features = [
     summary: 'Stay on top of things with always up-to-date reporting features.',
     description:
       'Understanding your stock level means you can minimise waste, operate more efficiently and be assured of compeliance',
-    image: screenshotProfitLoss,
+    image: screenshotItemReport,
     icon: function ReportingIcon() {
       let id = useId()
       return (
