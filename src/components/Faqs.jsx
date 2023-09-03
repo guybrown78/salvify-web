@@ -11,48 +11,49 @@ const faqs = [
         'Salvify can create order requests, like a glorified shopping list. This is then sent to your admin and its up to them to purchase the order.',
     },
     {
-      question: 'Can I pay for my subscription via purchase order?',
-      answer: 'Absolutely, we are happy to take your money in all forms.',
-    },
-    {
-      question: 'How do I apply for a job at Salvify?',
+      question: 'Am I committed to using a particular supplier?',
       answer:
-        'We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.',
+        'No, we will help you prepare your order by identifying what you need.',
     },
-  ],
-  [
-    {
-      question: 'What was that testimonial about pharmacutical wastage all about?',
+		{
+      question: 'How do I get to demo Salvify before I purchase it?',
       answer:
-        'Salvify is just a software application, ultimately your inventories are your responsibility.',
-    },
-    {
-      question:
-        'Salvify sounds horrible but why do I still feel compelled to purchase?',
-      answer:
-        'This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.',
-    },
-    {
-      question:
-        'I found other companies called Salvify, are you sure you can use this name?',
-      answer:
-        'Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.',
+        'Fill in the request a demo form and our sales team will get in touch to organise everything else.',
     },
   ],
   [
     {
-      question: 'How do you generate reports?',
+      question: 'Can I decide on what inventory/formulary we carry?',
       answer:
-        'You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.',
+        'Absolutely, we understand medicines, brands and policies change. You are in full control of your stock and can swap your medicines anytime.',
+    },
+    {
+      question:
+        'Will I be assisted with onboarding my inventory onto Salvify?',
+      answer:
+        'We understand the most time consuming part of an inventory system is onboarding stock items, we will put together a package of assistance to ease your transition should you require it. ',
+    },
+    {
+      question:
+        'How do I put a new item onto my inventory?',
+      answer:
+        'Admin users have rights to change the inventory, this is so that a preset inventory is adhered to.',
+    },
+  ],
+  [
+    {
+      question: 'Will it track equipment service dates?',
+      answer:
+        'Absolutely, just put your next service date in and it will alert you that action is required.',
     },
     {
       question: 'Can we expect more inventory features?',
-      answer: 'In life it’s really better to never expect anything at all.',
+      answer: 'Yes, Salvify is a SaaS (software as a service) application which is continuesly updated and improved.',
     },
     {
-      question: 'I lost my password, how do I get into my account?',
+      question: 'Can I list foreign medications?',
       answer:
-        'Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.',
+        'Yes, the manes of the medications is entirely up to you.',
     },
   ],
 ]
