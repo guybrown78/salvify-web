@@ -10,9 +10,25 @@ import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
 
+import { useEffect } from 'react'
+
 function MobileNavLink({ href, children }) {
+
+	const handleAnchor = (event) => {
+		// event.preventDefault();
+		if (href.includes("#")) {
+			window.location.hash = ''
+			window.location.hash = href
+		}
+	}
+
   return (
-    <Popover.Button as={Link} href={href} className="block w-full p-2">
+    <Popover.Button 
+			as={Link} 
+			href={href} 
+			onClick={(e) => handleAnchor(e)}
+			className="block w-full p-2"
+		>
       {children}
     </Popover.Button>
   )
@@ -92,6 +108,16 @@ function MobileNavigation() {
 }
 
 export function Header() {
+
+	const handleAnchor = (event, href) => {
+		
+		if (href.includes("#")) {
+			event.preventDefault();
+			window.location.hash = ''
+			window.location.hash = href
+		}
+	}
+	
   return (
     <header className="py-10">
       <Container>
@@ -110,7 +136,7 @@ export function Header() {
             <div className="hidden md:block">
               <NavLink href="https://salvify.io/login">Sign in</NavLink>
             </div>
-            <Button href="/#book-demo" color="green">
+            <Button href="/#book-demo" onClick={(e) => handleAnchor(e, '#book-demo')} color="green">
               <span>
                 Request a demo <span className="hidden lg:inline">today</span>
               </span>
