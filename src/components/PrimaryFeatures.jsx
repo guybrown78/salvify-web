@@ -9,33 +9,39 @@ import { Container } from '@/components/Container'
 import backgroundImage from '@/images/background-features.jpg'
 import screenshotExpenses from '@/images/screenshots/expenses.png'
 import screenshotPayroll from '@/images/screenshots/payroll.png'
+
 import screenshotReporting from '@/images/screenshots/reporting.png'
 import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+
+import screenshotDashboard from '@/images/screenshots/dashboard.png'
+import screenshotStock from '@/images/screenshots/stock.png'
+import screenshotItem from '@/images/screenshots/item.png'
+import screenshotOrder from '@/images/screenshots/order.png'
 
 const features = [
   {
     title: 'Dashboard',
     description:
       "Keep up to date with a welcoming and inviting dashboard, delivering an overview of your live data",
-    image: screenshotPayroll,
+    image: screenshotDashboard,
   },
   {
     title: 'Inventory Stockcheck',
     description:
       "Find items fast and understand all stock levels and expiries over multiple locations.",
-    image: screenshotExpenses,
+    image: screenshotStock,
   },
   {
     title: 'Detailed Item Analysis',
     description:
       "Item specific live dashboard which highlights if any immediate action is needed.",
-    image: screenshotVatReturns,
+    image: screenshotItem,
   },
   {
     title: 'Order',
     description:
       'Intuitive and simple order request cart with a transparent order history and timeline.',
-    image: screenshotReporting,
+    image: screenshotOrder,
   },
 ]
 
