@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image'
 
 import { Button } from '@/components/Button'
@@ -5,6 +7,15 @@ import { Container } from '@/components/Container'
 import backgroundImage from '@/images/background-call-to-action.jpg'
 
 export function CallToAction() {
+
+	const handleAnchor = (event, href) => {
+		
+		if (href.includes("#")) {
+			event.preventDefault();
+			window.location.hash = ''
+			window.location.hash = href
+		}
+	}
   return (
     <section
       id="get-started-today"
@@ -26,7 +37,7 @@ export function CallToAction() {
           <p className="mt-4 text-lg tracking-tight text-white">
             It’s time to take control of your medical inventory. Save time, wastage and compliance errors with Salvify.
           </p>
-          <Button href="/#book-demo" color="white" className="mt-10">
+          <Button href="/#book-demo" onClick={(e) => handleAnchor(e, '#book-demo')} color="white" className="mt-10">
             Book a demo
           </Button>
         </div>

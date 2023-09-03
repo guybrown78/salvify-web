@@ -15,8 +15,8 @@ import { useEffect } from 'react'
 function MobileNavLink({ href, children }) {
 
 	const handleAnchor = (event) => {
-		// event.preventDefault();
 		if (href.includes("#")) {
+			event.preventDefault();
 			window.location.hash = ''
 			window.location.hash = href
 		}
