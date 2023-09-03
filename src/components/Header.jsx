@@ -16,7 +16,7 @@ function MobileNavLink({ href, children }) {
 
 	const handleAnchor = (event) => {
 		if (href.includes("#")) {
-			event.preventDefault();
+			// event.preventDefault();
 			window.location.hash = ''
 			window.location.hash = href
 		}
@@ -25,7 +25,7 @@ function MobileNavLink({ href, children }) {
   return (
     <Popover.Button 
 			as={Link} 
-			href={href} 
+			// href={href} 
 			onClick={(e) => handleAnchor(e)}
 			className="block w-full p-2"
 		>
