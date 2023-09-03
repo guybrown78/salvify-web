@@ -25,7 +25,7 @@ function MobileNavLink({ href, children }) {
   return (
     <Popover.Button 
 			as={Link} 
-			href={""} 
+			href={href} 
 			onClick={(e) => handleAnchor(e)}
 			className="block w-full p-2"
 		>
