@@ -2,6 +2,8 @@ import { Lato } from 'next/font/google'
 import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import CookieBanner from '@/components/CookieBanner';
 
 export const metadata = {
   title: {
@@ -34,7 +36,11 @@ export default function RootLayout({ children }) {
         lato.variable
       )}
     >
-      <body className="flex h-full flex-col">{children}</body>
+			<GoogleAnalytics GA_MEASUREMENT_ID='G-ZFG4K61VXN'/>
+      <body className="flex h-full flex-col">
+				{children}
+				<CookieBanner/>
+			</body>
     </html>
   )
 }
