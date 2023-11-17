@@ -1,5 +1,7 @@
 # salvify-web
 
+Live site: [salvify.co.uk](https://salvify.co.uk/).
+
 
 Salvify marketing site is built NextJS, React and TailwindCSS.
 
@@ -23,7 +25,7 @@ Finally, open [http://localhost:3000](http://localhost:3000) in your browser to 
 
 ## Customizing
 
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+The forms submit to Airtable. You'll need an ACCESS_TOKEN and AIRTABLE_BASE to post the form, or just comment out the airtable promise to recreate the flow
 
 
 ## Learn more
