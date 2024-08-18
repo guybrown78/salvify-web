@@ -79,7 +79,7 @@ export function PrimaryFeatures() {
             Everything you need to run your sickbay.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-						Empowering you to effortlessly manage your medical inventory, anytime, anywhere – Through advanced cloud-based software for&nbsp;both&nbsp;remote&nbsp;and&nbsp;on-site&nbsp;control.
+						Effortlessly manage your medical inventory, anytime, anywhere – Through advanced cloud-based software for&nbsp;both&nbsp;remote&nbsp;and&nbsp;on-site&nbsp;control.
           </p>
         </div>
         <Tab.Group
