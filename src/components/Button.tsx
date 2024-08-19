@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import clsx from 'clsx'
+import { ReactNode, MouseEventHandler } from 'react'
 
 const baseStyles = {
   solid:
@@ -31,7 +32,7 @@ export function Button({
   className,
   href,
   ...props
-}) {
+}:any) {
   className = clsx(
     baseStyles[variant],
     variantStyles[variant][color],
