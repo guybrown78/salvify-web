@@ -4,6 +4,8 @@ import clsx from 'clsx'
 import '@/styles/tailwind.css'
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieBanner from '@/components/CookieBanner';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer'
 
 export const metadata = {
   title: {
@@ -38,7 +40,11 @@ export default function RootLayout({ children }) {
     >
 			<GoogleAnalytics GA_MEASUREMENT_ID='G-ZFG4K61VXN'/>
       <body className="flex h-full flex-col">
-				{children}
+				<Header />
+					<main className="flex-1">
+						{children}
+					</main>
+				<Footer />
 				<CookieBanner/>
 			</body>
     </html>
