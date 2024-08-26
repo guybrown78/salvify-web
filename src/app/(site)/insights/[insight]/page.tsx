@@ -43,7 +43,7 @@ export default async function Project({ params }:Props){
 				alt={insight.title}
 				width={950}
 				height={512}
-				className="mt-10 border-2 border-salvify-secondary/10 rounded-3xl rounded-b-none object-cover w-full max-h-128"
+				className="mt-10 rounded-3xl rounded-b-none object-cover w-full max-h-128"
 			/>
 			<header className="relative z-10 -mt-16 block rounded-md bg-white mx-9 md:mx-12 p-4">
 				<h1 className="mb-4 text-3xl md:text-5xl font-semibold">{insight.title}</h1>
@@ -109,7 +109,7 @@ export default async function Project({ params }:Props){
 						alt={insight.title}
 						width={950}
 						height={512}
-						className="mt-5 border-2 border-ssalvify-secondary/10 rounded-3xl object-cover w-full max-w-7xl"
+						className="mt-5 rounded-3xl object-cover w-full max-w-7xl"
 					/>
 				)
 			}
