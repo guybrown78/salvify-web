@@ -9,11 +9,12 @@ export type Insight = {
 	title: string;
 	subTitle?: string;
 	slug: string;
-	overview:string,
+	overview:PortableTextBlock[];
 	metaDescription:string,
 	keywords:string,
 	author:Author,
 	coverImage: string;
+	insightImage: string;
 	tags:Tag[];
 	categories:Category[]
 	publishedAt: Date;

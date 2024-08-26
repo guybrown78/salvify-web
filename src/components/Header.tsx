@@ -27,7 +27,7 @@ function MobileNavLink({ href, children }) {
 
   return (
     <Popover.Button
-      onClick={(e) => handleAnchor(e)}
+      onClick={() => handleAnchor()}
       className="block w-full p-2"
     >
       {children}
@@ -112,13 +112,13 @@ function MobileNavigation() {
 }
 
 export function Header() {
-  const handleAnchor = (event, href) => {
-    if (href.includes('#')) {
-      event.preventDefault()
-      window.location.hash = ''
-      window.location.hash = href
-    }
-  }
+  // const handleAnchor = (event, href) => {
+  //   if (href.includes('#')) {
+  //     event.preventDefault()
+  //     window.location.hash = ''
+  //     window.location.hash = href
+  //   }
+  // }
 
   return (
     <header className="py-10">
