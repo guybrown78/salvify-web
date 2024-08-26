@@ -13,7 +13,7 @@ export const metadata = {
     default: 'Salvify - Digital Ointment for your medical inventory system ',
   },
   description:
-    'A trusted medical inventory system promoting assurance of your...',
+    'Salvify a trusted SaaS platform that streamlines medical inventory management, ensuring compliance, reducing waste, and enhancing efficiency for healthcare providers of all sizes. From private ambulances and even medical providers to large healthcare institutions, Salvify helps maintain critical supplies with ease.',
 }
 
 const lato = Lato({

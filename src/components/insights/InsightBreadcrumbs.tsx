@@ -35,7 +35,7 @@ export default function InsightBreadcrumbs({  }:Props){
 				<ol role="list" className="flex items-center space-x-1 sm:space-x-4">
 					<li>
 						<div className="flex items-center">
-							<Link href="/insights" className="text-xs font-semibold text-green-600 hover:text-green-500">
+							<Link href="/insights" className="text-xs font-semibold text-salvify-primary hover:text-salvify-primary/50">
 								<span className="hidden sm:inline">Salvify </span>Insights
 							</Link>
 						</div>

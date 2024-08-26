@@ -35,7 +35,23 @@ module.exports = {
       maxWidth: {
         '2xl': '40rem',
       },
+			// typography: {
+      //   DEFAULT: {
+      //     css: {
+      //       h3: {
+      //         // color: '#3182ce',
+      //         // '&:hover': {
+      //         //   color: '#2c5282',
+      //         // },
+      //       },
+      //     },
+      //   },
+      // },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@headlessui/tailwindcss')],
+  plugins: [
+		require('@tailwindcss/forms'), 
+		require('@tailwindcss/typography'),
+		require('@headlessui/tailwindcss')
+	],
 }

@@ -5,7 +5,7 @@ const config = {
 
 	dataset:  process.env.NEXT_PUBLIC_SANITY_DATASET as string,
 	
-	useCdn: true,
+	useCdn: false,
 
 	apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION as string,
 };

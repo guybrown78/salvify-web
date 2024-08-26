@@ -15,13 +15,13 @@ export default async function LatestInsights() {
 		<section 
 			id="latest-insights" 
 			aria-label="Explore Our Latest Insights"
-			className="mt-16"
+			className="mt-16 mb-16"
 		>
 			<Container>
 				<div className="mx-auto max-w-2xl text-center">
-					<h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Salvify Insights</h2>
+					<h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Stay informed with the latest insights from Salvify</h2>
 					<p className="mt-2 text-lg leading-8 text-slate-600">
-						Stay informed and elevate stadium excellence with our latest articles
+					Explore our newest articles, tips, and industry updates to keep your medical inventory management ahead of the curve.
 					</p>
 				</div>
 
@@ -33,7 +33,7 @@ export default async function LatestInsights() {
 
 				<div className="mt-16 mx-auto max-w-2xl text-center">
 					<p className="mt-2 text-md leading-8 text-slate-600">
-						Explore our complete article archive <Link href="/insights" className="group relative flex-inline items-center font-semibold text-green-600 whitespace-nowrap">Salvify Insights <span className="inline-flex ml-1 mr-1 group-hover:mr-0 group-hover:ml-2 transition-all"><FaArrowRight /></span></Link>
+						Explore our complete article archive <Link href="/insights" className="group relative flex-inline items-center font-semibold text-salvify-primary whitespace-nowrap">Salvify Insights <span className="inline-flex ml-1 mr-1 group-hover:mr-0 group-hover:ml-2 transition-all"><FaArrowRight /></span></Link>
 					</p>
 				</div>
 			</Container>

@@ -9,6 +9,7 @@ import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { About } from '@/components/About'
 import { Demo } from '@/components/Demo'
 import { Contact } from '@/components/Contact'
+import LatestInsights from '@/components/insights/LatestInsights'
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <Benefits />
 				<Demo />
 				<Contact />
+				<LatestInsights />
         <Faqs />
       {/* </main>
       <Footer /> */}

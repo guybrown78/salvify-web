@@ -27,7 +27,7 @@ const insightArticle = {
 		{
       name: "overview",
       title: "Insight Overview",
-      type: "text",
+      type: "blockContent",
 			options: {
         maxLength: 400,
       },
@@ -62,6 +62,24 @@ const insightArticle = {
 			}]
     },
 		{
+      name: 'insightImage',
+      title: 'Insight image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+			fields: [{
+				name: 'alt',
+				title: 'Alt',
+				type: 'string'
+			}]
+    },
+		{
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+    },
+		{
       name: 'categories',
       title: 'Categories',
       type: 'array',
@@ -83,11 +101,6 @@ const insightArticle = {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
-    },
-		{
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
     }
 	]
 }

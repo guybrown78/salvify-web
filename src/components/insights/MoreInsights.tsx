@@ -21,7 +21,7 @@ export default async function MoreInsights({insight}:Props) {
 				<h5 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-1xl">Enjoyed this article?</h5>
 				<p className="mt-2 text-md leading-8 text-slate-600">
 					
-					Discover more Salvify Insights, diving deeper into ... <Link href="/insights" className="group relative flex-inline items-center font-semibold text-green-600 underline">Salvify Insights <span className="inline-flex ml-1 mr-1 group-hover:mr-0 group-hover:ml-2 transition-all"><FaArrowRight /></span></Link>
+				Discover more Salvify Insights that delve deeper into the topics that matter to you, offering expert advice, industry updates, and practical tips to enhance your healthcare operations. <Link href="/insights" className="group relative flex-inline items-center font-semibold text-salvify-primary underline">Salvify Insights <span className="inline-flex ml-1 mr-1 group-hover:mr-0 group-hover:ml-2 transition-all"><FaArrowRight /></span></Link>
 				</p>
 			</div>
 		)
@@ -31,7 +31,7 @@ export default async function MoreInsights({insight}:Props) {
 			 <div>
 				<h4 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">More Insights from Salvify</h4>
 				<p className="mt-2 text-md leading-8 text-slate-600 max-w-2xl">
-					Delve further into our collection of related articles. ...
+				Delve further into our collection of related articles to gain deeper insights, uncover best practices, and stay informed on the latest trends in healthcare and inventory management.
 				</p>
 			</div>
 

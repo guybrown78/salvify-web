@@ -16,14 +16,17 @@ const InsightsPage = async () => {
 
 	const insights = await getInsights();
 
+	// console.log(" insights ", insights.length)
+	// console.log(insights)
 
 	return (
 		<Container>
 			<InsightBreadcrumbs />
-			<div className="max-w-2xl">
-				<h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Salvify Insights</h1>
-				<p className="mt-2 text-lg leading-8 text-slate-600">
-					Explore our full article archive helping you to stay informed ... .
+			<div className="max-w-4xl">
+				<h1 className="text-3xl font-bold tracking-tight text-salvify-secondary sm:text-4xl">Salvify Insights Archive</h1>
+				<h2 className="text-2xl font-semibold tracking-tight text-salvify-secondary sm:text-3xl">Your comprehensive resource for expert knowledge and industry&nbsp;updates</h2>
+				<p className="mt-2 text-lg leading-8 text-salvify-secondary">
+					Welcome to the Salvify Insights archive, your resource hub for expert articles, industry news, and actionable tips. Designed to support compliance, streamline inventory processes, and keep pace with the latest trends, this collection provides essential knowledge for medical professionals. Explore the full range of content to see how Salvify enhances medical inventory management and drives operational excellence.
 				</p>
 			</div>
 

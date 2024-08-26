@@ -157,6 +157,7 @@ export async function getInsight(slug:string):Promise<Insight> {
 			overview,
 			publishedAt,
 			"coverImage": coverImage.asset->url,
+			"insightImage": insightImage.asset->url,
 			author-> {
 				name, 
 				role,

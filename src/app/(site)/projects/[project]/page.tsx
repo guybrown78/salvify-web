@@ -17,7 +17,7 @@ const ProjectPage = async ({ params }:Props) => {
 
 			<header className="flex justify-between items-center">
 				<h1 className="mt-2 bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent text-3xl drop-shadow-md font-extrabold mr-10">{project.name}</h1>
-				<a href={project.url} title="View Project" target="_blank" rel="noopener noreferrer" className="bg-green-100 rounded-lg text-green-700 font-bold py-3 px-4 whitespace-nowrap cursor-pointer hover:bg-green-300 hover:text-green-900 transition">View Project</a>
+				<a href={project.url} title="View Project" target="_blank" rel="noopener noreferrer" className="bg-green-100 rounded-lg text-salvify-primary font-bold py-3 px-4 whitespace-nowrap cursor-pointer hover:bg-green-300 hover:text-green-900 transition">View Project</a>
 			</header>
 
 

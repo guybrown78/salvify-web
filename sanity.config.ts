@@ -11,7 +11,7 @@ const config = defineConfig({
 
 	title: "Salvify Website",
 
-	useCdn: true,
+	useCdn: false,
 
 	apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION as string,
 
