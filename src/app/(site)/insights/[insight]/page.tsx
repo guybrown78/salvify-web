@@ -10,6 +10,7 @@ import { getInsight } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import MoreInsights from "@/components/insights/MoreInsights";
 import InsightBreadcrumbs from '@/components/insights/InsightBreadcrumbs'
+import InsightResources from "@/components/insights/InsightResources";
 
 
 type Props = {
@@ -32,8 +33,6 @@ export default async function Project({ params }:Props){
 	const slug = params.insight;
 	const insight = await getInsight(slug)
 
-	console.log(slug);
-	console.log(insight);
 
 	return (
 		<Container>
@@ -136,7 +135,7 @@ export default async function Project({ params }:Props){
 					</div>
 					
 				</div>
-				
+				<InsightResources resources={insight.resources || []}/>
 			</div>
 
 			{/* more */}

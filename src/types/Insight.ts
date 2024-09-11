@@ -2,6 +2,7 @@ import { PortableTextBlock } from "sanity";
 import { Author } from "./Author";
 import { Category } from "./Category";
 import { Tag } from "./Tag";
+import { Resource } from "./Resource";
 
 export type Insight = {
 	_id: string;
@@ -16,7 +17,8 @@ export type Insight = {
 	coverImage: string;
 	insightImage: string;
 	tags:Tag[];
-	categories:Category[]
+	resources:Resource[];
+	categories:Category[];
 	publishedAt: Date;
 	estimatedReadingTime:Number;
 	body: PortableTextBlock[];

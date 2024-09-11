@@ -98,6 +98,12 @@ const insightArticle = {
       of: [{type: 'reference', to: {type: 'tag'}}],
     },
 		{
+      name: 'resources',
+      title: 'resources',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'resource'}}],
+    },
+		{
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',

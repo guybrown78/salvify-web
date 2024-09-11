@@ -6,6 +6,7 @@ import author from "./author-schema";
 import blockContent from "./blockContent-schema";
 import category from "./category-schema";
 import tag from "./tag-schema";
+import resource from "./resource-schema";
 import insightArticle from "./insightArticle-schema";
 import faq from "./faq-schema";
 import industry from "./industry-schema";
@@ -18,6 +19,7 @@ const schemas = [
 	blockContent,
 	category,
 	tag,
+	resource,
 	industry,
 	insightArticle,
 	faq

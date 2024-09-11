@@ -84,7 +84,7 @@ export async function getPolicyPage(slug:string):Promise<PolicyPage> {
 }
 export async function getInsights():Promise<Insight[]> {
 	return createClient(clientConfig).fetch(
-		groq`*[_type == "insightArticle"]{
+		groq`*[_type == "insightArticle"] | order(publishedAt desc){
       _id,
       _createdAt,
       title,
@@ -112,8 +112,9 @@ export async function getInsights():Promise<Insight[]> {
 }
 export async function getLatestInsights():Promise<Insight[]> {
 	return createClient(clientConfig).fetch(
-		groq`*[_type == "insightArticle"][0..2]
-		| order(publishedAt desc)
+		groq`*[_type == "insightArticle"]
+    | order(publishedAt desc)
+    [0..2]
 		{
       _id,
       _createdAt,
@@ -130,14 +131,16 @@ export async function getMoreInsights(insight:Insight):Promise<Insight[]> {
 		// | slice(0, 3)
 		// && count(categories[]._ref in $insightCategories) > 0
 		groq`
-			*[_type == 'insightArticle'  && _id != $insightID][0..2]
+			*[_type == 'insightArticle'  && _id != $insightID] 
 			| order(publishedAt desc)
+    	[0..2]
 			{
 				_id,
 				_createdAt,
 				title,
 				"slug": slug.current,
 				overview,
+				"coverImage": coverImage.asset->url,
 				publishedAt,
 			}
 		`, { 
@@ -178,6 +181,12 @@ export async function getInsight(slug:string):Promise<Insight> {
 			body,
 			metaDescription,
 			keywords,
+			resources[]->{
+				_id,
+				title,
+				domain,
+				url
+			},
     }`, 
 		{ slug }
 	)
