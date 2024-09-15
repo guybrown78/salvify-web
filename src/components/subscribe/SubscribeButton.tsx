@@ -21,7 +21,9 @@ const SubscribeButton = () => {
 
 
 
-			<SubscribeModal openModal={openModal} onCloseModal={() => {onCloseModal()}} /> 
+			<SubscribeModal 
+				openModal={openModal} 
+				onCloseModal={() => {onCloseModal()}} /> 
 		</div>
 	)
 }
