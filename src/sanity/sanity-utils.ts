@@ -77,7 +77,8 @@ export async function getPolicyPage(slug:string):Promise<PolicyPage> {
       _createdAt,
       title,
       "slug": slug.current,
-			content
+			content,
+			updatedAt
     }`, 
 		{ slug }
 	)

@@ -6,5 +6,6 @@ export type PolicyPage = {
 	title: string;
 	slug: string;
 	order: number;
+	updatedAt: Date;
 	content: PortableTextBlock[];
 }

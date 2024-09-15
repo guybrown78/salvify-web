@@ -11,6 +11,7 @@ import { Demo } from '@/components/Demo'
 import { Contact } from '@/components/Contact'
 import LatestInsights from '@/components/insights/LatestInsights'
 import SubscribeWrapper from '@/components/subscribe/SubscribeWrapper'
+import SubscribeSmallWrapper from '@/components/subscribe/SubscribeSmallWrapper'
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
 				<Demo />
 				<Contact />
 				<LatestInsights />
+				<SubscribeSmallWrapper />
         <Faqs />
       {/* </main>
       <Footer /> */}

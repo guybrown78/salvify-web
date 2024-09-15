@@ -28,7 +28,7 @@ const CategoriesPage = async () => {
 
 					<h2 className="text-xl font-semibold tracking-tight text-salvify-secondary sm:text-2xl">Navigate through our curated knowledge hubs</h2>
 
-					<p className="mt-4 text-base leading-8 text-ssalvify-secondary">
+					<p className="mt-4 text-base leading-8 text-salvify-secondary">
 					At Salvify, our commitment to providing valuable insights and cutting-edge innovations in healthcare technology and competency assurance. Our articles are thoughtfully organised into categories, each offering a focused perspective on the topics that matter most to you.
 					</p>
 					<p className="mt-2 text-base leading-8 text-salvify-secondary">
