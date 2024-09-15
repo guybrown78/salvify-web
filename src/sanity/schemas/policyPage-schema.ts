@@ -31,6 +31,11 @@ const policyPage = {
 			type: 'array',
 			of: [{ type: 'block' }]
 		},
+		{
+      name: 'updatedAt',
+      title: 'Updated at',
+      type: 'datetime',
+    }
 	],
 	orderings: [
     {

@@ -10,6 +10,7 @@ import { About } from '@/components/About'
 import { Demo } from '@/components/Demo'
 import { Contact } from '@/components/Contact'
 import LatestInsights from '@/components/insights/LatestInsights'
+import SubscribeWrapper from '@/components/subscribe/SubscribeWrapper'
 
 export default function Home() {
   return (
