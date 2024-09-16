@@ -7,7 +7,7 @@ import FooterNav from './FooterNav'
 
 export const Footer = () => {
 	return (
-		<footer className="mt-5 border-t border-slate-200/50 bg-slate-50">
+		<footer className="border-t border-slate-200/50 bg-slate-50">
 			<Container>
 				<div className="pb-8 pt-24 lg:pt-32">
 					<div className="xl:grid xl:grid-cols-3 xl:gap-8">
