@@ -1,7 +1,5 @@
 import { CallToAction } from '@/components/CallToAction'
 import { Faqs } from '@/components/Faqs'
-// import { Footer } from '@/components/Footer'
-// import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { Benefits } from '@/components/Benefits'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
@@ -16,21 +14,17 @@ import SubscribeSmallWrapper from '@/components/subscribe/SubscribeSmallWrapper'
 export default function Home() {
   return (
     <>
-      {/* <Header />
-      <main> */}
-        <Hero />
-        <PrimaryFeatures />
-        <SecondaryFeatures />
-        <CallToAction />
-        <About />
-        <Benefits />
-				<Demo />
-				<Contact />
-				<LatestInsights />
-				<SubscribeSmallWrapper />
-        <Faqs />
-      {/* </main>
-      <Footer /> */}
+			<Hero />
+			<PrimaryFeatures />
+			<SecondaryFeatures />
+			<CallToAction />
+			<About />
+			<Benefits />
+			<Demo />
+			<Contact />
+			<LatestInsights />
+			<SubscribeSmallWrapper />
+			<Faqs />
     </>
   )
 }

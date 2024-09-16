@@ -6,11 +6,13 @@ type Props = {
   title: string
   anchor: string
 }
-export function FooterNavLink({ title, anchor }: Props) {
-  const router = useRouter()
+
+const FooterNavLink = ({ title, anchor }: Props) => {
+
+	const router = useRouter()
   const pathname = usePathname()
 
-  const handleAnchor = (event, href) => {
+	const handleAnchor = (event, href) => {
     event.preventDefault()
     if (pathname === '/' && href.includes('#')) {
       window.location.hash = ''
@@ -20,8 +22,8 @@ export function FooterNavLink({ title, anchor }: Props) {
     }
   }
 
-  return (
-    <Link
+	return (
+		<Link
       href={anchor}
       onClick={(e) => handleAnchor(e, anchor)}
       className=" inline-block rounded-lg px-2 py-1 text-sm leading-6 text-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:underline"
@@ -30,5 +32,7 @@ export function FooterNavLink({ title, anchor }: Props) {
     >
       {title}
     </Link>
-  )
+	)
 }
+
+export default FooterNavLink

@@ -15,7 +15,7 @@ const SubscribeButton = () => {
 	return (
 		<div>
 			<Button 
-				onClick={() => setOpenModal(!openModal)} v
+				onClick={() => setOpenModal(!openModal)} 
 				color="green"
 			>Subscribe</Button>
 
