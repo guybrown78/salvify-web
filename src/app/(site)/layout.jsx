@@ -5,9 +5,7 @@ import '@/styles/tailwind.css'
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieBanner from '@/components/CookieBanner';
 import { Header } from '@/components/Header';
-import Footer from '@/components/footer/footer';
-
-
+import { Footer } from '@/components/footer/Footer';
 export const metadata = {
   title: {
     template: '%s - Salvify',
@@ -45,7 +43,6 @@ export default function RootLayout({ children }) {
 					<main className="flex-1">
 						{children}
 					</main>
-
 				<Footer />
 				<CookieBanner/>
 			</body>
