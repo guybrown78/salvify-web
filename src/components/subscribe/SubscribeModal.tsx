@@ -79,7 +79,7 @@ export function SubscribeModal({ openModal = false, onCloseModal}:Props){
 				onCloseModal();
 			},750)
 		}
-	}, [isSuccess])
+	}, [isSuccess, onCloseModal])
 
 
 	return(

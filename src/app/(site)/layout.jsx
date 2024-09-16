@@ -5,7 +5,8 @@ import '@/styles/tailwind.css'
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieBanner from '@/components/CookieBanner';
 import { Header } from '@/components/Header';
-import { Footer } from '@/components/footer/Footer';
+import { Footer } from '@/components/footer/Footer'
+
 export const metadata = {
   title: {
     template: '%s - Salvify',

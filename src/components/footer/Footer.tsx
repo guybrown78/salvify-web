@@ -5,7 +5,7 @@ import { Logo } from '@/components/Logo'
 import FooterLegalLinks from './FooterLegalLinks'
 import FooterNav from './FooterNav'
 
-const Footer = () => {
+export const Footer = () => {
 	return (
 		<footer className="mt-5 border-t border-slate-200/50 bg-slate-50">
 			<Container>
@@ -37,4 +37,5 @@ const Footer = () => {
 	)
 }
 
-export default Footer
+
+
