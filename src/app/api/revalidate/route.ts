@@ -1,6 +1,5 @@
-
-
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 
 export async function GET(req: NextRequest) {
   const secret = req.nextUrl.searchParams.get('secret');
@@ -12,7 +11,7 @@ export async function GET(req: NextRequest) {
 
   try {
     if (typeof pathToRevalidate === 'string') {
-      await res.revalidate(pathToRevalidate);
+      revalidatePath(pathToRevalidate);
       return NextResponse.json({ revalidated: true });
     } else {
       return NextResponse.json({ message: 'Invalid path' }, { status: 400 });
@@ -21,4 +20,3 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ message: 'Error revalidating' }, { status: 500 });
   }
 }
-
