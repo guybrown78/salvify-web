@@ -1,10 +1,10 @@
+import { Container } from '@/components/Container';
+import { getFaqs } from '@/sanity/sanity-utils';
+import { Faq } from '@/types/Faq';
 
-import { Container } from '@/components/Container'
-import { getFaqs } from '@/sanity/sanity-utils'
-import { Faq } from '@/types/Faq'
+export const revalidate = 60; // Revalidate every 60 seconds
 
 const FAQPage = async () => {
-
   const faqs: Faq[] = await getFaqs();
 
   return (
@@ -41,7 +41,7 @@ const FAQPage = async () => {
         </ul>
       </Container>
     </section>
-  )
-}
+  );
+};
 
-export default FAQPage
+export default FAQPage;

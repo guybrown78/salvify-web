@@ -14,8 +14,8 @@ export async function POST(req: NextRequest) {
     let pathToRevalidate = '';
 
     switch (_type) {
-      case 'faq':
-        pathToRevalidate = 'faq';
+      case 'faqs':
+        pathToRevalidate = 'faqs';
         break;
       case 'insightArticle':
         pathToRevalidate = 'insights';

@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { Container } from '@/components/Container'
 import backgroundImage from '@/images/background-faqs.jpg'
+import Link from 'next/link'
 
 const faqs = [
   [
@@ -83,7 +84,7 @@ export function Faqs() {
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
             If you can’t find what you’re looking for, email our support team
-            and if you’re lucky someone will get back to you.
+            and someone will get back to you. There are further Frequently Asked Questions on our <Link href="/faqs">FAQs</Link> page
           </p>
         </div>
         <ul
