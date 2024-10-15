@@ -3,8 +3,11 @@ import { revalidatePath } from 'next/cache';
 
 export async function POST(req: NextRequest) {
 	// console.log(req.json())
+	
   const { _type, secret } = await req.json();
-
+	console.log('Headers:', req.headers);
+	console.log('Content-Type:', req.headers.get('content-type'));
+	console.log('Raw Body:', await req.text());
 	console.log(_type, secret, process.env.SANITY_SECRET_TOKEN, secret === process.env.SANITY_SECRET_TOKEN)
   if (secret !== process.env.SANITY_SECRET_TOKEN) {
     return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
