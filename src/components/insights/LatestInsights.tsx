@@ -8,7 +8,6 @@ import { Container } from "../Container";
 
 export default async function LatestInsights() {
 
-	// TODO - just get the 3 latest insights
 	const latestInsights = await getLatestInsights();
 
 	return (
@@ -31,11 +30,6 @@ export default async function LatestInsights() {
 					)}
 				</div>
 
-				{/* <div className="mt-16 mx-auto max-w-2xl text-center">
-					<p className="mt-2 text-md leading-8 text-slate-600">
-						Explore our complete article archive <Link href="/insights" className="group relative flex-inline items-center font-semibold text-salvify-primary whitespace-nowrap">Salvify Insights <span className="inline-flex ml-1 mr-1 group-hover:mr-0 group-hover:ml-2 transition-all"><FaArrowRight /></span></Link>
-					</p>
-				</div> */}
 			</Container>
 		</section>
 		

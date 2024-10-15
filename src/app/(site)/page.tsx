@@ -11,6 +11,10 @@ import LatestInsights from '@/components/insights/LatestInsights'
 import SubscribeWrapper from '@/components/subscribe/SubscribeWrapper'
 import SubscribeSmallWrapper from '@/components/subscribe/SubscribeSmallWrapper'
 
+
+export const revalidate = 60; 
+
+
 export default function Home() {
   return (
     <>

@@ -11,7 +11,7 @@ export const metadata = {
 	keywords: "Salvify Insights, Healthcare Technology, Competency Assurance, Compliance, Medical Inventory Management, Digital Innovation, Healthcare Excellence"
 }
 
-
+export const revalidate = 60; 
 
 const InsightsPage = async () => {
 
