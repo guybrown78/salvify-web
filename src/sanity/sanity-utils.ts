@@ -6,6 +6,7 @@ import { Insight } from "@/types/Insight";
 import { PolicyPage } from "@/types/PolicyPage";
 import { Category } from "@/types/Category";
 import { Faq } from "@/types/Faq";
+import { Feature, FeatureMenuItem } from "@/types/Feature";
 
 export async function getProjects():Promise<Project[]> {
 	return createClient(clientConfig).fetch(
@@ -244,3 +245,62 @@ export async function getFaqs():Promise<Faq[]> {
     }`
 	)
 }
+
+export const featureBySlugQuery = 
+groq`*[_type == "feature" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug": slug.current,
+  template,
+
+  "heroTitle": coalesce(heroTitle, title),
+  heroSubTitle,
+  overview,
+  "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
+
+  howItWorks,
+  "howImage": { "url": howImage.asset->url, "alt": howImage.alt },
+  benefitsIntro,
+  benefits[]{
+    featureBenefitTitle,
+    benefit->{ _id, title, statement, icon }
+  },
+  body,
+  metaDescription,
+  keywords,
+  publishedAt
+}`;
+
+
+export const featuresMenuQuery = groq`
+	*[_type == "feature" && defined(slug.current) && coalesce(inMenu, true)]
+	| order(coalesce(menuOrder, 100) asc, coalesce(menuLabel, title) asc)
+	{
+		_id,
+		"slug": slug.current,
+		"label": coalesce(menuLabel, title),
+		template,
+		menuOrder
+	}`;
+
+export async function getFeaturesMenu(): Promise<FeatureMenuItem[]> {
+  return createClient(clientConfig).fetch(featuresMenuQuery);
+}
+
+
+export async function getFeatures():Promise<Feature[]> {
+	return createClient(clientConfig).fetch(
+		groq`*[_type == "feature"]{
+      _id,
+  title,
+  subTitle,
+  "slug": slug.current,
+    }`
+	)
+}
+
+export async function getFeature(slug: string):Promise<Feature> {
+  return createClient(clientConfig).fetch(featureBySlugQuery, { slug });
+}
+
+

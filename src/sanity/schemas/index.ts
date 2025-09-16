@@ -10,6 +10,8 @@ import resource from "./resource-schema";
 import insightArticle from "./insightArticle-schema";
 import faq from "./faq-schema";
 import industry from "./industry-schema";
+import feature from "./feature-schema";
+import benefit from "./benefit-schema";
 
 const schemas = [
 	project,
@@ -22,7 +24,9 @@ const schemas = [
 	resource,
 	industry,
 	insightArticle,
-	faq
+	faq,
+	feature,
+	benefit,
 ]
 
 export default schemas;

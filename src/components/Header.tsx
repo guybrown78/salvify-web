@@ -11,6 +11,7 @@ import { NavLink } from '@/components/NavLink'
 
 import { usePathname, useRouter } from 'next/navigation'
 import BookDemoButton from './BookDemoButton'
+import DesktopNav from './header/DesktopNav'
 
 function MobileNavLink({ href, children }) {
   const router = useRouter()
@@ -128,12 +129,13 @@ export function Header() {
             <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
-            <div className="hidden md:flex md:gap-x-6">
+						<DesktopNav />
+            {/* <div className="hidden md:flex md:gap-x-6">
               <NavLink href="/#features">Features</NavLink>
               <NavLink href="/#about">About</NavLink>
               <NavLink href="/#benefits">Benefits</NavLink>
               <NavLink href="/insights">Insights</NavLink>
-            </div>
+            </div> */}
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
