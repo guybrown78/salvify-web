@@ -280,7 +280,9 @@ export const featuresMenuQuery = groq`
 		"slug": slug.current,
 		"label": coalesce(menuLabel, title),
 		template,
-		menuOrder
+		menuOrder,  
+		menuIcon,
+  	menuDescription
 	}`;
 
 export async function getFeaturesMenu(): Promise<FeatureMenuItem[]> {

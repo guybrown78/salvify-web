@@ -1,5 +1,6 @@
 import type { PortableTextBlock } from '@portabletext/types'
 import type { Benefit } from './Benefit'
+import { FeatureIconKey } from '@/sanity/shared/feature-icons'
 
 export type FeatureTemplate = 'standard' | 'accent' | 'premium'
 
@@ -20,6 +21,8 @@ export interface Feature {
 	inMenu?: boolean;
   menuLabel?: string;
   menuOrder?: number;
+	menuIcon?: FeatureIconKey;
+  menuDescription?: string;
 
   // Hero / intro
   heroTitle: string
@@ -52,4 +55,6 @@ export interface FeatureMenuItem {
   label: string;
   template?: FeatureTemplate;
   menuOrder?: number;
+	menuIcon?: FeatureIconKey;
+  menuDescription?: string;
 }

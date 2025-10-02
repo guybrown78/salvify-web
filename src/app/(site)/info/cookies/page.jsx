@@ -1,7 +1,7 @@
 
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/footer/Footer'
-import { Header } from '@/components/Header'
+import { Header } from '@/components/header/Header'
 
 
 export default function Home() {

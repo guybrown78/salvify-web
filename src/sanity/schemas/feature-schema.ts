@@ -1,3 +1,5 @@
+import { featureIconOptions } from "../shared/feature-icons";
+
 const feature = {
   name: 'feature',
   title: 'Features',
@@ -38,6 +40,24 @@ const feature = {
 			type: 'string',
 			description: 'Defaults to Page Title if empty',
 		},
+		{
+					name: 'menuIcon',
+					title: 'Icon (Heroicons v2)',
+					type: 'string',
+					options: { list: featureIconOptions },
+				},
+{
+  name: 'menuDescription',
+  title: 'Menu description (max 15 words)',
+  type: 'string',
+  description: 'Short blurb shown in the menu panel',
+  validation: Rule =>
+    Rule.custom((val) => {
+      if (!val) return true;
+      const words = val.trim().split(/\s+/).filter(Boolean).length;
+      return words <= 15 || 'Please keep this to 15 words or fewer';
+    }),
+},
 		{
 			name: 'menuOrder',
 			title: 'Menu order',
