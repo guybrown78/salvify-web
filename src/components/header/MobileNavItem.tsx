@@ -68,19 +68,14 @@ const MobileNavItem = ({
                     />
                   )
                 if (item.variant === 'footer')
-                  return (
-                    <NavFooterGrid
-                      key={item.name}
-                      item={item}
-                      onClose={onCloseHandler}
-                    />
-                  )
+                  return null
                 return (
                   <NavRow
                     key={item.name}
                     item={item}
                     onClose={onCloseHandler}
                     classNames="col-span-2"
+										showDescription={true}
                   />
                 )
               })}

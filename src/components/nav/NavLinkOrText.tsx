@@ -7,7 +7,7 @@ export default function NavLinkOrText({
 }: { href?: string; onClick?: () => void; children: React.ReactNode; className?: string }) {
   return href ? (
     <Link href={href} onClick={onClick}
-      className={`group/link rounded font-semibold text-gray-900 focus-visible:ring-2 focus-visible:ring-teal-500 ${className}`}>
+      className={`group/link rounded font-semibold focus-visible:ring-2 focus-visible:ring-teal-500 ${className}`}>
       {children}
     </Link>
   ) : (

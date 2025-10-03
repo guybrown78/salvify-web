@@ -91,32 +91,7 @@ export async function buildSections(): Promise<NavItem[]> {
         },
       ],
     },
-    {
-      name: 'Resources',
-      children: [
-        {
-          name: 'Insights',
-          description:
-            'Read expert articles and guidance on medical inventory and compliance.',
-          href: '/insights',
-          icon: 'HiOutlineLightBulb',
-        },
-        {
-          name: 'Case Studies',
-          description:
-            'See how real teams use Salvify to save time and stay compliant.',
-          href: '/resources/case-studies',
-          icon: 'HiOutlineDocumentText',
-        },
-        {
-          name: 'Latest Insights',
-          description: '',
-          variant: 'footer',
-          children: latestInsightChildren,
-        },
-      ],
-    },
-    {
+		  {
       name: 'Company',
       children: [
         {
@@ -149,5 +124,31 @@ export async function buildSections(): Promise<NavItem[]> {
         },
       ],
     },
+    {
+      name: 'Resources',
+      children: [
+        {
+          name: 'Insights',
+          description:
+            'Read expert articles and guidance on medical inventory and compliance.',
+          href: '/insights',
+          icon: 'HiOutlineLightBulb',
+        },
+        {
+          name: 'Case Studies',
+          description:
+            'See how real teams use Salvify to save time and stay compliant.',
+          href: '/resources/case-studies',
+          icon: 'HiOutlineDocumentText',
+        },
+        {
+          name: 'Latest Insights',
+          description: '',
+          variant: 'footer',
+          children: latestInsightChildren,
+        },
+      ],
+    },
+  
   ]
 }

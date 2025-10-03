@@ -48,7 +48,7 @@ const DesktopNavItem = ({ navItem }: Props) => {
               {navItem.children?.map((item) => {
                 if (item.variant === 'block') return <NavBlockGrid key={item.name} item={item} onClose={close} classNames="m-4" />
                 if (item.variant === 'footer') return <NavFooterGrid key={item.name} item={item} onClose={close} />
-                return <NavRow key={item.name} item={item} onClose={close} classNames="m-4" />
+                return <NavRow key={item.name} item={item} onClose={close} classNames="m-4" showDescription={true} />
               })}
             </div>
             <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">{/* reserved CTA area */}</div>

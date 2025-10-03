@@ -11,6 +11,7 @@ import DesktopNav from './DesktopNav'
 
 export const Header = async () => {
 	const sections = await buildSections()
+	const loginURL = process.env.NEXT_PUBLIC_SIGN_IN_URL;
   return (
     <header className="py-10">
       <Container>
@@ -23,7 +24,7 @@ export const Header = async () => {
 
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <NavLink href="https://salvify.io/auth/signin">Sign in</NavLink>
+              <NavLink href={loginURL}>Sign in</NavLink>
             </div>
             <BookDemoButton />
             <div className="-mr-1 lg:hidden">
