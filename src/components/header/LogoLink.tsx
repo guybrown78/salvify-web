@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 type Props = {
 	onClose?: () => void
-	size: "sm" | "md"
+	size?: "sm" | "md"
 }
 
 const LogoLink = ({ onClose, size = "md" }: Props) => {
