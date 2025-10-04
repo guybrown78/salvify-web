@@ -17,7 +17,7 @@ export default function NavBlockGrid({
   classNames?: string
 }) {
   return (
-    <div className={clsx('col-span-2 p-4', classNames)}>
+    <div className={clsx('col-span-2 px-4 py-2', classNames)}>
       <span className="text-md truncate font-semibold">{item.name}</span>
       <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-3 md:grid-cols-2">
         {item.children?.map((contentItem) => (

@@ -96,17 +96,11 @@ function MobileNavContent({
                 as="div"
                 // className="absolute inset-x-0 top-full mt-4 flex min-h-96 origin-top flex-col rounded-xl bg-white p-4 shadow-xl ring-1 ring-slate-900/5"
                 className="
-									[@supports(-webkit-touch-callout:none)]:[WebkitOverflowScrolling:touch] fixed inset-x-0 bottom-0
-									top-0
-									z-40 flex
-									flex-col overflow-y-auto overscroll-contain rounded-xl bg-white
-									px-4 pb-[max(env(safe-area-inset-bottom),1rem)]
-									pt-4
-									shadow-xl ring-1 ring-slate-900/5
+									[@supports(-webkit-touch-callout:none)]:[WebkitOverflowScrolling:touch] fixed inset-x-0 bottom-0 top-0 z-40 flex flex-col overflow-y-auto overscroll-contain bg-white px-4 pb-[max(env(safe-area-inset-bottom),1rem)] pt-4 shadow-xl ring-1 ring-slate-900/5
 								"
               >
                 <div className="flex h-full flex-col justify-between">
-                  <div className="h-20 py-4">
+                  <div className="h-20 py-6">
                     <LogoLink onClose={close} size="sm" />
                   </div>
                   <nav className="flex flex-1 flex-col overflow-auto">

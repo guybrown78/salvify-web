@@ -57,7 +57,7 @@ const MobileNavItem = ({
             transition={{ duration: 0.2, ease: easeIn }}
             className="relative origin-top overflow-hidden"
           >
-            <div className="grid grid-cols-1 gap-x-1 gap-y-6 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-x-1 gap-y-6 lg:grid-cols-2 mb-8">
               {navItem.children?.map((item) => {
                 if (item.variant === 'block')
                   return (
