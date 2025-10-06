@@ -1,41 +1,48 @@
-import React from 'react'
+import { Logo } from '@/components/Logo'
+import { buildSections } from '@/utils/nav'
 import { Container } from '../Container'
 import FooterBasement from './FooterBasement'
-import { Logo } from '@/components/Logo'
+import FooterDesktopNavigation from './FooterDesktopNavigation'
 import FooterLegalLinks from './FooterLegalLinks'
-import FooterNav from './FooterNav'
+import FooterMobileNavigation from './FooterMobileNavigation'
+import LogoLink from '../header/LogoLink'
 
-export const Footer = () => {
-	return (
-		<footer className="border-t border-slate-200/50 bg-slate-50">
-			<Container>
-				<div className="pb-8 pt-24 lg:pt-32">
-					<div className="xl:grid xl:grid-cols-3 xl:gap-8">
+export const Footer = async () => {
+  const sections = await buildSections()
+  const loginURL = process.env.NEXT_PUBLIC_SIGN_IN_URL
 
-						<div className="space-y-8">
-							<div className="w-32">
-								<Logo/>
-							</div>
-							
-            	<p className="text-sm leading-6 text-slate-600">
-								The Digital Ointment for your Medical Inventory Pain
-							</p>
+  return (
+    <footer className="border-t border-slate-200/50 bg-slate-50">
+      <Container>
+        <div className="pb-8 pt-24 lg:pt-32">
+          <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div className="space-y-1">
+              <div className="w-32">
+                <LogoLink size='sm' />
+              </div>
 
-						</div>
+              <p className="text-sm leading-6 text-slate-600">
+                Confidence in Care
+              </p>
+            </div>
 
-						<FooterNav />
-					</div>
-				</div>
+            {/* <FooterNav /> */}
+          </div>
+        </div>
+        <div className="text-xs">
+          <div className="hidden lg:block">
+            <FooterDesktopNavigation sections={sections} />
+          </div>
+          <div className="lg:hidden">
+            <FooterMobileNavigation sections={sections} />
+          </div>
+        </div>
+        <div className="mx-0 my-8">
+          <FooterLegalLinks />
+        </div>
+      </Container>
 
-				<div className="flex flex-col md:flex-row items-center justify-center md:justify-between mx-0 my-8">
-					<FooterLegalLinks />
-				</div>
-			</Container>
-
-			<FooterBasement />
-		</footer>
-	)
+      <FooterBasement />
+    </footer>
+  )
 }
-
-
-
