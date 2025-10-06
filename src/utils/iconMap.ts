@@ -31,7 +31,8 @@ import {
 	HiOutlineSquares2X2,
 	HiOutlineTrash,
 	HiOutlineUserGroup,
-	HiOutlineUserPlus
+	HiOutlineUserPlus,
+	HiOutlineQuestionMarkCircle
 } from 'react-icons/hi2';
 
 import type { BenefitIconKey } from '@/sanity/shared/benefit-icons';
@@ -98,4 +99,5 @@ export const NavItemIconMap = {
   HiOutlinePuzzlePiece,
   HiOutlineSquares2X2,
   HiOutlineUserGroup,
+	HiOutlineQuestionMarkCircle
 } satisfies Record<NavIconKey, IconType>;

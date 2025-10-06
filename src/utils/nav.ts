@@ -141,6 +141,12 @@ export async function buildSections(): Promise<NavItem[]> {
           href: '/resources/case-studies',
           icon: 'HiOutlineDocumentText',
         },
+				 {
+          name: 'FAQs',
+					description: 'Find quick answers to common questions about Salvify.',
+					href: '/faqs',
+					icon: 'HiOutlineQuestionMarkCircle',
+        },
         {
           name: 'Latest Insights',
           description: '',
