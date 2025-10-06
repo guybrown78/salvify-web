@@ -11,7 +11,7 @@ const FooterNavigationLink = ({title, href}: Props) => {
 	return (
 		<Link
 			href={href ?? '#'}
-			className="font-medium underline underline-offset-2 hover:text-teal-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+			className="font-medium underline underline-offset-2 hover:text-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
 		>
 			{title}
 		</Link>

@@ -253,8 +253,9 @@ groq`*[_type == "feature" && slug.current == $slug][0]{
   "slug": slug.current,
   template,
 
+	heroEyebrow,
   "heroTitle": coalesce(heroTitle, title),
-  heroSubTitle,
+  "heroEyebrow": coalesce(heroEyebrow, "Platform feature"),
   overview,
   "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
 

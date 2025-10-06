@@ -51,7 +51,7 @@ const CategoriesPage = async () => {
 								<h3 className="text-lg font-semibold leading-6 text-salvify-secondary">
 									{category.title}
 								</h3>
-								<div className={clsx('text-xs  px-2 py-1  rounded-full', category.insights?.length ? 'bg-green-100 text-salvify-primary' : 'bg-salvify-secondary/10 text-salvify-secondary/50')}>{category.insights?.length} <span>{`article${category.insights?.length === 1 ? '' : 's'}`}</span></div>
+								<div className={clsx('text-xs  px-2 py-1  rounded-full', category.insights?.length ? 'bg-surface-muted text-brand-500' : 'bg-brand-700/10 text-brand-700/50')}>{category.insights?.length} <span>{`article${category.insights?.length === 1 ? '' : 's'}`}</span></div>
 							</div>
 							<div className="mt-5 prose prose-slate prose-sm">
 								<PortableText value={category.description} />

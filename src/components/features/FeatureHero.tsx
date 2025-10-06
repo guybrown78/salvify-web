@@ -1,18 +1,22 @@
 import React from 'react'
 
 type Props = {
+	heroEyebrow:string,
 	heroTitle:string,
 	heroSubTitle:string,
 }
 
-const FeatureHero = ({ heroTitle, heroSubTitle }: Props) => {
+const FeatureHero = ({ heroEyebrow, heroTitle, heroSubTitle }: Props) => {
 	return (
 		 <div className="relative">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
-        <div className="px-6 pt-10 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-40 lg:pb-48 xl:col-span-6">
+        <div className="px-6 pt-4 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-0 lg:pb-16 xl:col-span-6">
           <div className="mx-auto max-w-lg lg:mx-0">
     
-            <h1 className="mt-24 text-5xl font-semibold tracking-tight text-pretty sm:mt-10 sm:text-7xl ">
+						  <p className="text-sm font-bold tracking-tight text-fg">
+							{heroEyebrow}
+						</p>
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-pretty sm:mt-2 sm:text-5xl text-brand-500">
               { heroTitle }
             </h1>
             <p className="mt-8 text-lg font-medium text-pretty  sm:text-xl/8">

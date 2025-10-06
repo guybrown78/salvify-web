@@ -29,3 +29,37 @@
   to { transform: translateX(-30px); }
 }
 
+/* Primitives (palette) */
+/* Primitives (palette) */
+:root {
+  --color-brand-500: #00bbb7;
+  --color-brand-700: #07828c;
+  --color-ink: #172144;
+  --color-surface: #f0f4f8;
+  --color-surface-muted: #dfecef;
+  --color-accent: #ed9472;
+
+  /* Semantic roles (light) */
+  --color-bg: var(--color-surface);
+  --color-fg: var(--color-ink);
+  --color-card: var(--color-surface-muted);
+  --color-cta: var(--color-brand-500);
+  --color-cta-hover: var(--color-brand-700);
+  --color-border: oklch(0.92 0.01 240);
+  --color-link: var(--color-brand-700);
+  --color-danger: #b42318;
+  --color-warning: #ab6400;
+  --color-success: #1a7f37;
+}
+
+/* Dark */
+:root.dark,
+[data-theme="dark"] {
+  --color-bg: #0b1024;
+  --color-fg: #e6e9ee;
+  --color-card: color-mix(in oklab, var(--color-ink), white 85%);
+  --color-cta: var(--color-brand-500);
+  --color-cta-hover: var(--color-brand-700);
+  --color-border: oklch(0.35 0.02 240);
+  --color-link: var(--color-brand-500);
+}

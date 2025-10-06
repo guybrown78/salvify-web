@@ -9,7 +9,7 @@ const NavIcon = ({ icon }: { icon?: NavIconKey }) => {
   return (
     <Icon
       aria-hidden
-      className="size-6 text-gray-600 transition-colors duration-200 ease-in-out group-hover:text-teal-500"
+      className="size-6 text-gray-600 transition-colors duration-200 ease-in-out group-hover:text-brand-500"
     />
   )
 }

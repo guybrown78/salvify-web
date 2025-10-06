@@ -18,14 +18,14 @@ const FeaturePage = async ({ params }:Props) => {
 	const slug = params.feature;
 	const feature:Feature = await getFeature(slug)
 
-	console.log("slug", slug)
-	console.log(feature)
+	// console.log("slug", slug)
+	// console.log(feature)
 	if(!feature) return (<div>no data</div>)
 
 	const Template = templates[feature.template ?? "a"];
   	return (
 			<>
-				<Link href="/product/features">All Features</Link>
+				{/* <Link href="/product/features">All Features</Link> */}
 				<Template data={feature} />
 			</>
 			

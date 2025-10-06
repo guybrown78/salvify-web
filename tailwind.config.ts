@@ -1,4 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+
+const withAlpha = (varName: string) => ({ opacityValue }: any) =>
+  opacityValue ? `oklch(from var(${varName}) l c h / ${opacityValue})`
+               : `oklch(from var(${varName}) l c h)`
+
+							 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
@@ -25,12 +31,32 @@ module.exports = {
         sans: 'var(--font-lato)',
       },
 			colors: ({ colors }) => ({
-        gray: colors.neutral,
-				"salvify-primary": '#2EAF7D',
-				"salvify-secondary": '#02353C',
-				"salvify-accent-green": '#449342',
-				"salvify-accent-aqua": '#3FD0C9',
-				"salvify-accent-light": '#C1F6ED',
+        // gray: colors.neutral,
+				// "salvify-primary": '#00bbb7',
+				// "salvify-secondary": '#172144',
+				// "salvify-accent-green": '#449342',
+				// "salvify-accent-aqua": '#3FD0C9',
+				// "salvify-accent-light": '#dfecef',
+				// "salvify-accent-gray": '#f0f4f8',
+				// "salvify-accent-orange": '#ED9472',
+				// primitives
+        'brand-500': 'var(--color-brand-500)',
+        'brand-700': 'var(--color-brand-700)',
+        ink: 'var(--color-ink)',
+        surface: 'var(--color-surface)',
+        'surface-muted': 'var(--color-surface-muted)',
+        accent: 'var(--color-accent)',
+        // semantic roles with alpha support
+        bg: withAlpha('--color-bg'),
+        fg: withAlpha('--color-fg'),
+        card: withAlpha('--color-card'),
+        cta: withAlpha('--color-cta'),
+        'cta-hover': withAlpha('--color-cta-hover'),
+        border: withAlpha('--color-border'),
+        link: withAlpha('--color-link'),
+        success: withAlpha('--color-success'),
+        warning: withAlpha('--color-warning'),
+        danger: withAlpha('--color-danger'),
       }),
       maxWidth: {
         '2xl': '40rem',

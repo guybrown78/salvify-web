@@ -25,6 +25,7 @@ export interface Feature {
   menuDescription?: string;
 
   // Hero / intro
+	heroEyebrow?: string
   heroTitle: string
   heroSubTitle?: string
   overview?: PortableTextBlock[]

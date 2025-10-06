@@ -23,21 +23,21 @@ export default function NavRow({
   return (
     <div
       className={clsx(
-        'group relative flex gap-x-6 rounded-lg px-4 py-1 transition-colors duration-200 ease-in-out hover:bg-gray-50',
+        'group relative flex gap-x-6 rounded-lg px-4 py-1 transition-colors duration-200 ease-in-out hover:bg-surface',
         classNames
       )}
     >
-      <div className="mt-1 flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 transition-colors duration-200 ease-in-out group-hover:bg-white">
+      <div className="my-1 flex size-11 flex-none items-center justify-center rounded-lg bg-surface transition-colors duration-200 ease-in-out group-hover:bg-white">
         <NavIcon icon={item.icon} />
       </div>
       <div className="mt-3 flex flex-col items-start justify-start">
         <NavLinkOrText href={item.href} onClick={onClose}>
           <span className="inline-flex items-center gap-1">
-            <span className="truncate pr-1 group-hover/link:underline">{item.name}</span>
+            <span className="truncate pr-1 underline-offset-2 group-hover/link:underline">{item.name}</span>
             {showDescription && item.description && (
               <HiOutlineArrowRight
                 aria-hidden
-                className="size-4 -translate-x-1 text-teal-500 opacity-0 transition-all duration-200 ease-in-out
+                className="size-4 -translate-x-1 text-brand-500 opacity-0 transition-all duration-200 ease-in-out
                            group-hover/link:translate-x-0 group-hover/link:opacity-100
                            group-focus-visible/link:translate-x-0 group-focus-visible/link:opacity-100"
               />

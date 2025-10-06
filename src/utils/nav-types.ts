@@ -19,6 +19,7 @@ export const BASE_NAV_ICON_KEYS = [
   'HiOutlinePuzzlePiece',
   'HiOutlineSquares2X2',
   'HiOutlineUserGroup',
+	'HiOutlineQuestionMarkCircle'
 ] as const
 
 export type BaseNavIconKey = (typeof BASE_NAV_ICON_KEYS)[number]

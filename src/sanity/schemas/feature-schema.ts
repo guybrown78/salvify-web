@@ -83,6 +83,14 @@ const feature = {
     },
 
     // Hero / intro
+		{
+			name: 'heroEyebrow',
+			title: 'Hero Eyebrow / Context label',
+			type: 'string',
+			description: 'Small label above the H1. e.g. “Platform feature”.',
+			initialValue: 'Platform feature',
+			validation: Rule => Rule.max(50),
+		},
     { name: 'heroTitle', title: 'Hero Title (H1)', type: 'string', validation: Rule => Rule.required() },
     { name: 'heroSubTitle', title: 'Hero Subtitle / Tagline', type: 'string' },
     {

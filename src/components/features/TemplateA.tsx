@@ -8,11 +8,12 @@ interface Props { data:Feature }
 
 export default function TemplateA({ data }: Props) {
   // Same props as TemplateB — just different layout/styling
-	console.log("template a")
-	console.log(data)
+	// console.log("template a")
+	// console.log(data)
   return (
     <main role="main" className="mx-auto max-w-7xl px-4 py-12">
       <FeatureHero 
+				heroEyebrow={data.heroEyebrow}
 				heroTitle={data.heroTitle} 
 				heroSubTitle={data.heroSubTitle} 
 			/>
