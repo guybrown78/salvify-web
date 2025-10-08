@@ -96,8 +96,10 @@ const feature = {
     {
       name: 'overview',
       title: 'Feature Overview',
-      type: 'blockContent',
-      options: { maxLength: 400 },
+      type: 'text',
+			rows: 3,
+      options: { maxLength: 150 },
+			validation: Rule => Rule.max(150),
     },
     {
       name: 'heroImage',
@@ -107,15 +109,72 @@ const feature = {
       fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
     },
 
+
+		// Problem Context
+		{
+			name: 'problemEyebrow',
+			title: 'Problem eyebrow / label',
+			type: 'string',
+			description: 'Small label above the section title.',
+			initialValue: 'Why this matters',
+			validation: Rule => Rule.max(40),
+		},
+		{ name: 'problemTitle', title: 'Problem title', type: 'string' },
+		{
+			name: 'problemIntro',
+			title: 'Problem intro (1–2 sentences)',
+			type: 'text',
+			rows: 3,
+			validation: Rule => Rule.max(280),
+		},
+		{
+			name: 'problemPoints',
+			title: 'Problem bullet points',
+			type: 'array',
+			of: [{ type: 'string' }],
+			validation: Rule => Rule.max(5),
+		},
+		{
+			name: 'problemImage',
+			title: 'Problem image (optional)',
+			type: 'image',
+			options: { hotspot: true },
+			fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+		},
+		{
+			name: 'problemComponentKey',
+			title: 'Problem diagram component key (optional)',
+			type: 'string',
+			description: 'If set, the template renders a React component instead of the image.',
+		},
+
     // How it works
-    { name: 'howItWorks', title: 'How it works', type: 'blockContent' },
-    {
-      name: 'howImage',
-      title: 'How it works image',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
-    },
+		{ name: 'howItWorks', title: 'How it works', type: 'blockContent' },
+		{
+			name: 'howVisual',
+			title: 'How visual',
+			type: 'string',
+			options: { list: [
+				{ title: 'Image', value: 'image' },
+				{ title: 'Component', value: 'component' },
+			], layout: 'radio' },
+			initialValue: 'image',
+		},
+		{
+			name: 'howComponentKey',
+			title: 'Component key (optional)',
+			type: 'string',
+			description: 'Key your frontend maps to a React component.',
+			hidden: ({document}) => document?.howVisual !== 'component',
+		},
+		{
+			name: 'howImage',
+			title: 'How it works image',
+			type: 'image',
+			options: { hotspot: true },
+			fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+			hidden: ({document}) => document?.howVisual !== 'image',
+		},
 
     // Benefits
     {

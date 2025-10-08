@@ -1,37 +1,35 @@
 import React from 'react'
+import HeroEyebrow from '../hero/HeroEyebrow'
+import HeroH1 from '../hero/HeroH1'
+import HeroH2 from '../hero/HeroH2'
+import HeroOverview from '../hero/HeroOverview'
+import BookDemoButton from '../BookDemoButton'
+import { Button } from '../Button'
+import { Container } from '../Container'
 
 type Props = {
 	heroEyebrow:string,
 	heroTitle:string,
-	heroSubTitle:string,
+	heroSubTitle?:string,
+	overview?:string
 }
 
-const FeatureHero = ({ heroEyebrow, heroTitle, heroSubTitle }: Props) => {
+const FeatureHero = ({ heroEyebrow, heroTitle, heroSubTitle, overview }: Props) => {
 	return (
-		 <div className="relative">
+		 <Container className="relative">
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="px-6 pt-4 pb-24 sm:pb-32 lg:col-span-7 lg:px-0 lg:pt-0 lg:pb-16 xl:col-span-6">
           <div className="mx-auto max-w-lg lg:mx-0">
     
-						  <p className="text-sm font-bold tracking-tight text-fg">
-							{heroEyebrow}
-						</p>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-pretty sm:mt-2 sm:text-5xl text-brand-500">
-              { heroTitle }
-            </h1>
-            <p className="mt-8 text-lg font-medium text-pretty  sm:text-xl/8">
-              { heroSubTitle }
-            </p>
+						<HeroEyebrow title={heroEyebrow} />
+            <HeroH1 title={heroTitle} />
+						<HeroH2 subTitle={heroSubTitle} />
+						<HeroOverview overviewText={overview} />
+
             <div className="mt-10 flex items-center gap-x-6">
-              {/* <a
-                href="#"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
-              >
-                Get started
-              </a> */}
-              {/* <a href="#" className="text-sm/6 font-semibold ">
-                Learn more <span aria-hidden="true">→</span>
-              </a> */}
+							{/* <BookDemoButton /> */}
+							<Button href="/get-started">Get Started</Button>
+							<Button href="../features" variant="outline">Discover all features</Button>
             </div>
           </div>
         </div>
@@ -43,7 +41,7 @@ const FeatureHero = ({ heroEyebrow, heroTitle, heroSubTitle }: Props) => {
           />
         </div>
       </div>
-    </div>
+    </Container>
 	)
 }
 

@@ -29,6 +29,11 @@
   to { transform: translateX(-30px); }
 }
 
+@keyframes bg-gradient-line-flow {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200%; }
+}
+
 /* Primitives (palette) */
 /* Primitives (palette) */
 :root {
@@ -62,4 +67,8 @@
   --color-cta-hover: var(--color-brand-700);
   --color-border: oklch(0.35 0.02 240);
   --color-link: var(--color-brand-500);
+}
+
+@layer base {
+  h1, h2, h3, h4 { @apply font-brand font-extrabold; }
 }

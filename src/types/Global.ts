@@ -1,0 +1,1 @@
+export type Visual = 'image' | 'component';

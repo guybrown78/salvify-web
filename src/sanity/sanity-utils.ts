@@ -256,16 +256,30 @@ groq`*[_type == "feature" && slug.current == $slug][0]{
 	heroEyebrow,
   "heroTitle": coalesce(heroTitle, title),
   "heroEyebrow": coalesce(heroEyebrow, "Platform feature"),
+	heroSubTitle,
   overview,
   "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
 
-  howItWorks,
-  "howImage": { "url": howImage.asset->url, "alt": howImage.alt },
+	"problemEyebrow": coalesce(problemEyebrow, "Why this matters"),
+	problemTitle,
+	problemIntro,
+	problemPoints,
+	"problemImage": { "url": problemImage.asset->url, "alt": problemImage.alt },
+	problemComponentKey,
+
+
+	howItWorks,
+	howVisual,
+	howComponentKey,
+	"howImage": { "url": howImage.asset->url, "alt": howImage.alt },
+
+
   benefitsIntro,
   benefits[]{
     featureBenefitTitle,
     benefit->{ _id, title, statement, icon }
   },
+
   body,
   metaDescription,
   keywords,

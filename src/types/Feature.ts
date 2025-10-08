@@ -1,6 +1,7 @@
 import type { PortableTextBlock } from '@portabletext/types'
 import type { Benefit } from './Benefit'
 import { FeatureIconKey } from '@/sanity/shared/feature-icons'
+import { Visual } from './Global'
 
 export type FeatureTemplate = 'standard' | 'accent' | 'premium'
 
@@ -8,6 +9,9 @@ export interface FeatureBenefitItem {
   featureBenefitTitle?: string
   benefit?: Benefit
 }
+
+
+
 
 export interface Feature {
   _id: string
@@ -28,12 +32,22 @@ export interface Feature {
 	heroEyebrow?: string
   heroTitle: string
   heroSubTitle?: string
-  overview?: PortableTextBlock[]
+  overview?: string
   heroImage?: { url: string; alt?: string }
 
+	// Problem Context
+	problemEyebrow?: string;
+	problemTitle?: string;
+	problemIntro?: string;
+	problemPoints?: string[];
+	problemImage?: { url: string; alt?: string };
+	problemComponentKey?: string;
+
   // How it works
-  howItWorks?: PortableTextBlock[]
-  howImage?: { url: string; alt?: string }
+	howItWorks?: PortableTextBlock[];
+  howVisual?: Visual;
+  howComponentKey?: string;
+  howImage?: { url: string; alt?: string };
 
   // Benefits
   benefitsIntro?: string

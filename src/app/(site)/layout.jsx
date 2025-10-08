@@ -1,4 +1,4 @@
-import { Lato } from 'next/font/google'
+import { Lato, Nunito, Poppins } from 'next/font/google'
 import clsx from 'clsx'
 
 import '@/styles/tailwind.css'
@@ -16,12 +16,27 @@ export const metadata = {
     'Salvify a trusted SaaS platform that streamlines medical inventory management, ensuring compliance, reducing waste, and enhancing efficiency for healthcare providers of all sizes. From private ambulances and even medical providers to large healthcare institutions, Salvify helps maintain critical supplies with ease.',
 }
 
-const lato = Lato({
-	weight:["100","300","400","700","900"],
+// const lato = Lato({
+// 	weight:["100","300","400","700","900"],
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-lato',
+// })
+
+const nunito = Nunito({
   subsets: ['latin'],
+  weight: ['300','400','800'], // font-light font-normal font-extrabold
   display: 'swap',
-  variable: '--font-lato',
+  variable: '--font-nunito',
 })
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300','400','600'], // font-light font-normal font-semibold
+  display: 'swap',
+  variable: '--font-poppins',
+})
+
 
 // const lexend = Lexend({
 //   subsets: ['latin'],
@@ -35,11 +50,11 @@ export default function RootLayout({ children }) {
       lang="en"
       className={clsx(
         'h-full scroll-smooth bg-white antialiased',
-        lato.variable
+        nunito.variable, poppins.variable
       )}
     >
 			<GoogleAnalytics GA_MEASUREMENT_ID='G-ZFG4K61VXN'/>
-      <body className="flex h-full flex-col">
+      <body className="flex h-full flex-col font-sans">
 				<Header />
 					<main className="flex-1">
 						{children}

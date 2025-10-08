@@ -28,7 +28,11 @@ module.exports = {
         '4xl': '2rem',
       },
       fontFamily: {
-        sans: 'var(--font-lato)',
+        // sans: 'var(--font-lato)',
+				// Body default
+				sans: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
+				// Brand / headings
+				brand: ['var(--font-nunito)', 'system-ui', 'sans-serif'],
       },
 			colors: ({ colors }) => ({
         // gray: colors.neutral,
@@ -61,18 +65,17 @@ module.exports = {
       maxWidth: {
         '2xl': '40rem',
       },
-			// typography: {
-      //   DEFAULT: {
-      //     css: {
-      //       h3: {
-      //         // color: '#3182ce',
-      //         // '&:hover': {
-      //         //   color: '#2c5282',
-      //         // },
-      //       },
-      //     },
-      //   },
-      // },
+			typography: ({ theme }) => ({
+				DEFAULT: {
+					css: {
+						'--tw-prose-body': theme('colors.fg / 1'),
+						'--tw-prose-headings': theme('colors.fg / 1'),
+						h1: { fontFamily: theme('fontFamily.brand').join(',') },
+						h2: { fontFamily: theme('fontFamily.brand').join(',') },
+						h3: { fontFamily: theme('fontFamily.brand').join(',') },
+					},
+				},
+			}),
     },
   },
   plugins: [

@@ -41,11 +41,11 @@ const FeatureBenefitCard = ({ title, desc, icon }: Props) => {
 
 	console.log(title,desc)
   return (
-    <div className="relative lg:col-span-2">
+    <div className="bg-surface-muted rounded-lg shadow-sm relative lg:col-span-2">
       <div className="absolute inset-0" />
-      <div className="relative flex h-full flex-col overflow-hidden">
-        {icon}
-        <div className="p-10 pt-4">
+      <div className="relative flex h-full flex-col overflow-hidden p-8">
+        <div className="infline-flex flex items-center justify-center bg-ink text-surface rounded-md size-16">{icon}</div>
+        <div className="py-2">
           <p className="mt-2 text-lg font-medium tracking-tight">{title}</p>
           <p className="mt-2 max-w-lg text-sm/6">{desc}</p>
         </div>
