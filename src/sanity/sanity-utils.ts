@@ -280,6 +280,9 @@ groq`*[_type == "feature" && slug.current == $slug][0]{
     benefit->{ _id, title, statement, icon }
   },
 
+	ctaTitle,
+	ctaBody,
+
   body,
   metaDescription,
   keywords,

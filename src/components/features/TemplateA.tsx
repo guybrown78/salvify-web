@@ -4,6 +4,7 @@ import FeatureBenefits from './FeatureBenefits';
 import FeatureHero from './FeatureHero';
 import FeatureProblem from './FeatureProblem';
 import FeatureHowItWorks from './FeatureHowItWorks';
+import FeatureCTA from './FeatureCTA';
 
 
 interface Props { data:Feature }
@@ -24,7 +25,7 @@ export default function TemplateA({ data }: Props) {
 			<FeatureProblem data={data} />
 			<FeatureHowItWorks data={data} />
 			<FeatureBenefits introText={data.benefitsIntro} featureBenefits={data.benefits} />
-      {/* Render hero, summary, content blocks… */}
+      <FeatureCTA data={data} />
     </main>
   );
 }

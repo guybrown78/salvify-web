@@ -220,6 +220,22 @@ const feature = {
     // Optional long-form
     { name: 'body', title: 'Body', type: 'blockContent' },
 
+		// CTO
+		{
+  		name: 'ctaTitle',
+			title: 'CTA title (H2)',
+			type: 'string',
+			description: 'Shown after the Benefits section',
+			initialValue: 'Ready to modernise your medicine management?',
+		},
+		{
+			name: 'ctaBody',
+			title: 'CTA body',
+			type: 'text',
+			rows: 3,
+			validation: Rule => Rule.max(240),
+		},
+
     // SEO
     { name: 'metaDescription', title: 'Meta Description', type: 'text' },
     { name: 'keywords', title: 'Keywords', type: 'string' },

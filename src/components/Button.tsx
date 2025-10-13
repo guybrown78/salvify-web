@@ -15,14 +15,17 @@ const variantStyles = {
       'bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900',
     blue: 'bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600',
 		green: 'bg-brand-500 text-white hover:text-slate-100 hover:bg-brand-500/80 active:bg-brand-500/70 active:text-slate-100 focus-visible:outline-blue-600',
+		brand: 'bg-brand-500 text-white hover:text-white/80 hover:bg-brand-700 active:bg-brand-500/70 active:text-slate-100 focus-visible:outline-brand-700',
     white:
       'bg-white text-slate-900 hover:bg-blue-50 active:bg-blue-200 active:text-slate-600 focus-visible:outline-white',
   },
   outline: {
     slate:
-      'ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300',
+      'ring-slate-700 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-slate-600 focus-visible:ring-slate-700',
     white:
       'ring-white text-white hover:ring-slate-200 active:ring-slate-300 active:text-slate-400 focus-visible:outline-white',
+		brand:
+      'ring-brand-500 text-brand-500 hover:ring-brand-700 hover:text-brand-700 active:ring-brand-700 active:text-brand-700 focus-visible:outline-brand-700',
   },
 }
 
@@ -36,6 +39,7 @@ export function Button({
   className = clsx(
     baseStyles[variant],
     variantStyles[variant][color],
+		"transition-colors ease-in-out",
     className
   )
 

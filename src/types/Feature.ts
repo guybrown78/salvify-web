@@ -53,6 +53,10 @@ export interface Feature {
   benefitsIntro?: string
   benefits?: FeatureBenefitItem[]
 
+	// CTA
+	ctaTitle?: string;
+  ctaBody?: string;
+	
   // Optional long-form
   body?: PortableTextBlock[]
 
