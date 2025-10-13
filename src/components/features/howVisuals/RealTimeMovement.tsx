@@ -1,12 +1,13 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
-import { motion, useAnimation, useInView, useReducedMotion } from 'framer-motion'
-import { emit } from '@/lib/animationBus'
+import { easeIn, easeInOut, easeOut, motion, useAnimation, useInView, useReducedMotion } from 'framer-motion'
+import { emit, notify } from '@/lib/animationBus'
 import { SimpleHoldingCard } from '@/components/animations/assets/SimpleHoldingCard'
 import { RealTimeKitBagHolding } from './components/RealTimeKitBagHolding'
 import { RealTimeKitStoreHolding } from './components/RealTimeStoreHolding'
 import { RealTimePatientNode } from './components/RealTimePatientNode'
+import Notifications from './components/Notifications'
 
 interface Props { ariaTitle?: string }
 
@@ -76,16 +77,23 @@ const RealTimeMovement = ({
       while (!cancelled) {
         // ---- Leg A: Store → Kit Bag
         setMovingA(true)
-        await pillA.start({ top: legA, transition: { duration: 1.0, ease: 'easeInOut' } })
+        await pillA.start({ top: legA, transition: { duration: 1.5, ease: easeInOut } })
         await pillA.start({ opacity: 0, transition: { duration: 0.12 } })
         emit('transfer:arrived', { leg: 'store→kitbag' })
+				// After Store → Kit Bag arrives
+				notify({
+					type: 'success',
+					title: 'Stock movement',
+					message: `3 items swapped from  <strong>Store Room</strong> to  <strong>Kit Bag</strong>`,
+					meta: { count: 3, from: 'Store Room', to: 'Kit Bag' },
+				})
         setMovingA(false)
-        await wait(1750)
+        await wait(2500)
         if (cancelled) return
 
         // ---- Patient enters, line appears
 				
-				await patient.start({ x: 0, opacity: 1, transition: { duration: 0.45, ease: 'easeOut' } })
+				await patient.start({ x: 0, opacity: 1, transition: { duration: 0.45, ease: easeOut } })
 				await wait(250)
         setLineBVisible(true)
         await wait(750)
@@ -93,21 +101,36 @@ const RealTimeMovement = ({
 
         // ---- Leg B: Kit Bag → Patient
         setMovingB(true)
-        await pillB.start({ top: legB, opacity: 1, transition: { duration: 0.8, ease: 'easeInOut' } })
+        await pillB.start({ top: legB, opacity: 1, transition: { duration: 1.5, ease: easeInOut } })
         await pillB.start({ opacity: 0, transition: { duration: 0.12 } })
         emit('transfer:arrived', { leg: 'kitbag→patient' })
+				// After Kit Bag → Patient arrives
+				notify({
+					type: 'success',
+					title: 'Used on patient',
+					message: `1 item used on patient <strong>PRF 012345</strong>`,
+					meta: { count: 1, prf: 'PRF 012345' },
+				})
         setMovingB(false)
         await wait(1750)
 				setLineBVisible(false)
+				
 				await wait(1500)
 
         // ---- Patient exits, line fades
-				await patient.start({ x: -40, opacity: 0, transition: { duration: 0.45, ease: 'easeIn' } })
+				await patient.start({ x: -40, opacity: 0, transition: { duration: 0.45, ease: easeIn } })
 
         // ---- Reset & loop pause
         pillA.set({ top: 0, opacity: 1 })
         pillB.set({ top: 0, opacity: 0 })
 				patient.set({ x: 80, opacity: 0 })
+				// On reset / restock (example)
+				// notify({
+				// 	type: 'info',
+				// 	title: 'Stock updated',
+				// 	message: `2 items added back to Store Room`,
+				// 	meta: { count: 2, to: 'Store Room' },
+				// })
         await wait(2000)
       }
     })()
@@ -119,8 +142,10 @@ const RealTimeMovement = ({
     <section
       ref={sceneRef}
       aria-label={ariaTitle}
-      className="relative mx-auto w-full max-w-4xl border border-slate-200 p-6 shadow-sm backdrop-blur-sm"
+      className="relative mx-auto w-full max-w-4xl pt-28 pb-6 px-6 backdrop-blur-sm"
     >
+			<Notifications position='top-right' />
+
       <div className="items-between relative flex aspect-[16/9] w-full flex-col justify-center">
         {/* Store Room */}
         <RealTimeKitStoreHolding
@@ -133,7 +158,7 @@ const RealTimeMovement = ({
         {/* TRACK A: Store → Kit Bag (kept exactly with negative margins) */}
         <div
           ref={trackARef}
-          className="relative -mt-5 -mb-5 z-0 flex flex-1 flex-col items-center"
+          className="relative -mt-5 -mb-5 z-0 flex flex-1 flex-col items-center min-h-24"
           aria-hidden="true"
         >
           <div
@@ -146,12 +171,14 @@ const RealTimeMovement = ({
           />
           <motion.div
             ref={pillARef}
-            className="absolute left-1/2 z-10 block h-5 w-20 -translate-x-1/2 rounded-full bg-brand-500"
+            className="absolute left-1/2 z-10 flex items-center justify-center h-5 w-20 -translate-x-1/2 rounded-full bg-brand-500"
             style={{ top: 0 }}
             initial={{ top: 0, opacity: 1 }}
             animate={pillA}
             aria-hidden="true"
-          />
+          >
+						<span className='text-xs text-white font-brand font-extrabold'>Items</span>
+					</motion.div>
         </div>
 
         {/* Kit Bag */}
@@ -167,7 +194,7 @@ const RealTimeMovement = ({
         {/* TRACK B: Kit Bag → Patient (also overlapped with negative margins) */}
         <div
           ref={trackBRef}
-          className="relative -mt-5 -mb-5 z-0 flex flex-1 flex-col items-center"
+          className="relative -mt-5 -mb-5 z-0 flex flex-1 flex-col items-center min-h-24"
           aria-hidden="true"
         >
           <div
@@ -179,12 +206,12 @@ const RealTimeMovement = ({
           />
           <motion.div
             ref={pillBRef}
-            className="absolute left-1/2 z-10 block h-5 w-20 -translate-x-1/2 rounded-full bg-brand-500"
+            className="absolute left-1/2 z-10 flex items-center justify-center  h-5 w-20 -translate-x-1/2 rounded-full bg-brand-500"
             style={{ top: 0 }}
             initial={{ top: 0, opacity: 0 }}
             animate={pillB}
             aria-hidden="true"
-          />
+          ><span className='text-xs text-white font-brand font-extrabold'>Item</span></motion.div>
         </div>
 
 				{/* Patient node (slides in/out) */}

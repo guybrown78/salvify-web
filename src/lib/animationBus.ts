@@ -5,7 +5,7 @@ export const animationBus = new EventTarget()
 export type NotifyKind = 'success' | 'info' | 'warning' | 'error'
 export type NotifyPayload = {
   id?: string
-  kind?: NotifyKind
+  type?: NotifyKind
   title?: string
   message?: string
   meta?: Record<string, any>
