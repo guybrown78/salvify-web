@@ -14,7 +14,7 @@ export function RealTimePatientNode() {
 				const { detail } = e as CustomEvent<{ leg: string }>
 				if(detail.leg === "kitbag→patient"){
 					setShowCheck(true)
-					setTimeout(() => setShowCheck(false), 1000)
+					setTimeout(() => setShowCheck(false), 3200)
 				}
 			}
 	

@@ -21,7 +21,7 @@ export const RealTimeKitBagHolding = React.forwardRef<
       // setSubtitleState(prev => (prev ?? '') + '+')
 			if(detail.leg === "store→kitbag"){
 				setShowCheck(true)
-      	setTimeout(() => setShowCheck(false), 1000)
+      	setTimeout(() => setShowCheck(false), 3200)
 			}
       
       // TODO: trigger other animations here (e.g. Framer controls)

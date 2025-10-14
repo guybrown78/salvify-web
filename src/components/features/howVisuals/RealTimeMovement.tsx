@@ -88,7 +88,7 @@ const RealTimeMovement = ({
 					meta: { count: 3, from: 'Store Room', to: 'Kit Bag' },
 				})
         setMovingA(false)
-        await wait(2500)
+        await wait(3500)
         if (cancelled) return
 
         // ---- Patient enters, line appears

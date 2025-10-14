@@ -14,7 +14,7 @@ type Props = {
 const FeatureBenefits = ({ introText, featureBenefits }: Props) => {
   return (
     <div className="bg-gradient-to-b from-white to-surface-muted">
-      <Container className="border-t-2 border-surface py-24 sm:py-32">
+      <Container className="py-24 sm:py-32">
         <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
           {/* <h2 className="text-base/7 font-semibold">Benefits</h2> */}
 					<ContentH3 title='Benefits' />
