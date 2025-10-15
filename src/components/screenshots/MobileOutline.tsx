@@ -1,20 +1,91 @@
-import clsx from 'clsx';
+import clsx from 'clsx'
 import React from 'react'
 
 interface Props {
-	className?: string;
+  className?: string
 }
 
 const MobileOutline = ({ className }: Props) => {
+  const strokeWidth = 1
+
+  const shellStrokeWidth = 1
+  const innerStrokeWidth = 1
+  const innerOpacity = 1
+
+  const gapTopHeight = 35
+  const gapTopY = 85
+  const gapMidY = 365
+  const gapMidHeight = 140
+
+  // geometry
+  const vbW = 290,
+    vbH = 545
+  const shellRx = 41
+
+  // inner-frame rounded rect (approx to your original)
+  const innerX = 12,
+    innerY = 12,
+    innerW = 264,
+    innerH = 521,
+    innerRx = 28
+
+  // earpiece pill
+  const earX = 95,
+    earY = 30,
+    earW = 96,
+    earH = 14,
+    earRx = 7
+
+  // mask cuts only the right edge segments
+  const rightEdgeX = innerX + innerW - innerStrokeWidth // align to stroke visually
+
   return (
     <svg
-      className={clsx("pointer-events-none absolute inset-0 w-full text-brand-500", className)}
-      viewBox="0 0 290 545"
-			
+      className={clsx(
+        'pointer-events-none absolute inset-0 w-full text-brand-500',
+        className
+      )}
+      viewBox={`0 0 ${vbW} ${vbH}`}
       role="img"
       aria-hidden="true"
       fill="none"
     >
+      <defs>
+        <mask id="earpiece-gaps" maskUnits="userSpaceOnUse">
+          <rect x="0" y="0" width={vbW} height={vbH} fill="#fff" />
+          {/* long mid/left gap */}
+          <rect
+            x={earX + 15}
+            y={earY + earH - 2}
+            width={15}
+            height={4}
+            fill="#000"
+          />
+        </mask>
+        {/* show everything (white) except the gap rectangles (black) */}
+        <mask id="inner-gaps" maskUnits="userSpaceOnUse">
+          <rect x="0" y="0" width={vbW} height={vbH} fill="#fff" />
+          {/* small gap near the top-right */}
+          <rect
+            x={rightEdgeX - 1}
+            y={gapTopY}
+            width={6}
+            height={gapTopHeight}
+            fill="#000"
+            stroke="#fff"
+            strokeWidth="1"
+          />
+          {/* long mid/left gap */}
+          <rect
+            x={innerX - 1}
+            y={gapMidY}
+            width={6}
+            height={gapMidHeight}
+            fill="#000"
+          />
+        </mask>
+      </defs>
+
       <g>
         <rect
           stroke="currentColor"
@@ -22,19 +93,35 @@ const MobileOutline = ({ className }: Props) => {
           y="1"
           width="288"
           height="543"
-          strokeWidth="2"
+          strokeWidth={strokeWidth}
           rx="41"
         ></rect>
-        <path
-          d="M184.5,29 C188.642136,29 192,32.3578644 192,36.5 C192,40.6421356 188.642136,44 184.5,44 L184.5,44 L112.5,44 L112.5,43 L184.5,43 C188.011811,43 190.873151,40.2150038 190.995897,36.7331341 L191,36.5 C191,32.9101491 188.089851,30 184.5,30 L184.5,30 L101.5,30 C97.9101491,30 95,32.9101491 95,36.5 C95,40.0898509 97.9101491,43 101.5,43 L101.5,43 L103.5,43 L103.5,44 L101.5,44 C97.4390827,44 94.1319825,40.7725256 94.0038536,36.7427311 L94,36.5 C94,32.3578644 97.3578644,29 101.5,29 L101.5,29 Z"
+
+        <g
           stroke="currentColor"
-          strokeWidth="1"
-        />
-        <path
-          d="M13,493 L13,505 C13,519.215809 24.4089486,530.766916 38.5700425,531 L252,531 C266.215809,531 277.766916,519.591051 277.996517,505.429958 L278,505 L278,133 L279,133 L279,505 C279,519.911688 266.911688,532 252,532 L39,532 C24.0883118,532 12,519.911688 12,505 L12,493 L13,493 Z M12,39 C12,24.0883118 24.0883118,12 39,12 L252,12 C266.911688,12 279,24.0883118 279,39 L279,102 L278,102 L278,39 C278,24.7841905 266.591051,13.2330838 252.429958,13 L39,13 C24.7841905,13 13.2330838,24.4089486 13.0034833,38.5700425 L13,39 L13,356 L12,356 L12,39 Z"
-          stroke="currentColor"
-          strokeWidth="1"
-        />
+          strokeWidth={innerStrokeWidth}
+          opacity={innerOpacity}
+          vectorEffect="non-scaling-stroke"
+        >
+          {/* earpiece */}
+          <rect
+            x={earX}
+            y={earY}
+            width={earW}
+            height={earH}
+            rx={earRx}
+            mask="url(#earpiece-gaps)"
+          />
+          {/* inner frame with rounded corners; mask creates the gaps on the right */}
+          <rect
+            x={innerX}
+            y={innerY}
+            width={innerW}
+            height={innerH}
+            rx={innerRx}
+            mask="url(#inner-gaps)"
+          />
+        </g>
       </g>
     </svg>
   )
