@@ -78,12 +78,12 @@ const NotificationItemCard = ({ item, isTop, index, onItemRemoved }: Props) => {
         className={clsx('max-w-64 rounded-md bg-surface-muted p-3 shadow-md')}
       >
         <div className="flex items-center justify-between gap-2">
-          <p className="text-xs font-semibold">{item.title}</p>
+          <p className="text-md font-semibold">{item.title}</p>
 
           {item.type && BADGE[item.type] && (
             <span
               className={clsx(
-                'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs capitalize',
+                'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-sm capitalize',
                 BADGE[item.type].className
               )}
               aria-label={BADGE[item.type].label}
@@ -95,7 +95,7 @@ const NotificationItemCard = ({ item, isTop, index, onItemRemoved }: Props) => {
         </div>
         {item.message && (
           <div
-            className="prose prose-slate mt-2 text-xs"
+            className="prose prose-slate mt-2 text-md"
             dangerouslySetInnerHTML={{ __html: item.message }}
           />
         )}

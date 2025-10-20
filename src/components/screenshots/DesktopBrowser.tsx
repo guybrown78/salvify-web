@@ -4,8 +4,10 @@ import React, { ReactNode, useId } from 'react'
 export const VB = { w: 600, h: 350 } as const; // viewBox
 export const STROKE = 1;
 
-export const FRAME = { x: 1, y: 1, w: 598, h: 348, r: 15 } as const; // outer outline
-export const BG = { x: 1, y: 30, w: 598, h: 320, r: 15 } as const; // inner background
+// outer outline
+export const FRAME = { x: 1, y: 1, w: 598, h: 348, r: 15 } as const; 
+// inner background
+export const BG = { x: 1, y: 30, w: 598, h: 320, r: 15 } as const; 
 
 // Content insets (in viewBox units) + radius for the middle div
 export const CONTENT = { padX: 12, padY: 12, headerOffsetY: 35, radius: 14 } as const;

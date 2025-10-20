@@ -13,17 +13,17 @@ export const Footer = async () => {
   const loginURL = process.env.NEXT_PUBLIC_SIGN_IN_URL
 
   return (
-    <footer className="border-t border-slate-200/50 bg-surface">
+    <footer className="border-t border-surface-muted bg-surface">
       <Container>
         <div className="pb-8 pt-24 lg:pt-32">
           <div className="flex gap-8">
-            <div className="flex flex-grow lg:flex-grow-0 flex-row lg:flex-col justify-between">
+            <div className="flex flex-grow lg:flex-grow-0 flex-row lg:flex-col justify-between items-start">
 
-              <div className="flex-col gap-y-1">
-                <LogoLink size='sm' />
-								<p className="text-sm leading-6 text-slate-600">
+              <div className="flex-col justify-start items-start">
+                <LogoLink size='responsive' />
+								<p className="mt-1 pl-1 text-xs md:text-sm leading-6 text-ink"> 
 									Confidence in Care
-								</p>
+								</p> 
               </div>
               
 

@@ -25,8 +25,8 @@ export const SimpleHoldingCard = React.forwardRef<
 			{leftSlot}
 			<div className="flex items-center gap-3 text-center text-fg">
         <div>
-          <h4 className="text-sm font-extrabold">{title}</h4>
-          {subtitle && <p className="text-xs">{subtitle}</p>}
+          <h4 className="text-md font-extrabold">{title}</h4>
+          {subtitle && <p className="text-sm">{subtitle}</p>}
         </div>
       </div>
 			{rightSlot}

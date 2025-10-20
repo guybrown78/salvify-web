@@ -177,7 +177,7 @@ const RealTimeMovement = ({
             animate={pillA}
             aria-hidden="true"
           >
-						<span className='text-xs text-white font-brand font-extrabold'>Items</span>
+						<span className='text-md text-white font-brand font-extrabold'>Items</span>
 					</motion.div>
         </div>
 
@@ -211,7 +211,7 @@ const RealTimeMovement = ({
             initial={{ top: 0, opacity: 0 }}
             animate={pillB}
             aria-hidden="true"
-          ><span className='text-xs text-white font-brand font-extrabold'>Item</span></motion.div>
+          ><span className='text-md text-white font-brand font-extrabold'>Item</span></motion.div>
         </div>
 
 				{/* Patient node (slides in/out) */}
