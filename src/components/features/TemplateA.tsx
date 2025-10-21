@@ -16,12 +16,7 @@ export default function TemplateA({ data }: Props) {
   return (
 		// mx-auto max-w-7xl px-4 py-12
     <main role="main" className="">
-      <FeatureHero 
-				heroEyebrow={data.heroEyebrow}
-				heroTitle={data.heroTitle} 
-				heroSubTitle={data.heroSubTitle} 
-				overview={data.overview}
-			/>
+      <FeatureHero data={data} />
 			<FeatureProblem data={data} />
 			<FeatureHowItWorks data={data} />
 			<FeatureBenefits introText={data.benefitsIntro} featureBenefits={data.benefits} />

@@ -258,7 +258,10 @@ groq`*[_type == "feature" && slug.current == $slug][0]{
   "heroEyebrow": coalesce(heroEyebrow, "Platform feature"),
 	heroSubTitle,
   overview,
-  "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
+	heroVisual,
+	heroComponentKey,
+	"heroSvg": { "url": heroSvg.asset->url, "alt": heroSvg.alt },
+	"heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
 
 	"problemEyebrow": coalesce(problemEyebrow, "Why this matters"),
 	problemTitle,

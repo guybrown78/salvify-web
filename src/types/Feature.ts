@@ -33,7 +33,10 @@ export interface Feature {
   heroTitle: string
   heroSubTitle?: string
   overview?: string
-  heroImage?: { url: string; alt?: string }
+	heroVisual?: Visual;
+  heroComponentKey?: string;
+  heroSvg?: { url: string; alt?: string };
+  heroImage?: { url: string; alt?: string };
 
 	// Problem Context
 	problemEyebrow?: string;

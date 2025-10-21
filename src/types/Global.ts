@@ -1,1 +1,1 @@
-export type Visual = 'image' | 'component';
+export type Visual = 'image' | 'component' | 'svg';

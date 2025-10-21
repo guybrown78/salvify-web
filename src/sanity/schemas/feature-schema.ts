@@ -102,12 +102,42 @@ const feature = {
 			validation: Rule => Rule.max(150),
     },
     {
-      name: 'heroImage',
-      title: 'Hero image',
-      type: 'image',
-      options: { hotspot: true },
-      fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
-    },
+  name: 'heroVisual',
+		title: 'Hero visual',
+		type: 'string',
+		options: {
+			list: [
+				{ title: 'Image', value: 'image' },
+				{ title: 'SVG', value: 'svg' },
+				{ title: 'Component', value: 'component' },
+			],
+			layout: 'radio',
+		},
+		initialValue: 'image',
+	},
+	{
+		name: 'heroComponentKey',
+		title: 'Hero component key',
+		type: 'string',
+		description: 'Key your frontend maps to a React component.',
+		hidden: ({document}) => document?.heroVisual !== 'component',
+	},
+	{
+		name: 'heroSvg',
+		title: 'Hero SVG',
+		type: 'file',
+		options: { accept: 'image/svg+xml' },
+		fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+		hidden: ({document}) => document?.heroVisual !== 'svg',
+	},
+	{
+		name: 'heroImage',
+		title: 'Hero image',
+		type: 'image',
+		options: { hotspot: true },
+		fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+		hidden: ({document}) => document?.heroVisual !== 'image',
+	},
 
 
 		// Problem Context
