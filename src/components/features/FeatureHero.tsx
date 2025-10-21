@@ -57,7 +57,7 @@ const FeatureHero = ({ data }: Props) => {
           ) : data.heroVisual === 'svg' && data.heroSvg?.url ? (
             // Next/Image doesn't optimise SVG; use <img>
             // Ensure alt includes "medicine management" for SEO where appropriate
-            <image
+            <img
               src={data.heroSvg.url}
               alt={data.heroSvg.alt || 'Medical inventory and medicine management hero graphic'}
               className="w-full h-auto rounded-2xl"
