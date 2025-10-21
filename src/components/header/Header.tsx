@@ -8,6 +8,7 @@ import { buildSections } from '@/utils/nav'
 import LogoLink from './LogoLink'
 import MobileNavigation from './MobileNav'
 import DesktopNav from './DesktopNav'
+import { Button } from '../Button'
 
 export const Header = async () => {
 	const sections = await buildSections()
@@ -23,7 +24,10 @@ export const Header = async () => {
 
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <NavLink href={loginURL}>Sign in</NavLink>
+              {/* <NavLink href={loginURL}>Sign in</NavLink> */}
+							<Button href={loginURL} color="white" className="">
+								<span className='inline font-medium'>Sign&nbsp;in</span>
+							</Button>
             </div>
             <BookDemoButton />
             <div className="-mr-1 lg:hidden">

@@ -11,13 +11,17 @@ const baseStyles = {
 
 const variantStyles = {
   solid: {
+		ink:
+      'bg-ink text-surface hover:bg-ink/80  hover:text-surface/80 active:bg-ink active:text-white focus-visible:outline-brand-500',
     slate:
       'bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900',
+		surface:
+      'bg-surface text-fg hover:bg-surface-muted  hover:text-fg/80 active:bg-surface active:text-fg focus-visible:outline-brand-500',
     blue: 'bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600',
 		green: 'bg-brand-500 text-white hover:text-slate-100 hover:bg-brand-500/80 active:bg-brand-500/70 active:text-slate-100 focus-visible:outline-blue-600',
-		brand: 'bg-brand-500 text-white hover:text-white/80 hover:bg-brand-700 active:bg-brand-500/70 active:text-slate-100 focus-visible:outline-brand-700',
+		brand: 'bg-brand-500 text-white hover:text-surface hover:bg-brand-700 active:bg-brand-500/70 active:text-white focus-visible:outline-brand-500',
     white:
-      'bg-white text-slate-900 hover:bg-blue-50 active:bg-blue-200 active:text-slate-600 focus-visible:outline-white',
+      'bg-white text-fg hover:bg-surface active:bg-surface/50 active:text-fg focus-visible:outline-brand-500',
   },
   outline: {
     slate:
@@ -31,7 +35,7 @@ const variantStyles = {
 
 export function Button({
   variant = 'solid',
-  color = 'slate',
+  color = 'ink',
   className,
   href,
   ...props

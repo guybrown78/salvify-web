@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react'
 import { HiOutlineBars3, HiOutlineXMark } from 'react-icons/hi2'
 import LogoLink from './LogoLink'
 import MobileNavItem from './MobileNavItem'
+import BookDemoButton from '../BookDemoButton'
+import { Button } from '../Button'
 
 function MobileNavIcon({ open }: { open: boolean }) {
   return (
@@ -103,7 +105,7 @@ function MobileNavContent({
                   <div className="h-20 py-6">
                     <LogoLink onClose={close} size="sm" />
                   </div>
-                  <nav className="flex flex-1 flex-col overflow-auto">
+                  <nav className="flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
                     <motion.ul
                       layout
                       className="mx-2 mb-2 mt-1 divide-y divide-slate-200"
@@ -124,21 +126,23 @@ function MobileNavContent({
                     </motion.ul>
                   </nav>
                   <div className="min-h-20 py-4">
-                    <a
+                    <Button
                       href={loginURL}
                       onClick={close}
-                      className="mb-2 flex w-full justify-center rounded-md bg-gray-200 p-2 text-center text-xl"
+											color="surface"
+                      className="mb-2 w-full p-2 text-center text-xl font-normal"
                     >
-                      Sign in
-                    </a>
+                     <span className='inline font-medium'>Sign&nbsp;in</span>
+                    </Button>
 
-                    <Link
+                    <Button
                       href="/contact/book-a-demo"
                       onClick={close}
-                      className="flex w-full justify-center rounded-md bg-gray-900 p-2 text-center text-xl text-white"
+											color="brand"
+                      className="w-full p-2 text-center text-xl"
                     >
                       Book a Demo
-                    </Link>
+                    </Button>
                   </div>
                 </div>
               </PopoverPanel>

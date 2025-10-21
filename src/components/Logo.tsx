@@ -33,7 +33,7 @@ export function Logo({
     <svg
       aria-hidden="true"
       viewBox="0 0 1000 280"
-      className={clsx('pointer-events-none relative w-full', className)}
+      className={clsx('pointer-events-none relative w-auto', className)}
       {...props}
     >
       <path
@@ -70,7 +70,7 @@ export function LogoMark({
     <svg
       viewBox="0 0 1030 1030"
       aria-hidden="true"
-      className={clsx('pointer-events-none relative w-full', className)}
+      className={clsx('pointer-events-none relative w-auto', className)}
       {...props}
     >
       <path
@@ -107,7 +107,7 @@ export function LogoText({
     <svg
       viewBox="0 0 1030 350"
       aria-hidden="true"
-      className={clsx('pointer-events-none relative w-full', className)}
+      className={clsx('pointer-events-none relative w-auto', className)}
       {...props}
     >
       <path

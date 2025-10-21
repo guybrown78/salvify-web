@@ -11,6 +11,6 @@ export default function NavLinkOrText({
       {children}
     </Link>
   ) : (
-    <span className={`font-semibold text-gray-900 ${className}`}>{children}</span>
+    <span className={`font-semibold text-fg ${className}`}>{children}</span>
   )
 }

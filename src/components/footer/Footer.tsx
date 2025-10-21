@@ -21,7 +21,7 @@ export const Footer = async () => {
 
               <div className="flex-col justify-start items-start">
                 <LogoLink size='responsive' />
-								<p className="mt-1 pl-1 text-xs md:text-sm leading-6 text-ink"> 
+								<p className="mt-1 pl-0 md:pl-1 text-xs md:text-sm leading-6 text-ink"> 
 									Confidence in Care
 								</p> 
               </div>

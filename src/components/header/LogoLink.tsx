@@ -19,7 +19,7 @@ const LogoLink = ({ onClose, size = 'responsive', className }: Props) => {
 
 	return (
 		<Link href="/" aria-label="Home" onClick={onClose ? onClose : null}>
-			<Logo className={clsx(sizeClasses, "w-auto", className)} />
+			<Logo className={clsx(sizeClasses, className)} />
 		</Link>
 	)
 }

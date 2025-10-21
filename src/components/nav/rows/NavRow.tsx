@@ -47,7 +47,7 @@ export default function NavRow({
         </NavLinkOrText>
 
         {showDescription && item.description && (
-          <p className="inline-flex mt-1 text-gray-600">{item.description}</p>
+          <p className="inline-flex mt-1 text-fg/80">{item.description}</p>
         )}
       </div>
     </div>

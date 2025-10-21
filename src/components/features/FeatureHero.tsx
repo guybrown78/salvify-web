@@ -36,7 +36,7 @@ const FeatureHero = ({ heroEyebrow, heroTitle, heroSubTitle, overview }: Props) 
         <div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0 flex items-center justify-center">
 					<ScreenImageContainer className="w-[min(90vw,728px)]" aspect='responsive'>
 						<div className='flex flex-col'>
-							<div className='h-12 bg-surface-muted w-56 md:w-96'>1</div>
+							<div className='h-12 bg-surface-muted w-56 md:w-96'></div>
 							<div className='mt-6 h-8 bg-surface-muted w-48'></div>
 						</div>
 					</ScreenImageContainer>
