@@ -1,32 +1,33 @@
 import React from 'react'
 
-const ExpiryHero = () => {
+const ClientUserHero = () => {
 	return (
 		<div>
-			Expiry Hero 
+			ClientUser Hero 
 			<div className='mt-4 text-xs'>
 				<p><span className='font-extrabold'>TODO</span></p>
 					<ul className='list-none flex-col space-y-2'>
 						<li className='bg-surface-muted p-4'>
 							 <span className='font-extrabold mr-1'>Layout:</span>
-							 Product card showing Batch and Expiry fields with a slim horizontal timeline labelled Today → Expires. A compact list of locations includes Site A and Kit 12.
+							 Three static columns: Clients, Sites, Users. User chips include small role badges.
 						</li>
 						<li className='bg-surface p-4'>
 							<span className='font-extrabold mr-1'>Focus:</span>
-							A prominent badge near the timeline reads Expires in 7 days. Batch code is visible on the card.
+							Client Alpha and Site A are highlighted to show hierarchy; the Users column shows a clear list structure.
 						</li>
 						<li className='bg-accent p-4'>
 							<span className='font-extrabold mr-1'>Accents:</span>
-							Quarantine tag on the product card; subtle highlight on Site A and Kit 12.
+							One user chip is greyed out with a Disabled tag; others display role pills.
 						</li>
 						<li className='bg-surface/50 p-4'>
 							<span className='font-extrabold mr-1'>Alt:</span>
-							Expiry alert and batch tracing for compliant medicine management.
+							Client, site and user structure with roles for secure medical inventory management.
 						</li>
 					</ul>
 			</div>
+
 		</div>
 	)
 }
 
-export default ExpiryHero
+export default ClientUserHero

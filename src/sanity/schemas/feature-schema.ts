@@ -248,7 +248,12 @@ const feature = {
     },
 
     // Optional long-form
-    { name: 'body', title: 'Body', type: 'blockContent' },
+   {
+			name: 'body',
+			title: 'Body (deprecated)',
+			type: 'blockContent',
+			hidden: true, // we are not using this
+		},
 
 		// CTO
 		{
@@ -266,9 +271,42 @@ const feature = {
 			validation: Rule => Rule.max(240),
 		},
 
-    // SEO
-    { name: 'metaDescription', title: 'Meta Description', type: 'text' },
-    { name: 'keywords', title: 'Keywords', type: 'string' },
+		// SEO
+		{
+			name: 'noindex',
+			title: 'Noindex this page',
+			type: 'boolean',
+			description: 'Adds meta robots noindex,nofollow.',
+			initialValue: false,
+		},
+		{
+			name: 'ogImage',
+			title: 'Open Graph image (social share)',
+			type: 'image',
+			options: { hotspot: true },
+			fields: [{ name: 'alt', title: 'Alt', type: 'string' }],
+			description: 'Used on social cards; otherwise we fall back to the hero visual.',
+		},
+		{
+			name: 'canonical',
+			title: 'Canonical URL override',
+			type: 'url',
+			description: 'Only set if this page should point to a different canonical.',
+		},
+		{
+			name: 'metaDescription',
+			title: 'Meta Description',
+			type: 'text',
+			validation: Rule =>
+				Rule.max(160).warning('Keep to ~160 characters for best SERP display'),
+		},
+		{
+			name: 'keywords',
+			title: 'Keywords',
+			type: 'string',
+			description: 'Comma-separated; keep short and focused.',
+		},
+
 
     // Admin
     { name: 'publishedAt', title: 'Published at', type: 'datetime' },

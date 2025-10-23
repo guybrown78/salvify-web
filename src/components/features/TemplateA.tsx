@@ -11,8 +11,6 @@ interface Props { data:Feature }
 
 export default function TemplateA({ data }: Props) {
   // Same props as TemplateB — just different layout/styling
-	console.log("template a")
-	console.log(data)
   return (
 		// mx-auto max-w-7xl px-4 py-12
     <main role="main" className="">

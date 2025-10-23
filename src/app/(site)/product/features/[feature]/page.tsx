@@ -13,19 +13,30 @@ const templates = {standard: TemplateA, accent: TemplateB, premium: TemplateA } 
 
 export const revalidate = 60;
 
+export const generateMetadata = async ({ params }:Props) => {
+	const slug = params.feature;
+	const feature:Feature = await getFeature(slug);
+
+	if(!feature) return null;
+
+	return {
+		title: `Platform feature: ${feature.title}`,
+		description: feature.menuDescription,
+		keywords: feature.keywords
+	};
+};
+
+
 const FeaturePage = async ({ params }:Props) => {
 
 	const slug = params.feature;
 	const feature:Feature = await getFeature(slug)
 
-	// console.log("slug", slug)
-	// console.log(feature)
 	if(!feature) return (<div>no data</div>)
 
 	const Template = templates[feature.template ?? "a"];
   	return (
 			<>
-				{/* <Link href="/product/features">All Features</Link> */}
 				<Template data={feature} />
 			</>
 			
