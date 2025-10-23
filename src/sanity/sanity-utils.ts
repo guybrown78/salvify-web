@@ -246,6 +246,7 @@ export async function getFaqs():Promise<Faq[]> {
 	)
 }
 
+// FEATURES
 export const featureBySlugQuery = 
 groq`*[_type == "feature" && slug.current == $slug][0]{
   _id,
@@ -326,4 +327,104 @@ export async function getFeature(slug: string):Promise<Feature> {
   return createClient(clientConfig).fetch(featureBySlugQuery, { slug });
 }
 
+// USE CASES
+export const useCaseBySlugQuery = groq`*[_type == "useCase" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug": slug.current,
+  template,
+
+  // Hero
+  "heroEyebrow": coalesce(heroEyebrow, "Use case"),
+  "heroTitle": coalesce(heroTitle, title),
+  heroSubTitle,
+  overview,
+  heroVisual,
+  heroComponentKey,
+  "heroSvg": { "url": heroSvg.asset->url, "alt": heroSvg.alt },
+  "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
+
+  // Problem / Challenge
+  "problemEyebrow": coalesce(problemEyebrow, "Why this matters"),
+  problemTitle,
+  problemIntro,
+  problemPoints,
+  "problemImage": { "url": problemImage.asset->url, "alt": problemImage.alt },
+  problemComponentKey,
+
+  // How Salvify helps
+  howItWorks,
+  howVisual,
+  howComponentKey,
+  "howImage": { "url": howImage.asset->url, "alt": howImage.alt },
+
+  // Benefits (reuse Benefit library)
+  benefitsIntro,
+  benefits[]{
+    featureBenefitTitle,
+    benefit->{ _id, title, statement, icon }
+  },
+
+  // Who it’s for
+  audiences,
+
+  // Related content (use cases + features)
+  relatedContent[]->{
+    _type,
+    _id,
+    title,
+    "slug": slug.current,
+    // for menu cards
+    "label": coalesce(menuLabel, title),
+    menuIcon,
+    menuDescription
+  },
+
+  // CTA
+  "ctaTitle": coalesce(ctaTitle, "Ready to simplify your inventory?"),
+  ctaBody,
+
+  // SEO
+  metaDescription,
+  keywords,
+  publishedAt
+}`
+
+// Menu list (same ordering approach as Features)
+export const useCasesMenuQuery = groq`
+  *[_type == "useCase" && defined(slug.current) && coalesce(inMenu, true)]
+  | order(coalesce(menuOrder, 100) asc, coalesce(menuLabel, title) asc)
+  {
+    _id,
+    "slug": slug.current,
+    "label": coalesce(menuLabel, title),
+    template,
+    menuOrder,
+    menuIcon,
+    menuDescription
+  }
+`
+
+// Lightweight list (for indexes/sitemaps/admin)
+export const useCasesListQuery = groq`
+  *[_type == "useCase"]{
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt
+  } | order(coalesce(menuOrder, 100) asc, title asc)
+`
+
+// Helpers (match your Feature helpers style)
+export async function getUseCasesMenu() {
+  return createClient(clientConfig).fetch(useCasesMenuQuery)
+}
+
+export async function getUseCases() {
+  return createClient(clientConfig).fetch(useCasesListQuery)
+}
+
+export async function getUseCase(slug: string) {
+  return createClient(clientConfig).fetch(useCaseBySlugQuery, { slug })
+}
 

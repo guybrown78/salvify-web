@@ -1,12 +1,13 @@
 import { HiOutlineSquares2X2 } from 'react-icons/hi2'
 
-import { getFeaturesMenu, getLatestInsights } from '@/sanity/sanity-utils' // adjust path
+import { getFeaturesMenu, getLatestInsights, getUseCasesMenu } from '@/sanity/sanity-utils' // adjust path
 
 import { NavItem } from './nav-types'
 
 
 export async function buildSections(): Promise<NavItem[]> {
   const features = await getFeaturesMenu()
+	const useCases = await getUseCasesMenu()
   const latestInsights = await getLatestInsights()
 
   const featureChildren: NavItem[] = features.map((f) => ({
@@ -16,6 +17,12 @@ export async function buildSections(): Promise<NavItem[]> {
     icon: f.menuIcon,
   }))
 
+	const useCaseChildren: NavItem[] = useCases.map((uc) => ({
+		name: uc.label,
+		href: `/solutions/use-cases/${uc.slug}`,
+		description: uc.menuDescription,
+    icon: uc.menuIcon,
+	}))
   const latestInsightChildren: NavItem[] = latestInsights.map((insight) => ({
     name: insight.title,
     href: `/insights/${insight.slug}`,
@@ -77,18 +84,21 @@ export async function buildSections(): Promise<NavItem[]> {
         },
         {
           name: 'Use Cases',
-          description: '',
+          description: 'Discover practical ways Salvify improves inventory and compliance daily.',
+					icon: 'HiOutlineDocumentCheck',
           variant: 'block',
-          children: [
-            {
-              name: 'Use Cases',
-              description:
-                'Discover practical ways Salvify improves inventory and compliance daily.',
-              href: '/solutions/use-cases',
-              icon: 'HiOutlineDocumentCheck',
+         children: useCaseChildren.length
+            ? useCaseChildren
+            : [
+                {
+                  name: 'All features',
+                  href: '/product/features',
+                  icon: 'HiOutlineSquares2X2',
+                },
+              ],
             },
-          ],
-        },
+     
+   
       ],
     },
 		  {

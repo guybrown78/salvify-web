@@ -12,6 +12,7 @@ import faq from "./faq-schema";
 import industry from "./industry-schema";
 import feature from "./feature-schema";
 import benefit from "./benefit-schema";
+import useCase from "./useCase-schema";
 
 const schemas = [
 	project,
@@ -27,6 +28,7 @@ const schemas = [
 	faq,
 	feature,
 	benefit,
+	useCase,
 ]
 
 export default schemas;

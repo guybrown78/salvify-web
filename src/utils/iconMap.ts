@@ -32,12 +32,17 @@ import {
 	HiOutlineTrash,
 	HiOutlineUserGroup,
 	HiOutlineUserPlus,
-	HiOutlineQuestionMarkCircle
+	HiOutlineQuestionMarkCircle,
+	HiOutlineBeaker
 } from 'react-icons/hi2';
 
 import type { BenefitIconKey } from '@/sanity/shared/benefit-icons';
 import type { NavIconKey } from './nav-types';
 import { FeatureIconKey } from '@/sanity/shared/feature-icons';
+import type { UseCaseIconKey } from '@/sanity/shared/useCase-icons'
+import { mergeIconMaps } from './MergeIconMaps';
+
+
 
 export const benefitIconMap = {
   HiOutlineEye,
@@ -81,23 +86,42 @@ export const featureIconMap = {
 
 export type { FeatureIconKey };
 
-export const NavItemIconMap = {
-	...featureIconMap,
-  HiOutlineBuildingOffice2,
-  HiOutlineChartBar,
-  HiOutlineChatBubbleLeftRight,
-  HiOutlineClipboardDocumentCheck,
-  HiOutlineClock,
+export const useCaseIconMap = {
+  HiOutlineClipboardDocumentList,
+  HiOutlineBeaker,
   HiOutlineCube,
-  HiOutlineDocumentCheck,
-  HiOutlineDocumentText,
-  HiOutlineHashtag,
-  HiOutlineInformationCircle,
-  HiOutlineKey,
-  HiOutlineLightBulb,
-  HiOutlineNewspaper,
-  HiOutlinePuzzlePiece,
-  HiOutlineSquares2X2,
-  HiOutlineUserGroup,
-	HiOutlineQuestionMarkCircle
-} satisfies Record<NavIconKey, IconType>;
+  HiOutlineClock,
+  HiOutlineBuildingOffice2,
+} satisfies Record<UseCaseIconKey, IconType>
+
+export type { UseCaseIconKey }
+
+
+
+
+export const NavItemIconMap = mergeIconMaps(
+  [
+	featureIconMap,
+	useCaseIconMap,
+  // HiOutlineBuildingOffice2,
+  {
+		HiOutlineChartBar,
+		HiOutlineChatBubbleLeftRight,
+		HiOutlineClipboardDocumentCheck,
+		HiOutlineClock,
+		// HiOutlineCube,
+		HiOutlineDocumentCheck,
+		HiOutlineDocumentText,
+		HiOutlineHashtag,
+		HiOutlineInformationCircle,
+		HiOutlineKey,
+		HiOutlineLightBulb,
+		HiOutlineNewspaper,
+		HiOutlinePuzzlePiece,
+		HiOutlineSquares2X2,
+		HiOutlineUserGroup,
+		HiOutlineQuestionMarkCircle
+	}
+],
+  { precedence: 'first-wins', warnDuplicates: true }
+) as Record<NavIconKey, IconType>
