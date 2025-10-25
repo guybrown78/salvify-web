@@ -1,6 +1,6 @@
 import { CallToAction } from '@/components/CallToAction'
 import { Faqs } from '@/components/Faqs'
-import { Hero } from '@/components/Hero'
+import { HeroLegacy } from '@/components/hero/HeroLegacy'
 import { Benefits } from '@/components/Benefits'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
@@ -18,7 +18,7 @@ export const revalidate = 60;
 export default function Home() {
   return (
     <>
-			<Hero />
+			<HeroLegacy />
 			<PrimaryFeatures />
 			<SecondaryFeatures />
 			<CallToAction />

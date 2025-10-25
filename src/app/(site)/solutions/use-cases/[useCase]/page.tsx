@@ -1,4 +1,4 @@
-import HeroH1 from '@/components/hero/HeroH1';
+import UseCaseTemplate from '@/components/use-cases/UseCaseTemplate';
 import { getUseCase } from '@/sanity/sanity-utils';
 import { UseCase } from '@/types/UseCase';
 import React from 'react'
@@ -16,10 +16,9 @@ const UseCasePage = async ({ params }:Props) => {
 	if(!useCase) return (<div>no data</div>)
 
 	return (
-		<div>
-			UseCasePage 
-			<HeroH1 title={useCase.heroTitle} />
-		</div>
+		<>
+			<UseCaseTemplate data={useCase} />
+		</>
 	)
 }
 
