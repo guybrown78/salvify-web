@@ -235,14 +235,14 @@ const useCase = {
               validation: Rule => Rule.required(),
             },
             {
-              name: 'featureBenefitTitle',
+              name: 'useCaseBenefitTitle',
               title: 'Use-case specific title line',
               type: 'string',
               description: 'Additional line shown with this benefit on this page',
             },
           ],
           preview: {
-            select: { ft: 'featureBenefitTitle', bt: 'benefit.title' },
+            select: { ft: 'useCaseBenefitTitle', bt: 'benefit.title' },
             prepare: ({ ft, bt }) => ({ title: ft || '(no title override)', subtitle: bt }),
           },
         },
@@ -251,6 +251,21 @@ const useCase = {
     },
 
     // Who it’s for (Phase-1 friendly: simple strings now; can upgrade to references later)
+		{
+			name: 'audiencesTitle',
+			title: 'Who it’s for — Title (H2)',
+			type: 'string',
+			initialValue: 'Who it’s for',
+			validation: Rule => Rule.max(80),
+		},
+		{
+			name: 'audiencesIntro',
+			title: 'Who it’s for — Intro',
+			type: 'text',
+			rows: 3,
+			description: 'Short context line shown above the audience list.',
+			validation: Rule => Rule.max(240),
+		},
     {
       name: 'audiences',
       title: 'Who it’s for',
@@ -277,7 +292,7 @@ const useCase = {
       title: 'CTA title (H2)',
       type: 'string',
       description: 'Shown after the Benefits section',
-      initialValue: 'Ready to simplify your inventory?',
+      initialValue: 'Ready to simplify your medicine management?',
     },
     {
       name: 'ctaBody',

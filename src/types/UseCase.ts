@@ -1,28 +1,28 @@
 
 import type { PortableTextBlock } from '@portabletext/types'
 import type { Benefit } from './Benefit'
-import type { Visual } from './Global'
+import type { RelatedContentCard, Visual } from './Global'
 import { UseCaseIconKey } from '@/sanity/shared/useCase-icons'
 
 export type UseCaseTemplate = 'standard' | 'accent' | 'premium'
 
 export interface UseCaseBenefitItem {
-  featureBenefitTitle?: string
+  useCaseBenefitTitle?: string
   benefit?: Benefit
 }
 
-export type RelatedContentType = 'useCase' | 'feature'
+// export type RelatedContentType = 'useCase' | 'feature'
 
-export interface RelatedContentCard {
-  _type: RelatedContentType
-  _id: string
-  title: string
-  slug: string
-  // For card/menu rendering
-  label?: string
-  menuIcon?: UseCaseIconKey
-  menuDescription?: string
-}
+// export interface RelatedContentCard {
+//   _type: RelatedContentType
+//   _id: string
+//   title: string
+//   slug: string
+//   // For card/menu rendering
+//   label?: string
+//   menuIcon?: UseCaseIconKey
+//   menuDescription?: string
+// }
 
 export interface UseCase {
   _id: string
@@ -68,6 +68,8 @@ export interface UseCase {
   benefits?: UseCaseBenefitItem[]
 
   // Who it’s for
+	audiencesTitle?: string
+  audiencesIntro?: string
   audiences?: string[]
 
   // Related internal links (use-cases or features)

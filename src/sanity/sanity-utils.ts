@@ -361,11 +361,13 @@ export const useCaseBySlugQuery = groq`*[_type == "useCase" && slug.current == $
   // Benefits (reuse Benefit library)
   benefitsIntro,
   benefits[]{
-    featureBenefitTitle,
+    useCaseBenefitTitle,
     benefit->{ _id, title, statement, icon }
   },
 
   // Who it’s for
+	audiencesTitle,
+  audiencesIntro,
   audiences,
 
   // Related content (use cases + features)

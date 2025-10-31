@@ -23,6 +23,10 @@ export const BENEFIT_ICON_KEYS = [
   'HiOutlineFolder',
   'HiOutlineChartPie',
   'HiOutlineArrowDownTray',
+	'HiOutlineArrowPathRoundedSquare',
+	'HiOutlineArrowsRightLeft',
+	'HiOutlineGlobeEuropeAfrica',
+	'HiOutlineBuildingOffice2',
 ] as const;
 
 export type BenefitIconKey = typeof BENEFIT_ICON_KEYS[number];

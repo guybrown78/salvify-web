@@ -33,7 +33,10 @@ import {
 	HiOutlineUserGroup,
 	HiOutlineUserPlus,
 	HiOutlineQuestionMarkCircle,
-	HiOutlineBeaker
+	HiOutlineBeaker,
+	HiOutlineArrowPathRoundedSquare,
+	HiOutlineArrowsRightLeft,
+	HiOutlineGlobeEuropeAfrica,
 } from 'react-icons/hi2';
 
 import type { BenefitIconKey } from '@/sanity/shared/benefit-icons';
@@ -69,6 +72,10 @@ export const benefitIconMap = {
   HiOutlineFolder,
   HiOutlineChartPie,
   HiOutlineArrowDownTray,
+	HiOutlineArrowPathRoundedSquare,
+	HiOutlineArrowsRightLeft,
+	HiOutlineGlobeEuropeAfrica,
+	HiOutlineBuildingOffice2,
 } satisfies Record<BenefitIconKey, IconType>;
 
 export type { BenefitIconKey };

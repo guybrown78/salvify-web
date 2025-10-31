@@ -52,9 +52,9 @@
   --color-cta-hover: var(--color-brand-700);
   --color-border: oklch(0.92 0.01 240);
   --color-link: var(--color-brand-700);
-  --color-danger: #b42318;
-  --color-warning: #ab6400;
-  --color-success: #1a7f37;
+  --color-danger: #AF554F;
+  --color-warning: #C19650;
+  --color-success: #4F9C67;
 }
 
 /* Dark */

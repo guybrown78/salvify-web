@@ -4,7 +4,7 @@ import { benefitIconMap } from '@/utils/iconMap'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { FeatureBenefitItem } from '@/types/Feature'
 import { Container } from '../Container'
-import ContentH3 from '../ titles/ContentH3'
+import { ContentH3 } from '../titles/Titles'
 
 type Props = {
   introText: string
@@ -22,10 +22,7 @@ const FeatureBenefits = ({ introText, featureBenefits }: Props) => {
           <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6">
             {featureBenefits.map((featureBenefit) => {
               const benefit = featureBenefit.benefit
-              console.log('>>>>>>', benefit.title, benefit.statement)
 
-              console.log(benefit)
-              console.log(benefit._id)
               const IconCmp =
                 (benefit.icon && benefitIconMap[benefit.icon]) || HiNoSymbol
               return (

@@ -9,7 +9,6 @@ type Props = {
 
 const UseCaseHero = ({ data }: Props) => {
 	const { heroEyebrow, heroTitle, heroSubTitle, overview } = data;
-	console.log(heroEyebrow, heroTitle, heroSubTitle, overview)
 	return (
 		<Container className="relative">
 			<HeroResponsiveWrapper>

@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { Container } from '../Container';
-import ContentH2 from '../ titles/ContentH2';
+import { ContentH2 } from '../titles/Titles'
 import { Feature } from '@/types/Feature';
 import { Button } from '../Button';
 import { LogoMark } from '../Logo';

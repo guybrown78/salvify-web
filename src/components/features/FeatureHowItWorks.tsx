@@ -3,8 +3,7 @@ import { PortableText } from '@portabletext/react';
 import { Feature } from '@/types/Feature';
 import { featureHowMap } from './howVisuals'; // your component map
 import { Container } from '../Container';
-import ContentH2 from '../ titles/ContentH2';
-import ContentH3 from '../ titles/ContentH3';
+import { ContentH2, ContentH3 } from '../titles/Titles'
 
 const FeatureHowItWorks = ({ data }: { data: Feature }) => {
 	if (!data.howItWorks && data.howVisual !== 'component' && !data.howImage?.url) return null;
