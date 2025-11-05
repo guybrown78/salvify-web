@@ -11,7 +11,7 @@ const PlatformInsightsAndData = () => {
 				<p>
 					Real-time dashboards transform operational data into compliance-ready insights — helping teams make informed, defensible decisions.
 				</p>
-				<p>isual: chart or dashboard mockup</p>
+				<p>Visual: chart or dashboard mockup</p>
 			</Container>
 		</section>
 	)

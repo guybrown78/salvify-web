@@ -17,7 +17,7 @@ const PlatformCTA = () => {
 									<ContentH2 title="Join medical teams across the UK who trust Salvify to manage medicines safely and compliantly." />
 		
 									<p className="mt-3 max-w-2xl text-white/80">
-										cta body...
+										Discover how Salvify simplifies compliance and gives your teams complete visibility from store to patient, all within one secure platform.
 									</p>
 		
 									<div className="mt-6 flex flex-col gap-3 sm:flex-row">
