@@ -2,7 +2,9 @@ import { UseCase } from '@/types/UseCase'
 import React from 'react'
 import { Container } from '../Container'
 import { HeroEyebrow } from '../hero'
-import { ContentH2 } from '../titles/Titles'
+import { ContentH2 } from '../content/Titles'
+import { ContentP } from '../content/Typography'
+
 type Props = {
 	data:UseCase
 }
@@ -16,7 +18,7 @@ const UseCaseAudiances = ({ data }: Props) => {
 			<Container>
 				<HeroEyebrow title="Who's it for" />
 				<ContentH2 title={title} color='ink' weight='normal' />
-				<p>{intro}</p>
+				<ContentP>{intro}</ContentP>
 				<div className='my-6 flex flex-wrap gap-8'>
 					{
 						data.audiences.map(industry => 

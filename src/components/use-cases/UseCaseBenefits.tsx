@@ -1,10 +1,11 @@
 import { UseCase } from '@/types/UseCase'
 import React from 'react'
 import { Container } from '../Container'
-import { ContentH3 } from '../titles/Titles'
+import { ContentH3 } from '../content/Titles'
 import { benefitIconMap } from '@/utils/iconMap'
 import FeatureBenefitCard from '../features/FeatureBenefitCard'
 import { HiNoSymbol } from 'react-icons/hi2'
+import { ContentP } from '../content/Typography'
 
 type Props = {
 	data:UseCase
@@ -20,7 +21,7 @@ const UseCaseBenefits = ({ data }: Props) => {
 		<section id="benefits" aria-labelledby="benefits-title" className='bg-gradient-to-b from-white to-surface-muted'>
 			<Container className='py-24 sm:py-32'>
 				<ContentH3 title='Benefits' />
-				 <p>{benefitsIntro}</p>
+				 <ContentP>{benefitsIntro}</ContentP>
 				  <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-16 lg:grid-cols-8">
 						{benefits.map((useCaseBenefit) => {
 							const benefit = useCaseBenefit.benefit

@@ -1,7 +1,8 @@
 import { UseCase } from '@/types/UseCase'
 import { Container } from '../Container'
 import { HeroCTAButtonWrapper, HeroEyebrow, HeroH1, HeroH2, HeroOverview, HeroResponsiveWrapper, HeroTypographyWrapper } from '../hero'
-
+import { Button } from '../Button'
+import VisualHolder from '../VisualHolder'
 
 type Props = {
 	data:UseCase
@@ -19,9 +20,19 @@ const UseCaseHero = ({ data }: Props) => {
 					<HeroOverview overviewText={overview} />
 					
 					<HeroCTAButtonWrapper>
-						
+						<Button href="/contact/book-a-demo">
+							Book a Demo
+						</Button>
+						<Button href="/contact" variant="outline" color="brand">
+							Contact Sales
+						</Button>
 					</HeroCTAButtonWrapper>
 				</HeroTypographyWrapper>
+					<div className="relative flex items-center justify-center lg:col-span-6 border">
+							<VisualHolder>
+
+							</VisualHolder>
+						</div>
 			</HeroResponsiveWrapper>
 		</Container>
 	)

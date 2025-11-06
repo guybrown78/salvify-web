@@ -4,12 +4,32 @@ import clsx from 'clsx'
 type Corner = 'tl' | 'tr' | 'bl' | 'br'
 type Color = 'surface' | 'surface-muted'
 
+type Span = 1 | 2 | 3 | 4 | 5 | 6
+
+const COL_SPAN_MAP: Record<Span, string> = {
+  1: 'lg:col-span-1',
+  2: 'lg:col-span-2',
+  3: 'lg:col-span-3',
+  4: 'lg:col-span-4',
+  5: 'lg:col-span-5',
+  6: 'lg:col-span-6',
+}
+
+const ROW_SPAN_MAP: Record<Span, string> = {
+  1: 'lg:row-span-1',
+  2: 'lg:row-span-2',
+  3: 'lg:row-span-3',
+  4: 'lg:row-span-4',
+  5: 'lg:row-span-5',
+  6: 'lg:row-span-6',
+}
+
 interface BentoCardProps {
   children: ReactNode
   /** e.g. 4 means lg:col-span-4 */
-  lgColSpan?: number
+  lgColSpan?: Span
   /** e.g. 2 means lg:row-span-2 */
-  lgRowSpan?: number
+  lgRowSpan?: Span
   /** Add outer padding “frame” like Tailwind’s examples */
   outerPad?: boolean
   /** Corner rounding at lg (applied to inner card): choose any corners to round to 4xl */
@@ -41,8 +61,8 @@ const BentoCard = ({
 	color = 'surface-muted',
 }: BentoCardProps) => {
   //
-  const col = lgColSpan ? `lg:col-span-${lgColSpan}` : ''
-  const row = lgRowSpan ? `lg:row-span-${lgRowSpan}` : ''
+  const col = lgColSpan ? COL_SPAN_MAP[lgColSpan] : ''
+  const row = lgRowSpan ? ROW_SPAN_MAP[lgRowSpan] : ''
   const outer = clsx('flex', outerPad && 'p-px', col, row, outerClassName)
 
   const baseRound = 'rounded-lg'

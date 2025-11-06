@@ -2,7 +2,7 @@ import { UseCase } from '@/types/UseCase'
 import React from 'react'
 import { Container } from '../Container'
 import { HeroEyebrow } from '../hero'
-import { ContentH2 } from '../titles/Titles'
+import { ContentH2 } from '../content/Titles'
 import RelatedContentItem from '../relatedContent/RelatedContentItem'
 
 type Props = {

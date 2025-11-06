@@ -2,7 +2,7 @@ import { UseCase } from '@/types/UseCase'
 import React from 'react'
 import { Container } from '../Container'
 import { PortableText } from '@portabletext/react'
-import { ContentH3 } from '../titles/Titles'
+import { ContentH3 } from '../content/Titles'
 import Image from 'next/image';
 import { useCaseHowMap } from './howVisuals'
 type Props = {

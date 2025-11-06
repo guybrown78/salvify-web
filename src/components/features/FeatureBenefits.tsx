@@ -4,7 +4,7 @@ import { benefitIconMap } from '@/utils/iconMap'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { FeatureBenefitItem } from '@/types/Feature'
 import { Container } from '../Container'
-import { ContentH3 } from '../titles/Titles'
+import { ContentH3 } from '../content/Titles'
 
 type Props = {
   introText: string

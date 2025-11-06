@@ -2,7 +2,7 @@ import { UseCase } from '@/types/UseCase'
 import { HiOutlineExclamationCircle } from 'react-icons/hi2'
 import { Container } from '../Container'
 import { HeroEyebrow } from '../hero'
-import { ContentH2 } from '../titles/Titles'
+import { ContentH2 } from '../content/Titles'
 
 type Props = {
   data: UseCase

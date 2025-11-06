@@ -1,11 +1,12 @@
 import React from 'react'
 import { Container } from '../Container'
 import { HeroEyebrow } from '../hero'
-import { ContentH2 } from '../titles/Titles'
+import { ContentH2 } from '../content/Titles'
 import BentoText from '../bento/BentoText'
 import BentoImage from '../bento/BentoImage'
 import BentoCard from '../bento/BentoCard'
 import BentoWrapper from '../bento/BentoWrapper'
+import { ContentP } from '../content/Typography'
 
 const PlatformRoles = () => {
   return (
@@ -13,13 +14,13 @@ const PlatformRoles = () => {
       <Container className="py-24 sm:py-32">
         <HeroEyebrow title="Role-aware by design" />
         <ContentH2 title="Designed for Every Role" />
-        <p>
+        <ContentP>
           Every user sees exactly what they need — nothing more, nothing less.
           Administrators configure holdings, permissions, and compliance rules.
           Clinicians record usage and manage kits with confidence. Managers
           monitor stock, expiry, and audit insights in real time, while Make
-          Ready teams rebuild kits with guided precision.
-        </p>
+          Ready teams rebuild kits with guided precision and automatic shortage detection.
+        </ContentP>
 
         <BentoWrapper lgCols={6} lgRows={2}>
           <BentoCard lgColSpan={4} roundedLg={['tl']} smallTop>
