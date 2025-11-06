@@ -1,5 +1,6 @@
 
 import clsx from 'clsx'
+import Link from 'next/link'
 import React, { ReactNode } from 'react'
 
 type CopyColor = 'auto' | 'ink' | 'muted' | 'brand'
@@ -54,4 +55,8 @@ export const ContentStack = ({ children, gap = 'md', className }: ContentStackPr
     lg: 'space-y-4 sm:space-y-6',
   } as const
   return <div className={clsx(gaps[gap], className)}>{children}</div>
+}
+
+export const ContentLink = ({ href, children }:{href:string, children: ReactNode}) => {
+return <Link href={href} className="text-brand-700 underline hover:text-brand-500 transition-colors" >{children}</Link>
 }

@@ -16,7 +16,7 @@ export default function NavPanel({ open, children }: { open: boolean; children: 
             exit={{ opacity: 0, scale: 0.95 }}
             className="absolute left-1/2 z-50 mt-0 flex bg-transparent px-4 pb-5 pt-5"
           >
-            <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm/6 shadow-lg outline-1 outline-gray-900/5 lg:max-w-2xl">
+            <div className="w-screen max-w-xl flex-auto overflow-hidden rounded-3xl bg-white text-sm/6 shadow-lg outline-1 outline-surface lg:max-w-3xl">
               {children}
             </div>
           </PopoverPanel>
