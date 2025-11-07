@@ -19,9 +19,13 @@ const OurStory = () => {
 					<ContentP>
 						Together they built Salvify: a simple, smart, and scalable solution to ensure no medic would ever face the same issue again. What started as a safety fix has evolved into a mission to help every healthcare team manage medicines with confidence and clarity. Discover how this journey shaped our <ContentLink href="/product/features">core features</ContentLink>.
 					</ContentP>
+
+					<ContentP>
+						Hear from Craig and Guy about why they built Salvify and what drives the company today.
+					</ContentP>
 				</ContentStack>
 				<VisualHolder>
-					Split layout: photo or illustration of offshore medic + developer working on a laptop, connected by a line graphic showing “Problem → Innovation → Confidence.”
+					VIDEO
 				</VisualHolder>
 			</Container>
 		</section>

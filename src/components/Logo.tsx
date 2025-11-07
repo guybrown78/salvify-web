@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import React from 'react'
 
-type LogoPalette = 'default' | 'teal' | 'ink' | 'black' | 'white'
+type LogoPalette = 'default' | 'dark' | 'teal' | 'ink' | 'black' | 'white'
 interface Props extends React.SVGProps<SVGSVGElement> {
   /** Chooses primary+accent pair. Defaults to 'default' (ink + brand-500). */
   palette?: LogoPalette
@@ -12,6 +12,7 @@ interface Props extends React.SVGProps<SVGSVGElement> {
 
 const PALETTES: Record<LogoPalette, { primary: string; accent: string }> = {
   default: { primary: 'var(--color-ink)', accent: 'var(--color-brand-500)' },
+	dark: { primary: '#FFFFFF', accent: 'var(--color-brand-500)' },
   teal: { primary: 'var(--color-brand-500)', accent: 'var(--color-brand-500)' },
   ink: { primary: 'var(--color-ink)', accent: 'var(--color-ink)' },
   black: { primary: '#000000', accent: '#000000' },

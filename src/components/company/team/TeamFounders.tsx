@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const TeamFounders = () => {
 	return (
-		<section id="founders" aria-labelledby="founders" className="py-24 sm:py-32">
+		<section id="founders" aria-labelledby="founders" className="py-12 sm:py-16">
 			<Container>
 				<Eyebrow title="Leadership" />
 				<ContentH2 title="Meet the Founders" />
