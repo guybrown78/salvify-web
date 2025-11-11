@@ -1,4 +1,5 @@
 import { FEATURE_ICON_KEYS, FeatureIconKey } from '@/sanity/shared/feature-icons'
+import { INDUSTRY_ICON_KEYS, IndustryIconKey } from '@/sanity/shared/industry-icons'
 import type { IconType } from 'react-icons'
 
 // Base icons (no feature-specific ones here)
@@ -28,15 +29,17 @@ export type BaseNavIconKey = (typeof BASE_NAV_ICON_KEYS)[number]
 export const NAV_ICON_KEYS = [
   ...BASE_NAV_ICON_KEYS,
   ...FEATURE_ICON_KEYS,
+	...INDUSTRY_ICON_KEYS,
 ] as const
 
 // Type union = Base | Feature
-export type NavIconKey = BaseNavIconKey | FeatureIconKey
+export type NavIconKey = BaseNavIconKey | FeatureIconKey | IndustryIconKey
 
 // Optional: runtime validated array
 export const NAV_ICON_KEYS_VALIDATED = [
   ...BASE_NAV_ICON_KEYS,
   ...FEATURE_ICON_KEYS,
+	...INDUSTRY_ICON_KEYS,
 ] as const satisfies readonly NavIconKey[]
 
 // Nav item model

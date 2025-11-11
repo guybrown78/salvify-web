@@ -39,10 +39,40 @@ import {
 	HiOutlineGlobeEuropeAfrica,
 } from 'react-icons/hi2';
 
+import {
+	LuAmbulance,
+  LuMapPin,
+  LuPlaneLanding,
+	LuPlaneTakeoff,
+	LuActivity,
+	LuPawPrint
+  // LuHospital,
+  // LuHelicopter,
+  // LuShip,
+  // LuShipWheel,
+  // LuAnchor,
+  // LuLifeBuoy,
+  // LuFactory,
+  // LuWind,
+  // LuTooth,
+  // LuPawPrint,
+  // LuPlaneTakeoff,
+  // LuBuilding,
+  // LuShieldCheck,
+  // LuFlame,
+} from "react-icons/lu";
+
+import { 
+	LiaToothSolid,
+	LiaHelicopterSolid
+} from "react-icons/lia";
+import { RiToothLine } from "react-icons/ri";
+
 import type { BenefitIconKey } from '@/sanity/shared/benefit-icons';
 import type { NavIconKey } from './nav-types';
 import { FeatureIconKey } from '@/sanity/shared/feature-icons';
 import type { UseCaseIconKey } from '@/sanity/shared/useCase-icons'
+import type { IndustryIconKey } from '@/sanity/shared/industry-icons';
 import { mergeIconMaps } from './MergeIconMaps';
 
 
@@ -105,11 +135,25 @@ export type { UseCaseIconKey }
 
 
 
+export const industryIconMap = {
+	LuAmbulance,
+	LuMapPin,
+	LuPlaneLanding,
+	LuPlaneTakeoff,
+	LuActivity,
+	LiaToothSolid,
+	RiToothLine,
+	LuPawPrint,
+} satisfies Record<IndustryIconKey, IconType>
+
+export type { IndustryIconKey }
+
 
 export const NavItemIconMap = mergeIconMaps(
   [
 	featureIconMap,
 	useCaseIconMap,
+	industryIconMap,
   // HiOutlineBuildingOffice2,
   {
 		HiOutlineChartBar,

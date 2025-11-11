@@ -1,3 +1,19 @@
+
+import {
+  HiOutlineCube,
+  HiOutlineClipboardDocumentList,
+  HiOutlineBuildingOffice,
+  HiOutlineUsers,
+  HiOutlineUserCircle,
+  HiOutlineChartBar,
+  HiOutlineClock,
+  HiOutlineDocumentMagnifyingGlass,
+  HiOutlineShieldCheck,
+  HiOutlineSquare3Stack3D,
+  HiOutlineArrowPath,
+  HiOutlineCheckCircle,
+} from 'react-icons/hi2'
+
 import { Container } from '@/components/Container'
 import { ContentH2, ContentH3 } from '@/components/content/Titles'
 import { ContentP, ContentStack } from '@/components/content/Typography'
@@ -21,8 +37,8 @@ const BrandGuidlinePage = () => {
         </section>
 
  				{/* OVERVIEW */}
-				<section id="brand-overview" className="py-12 sm:py-16">
-					<ContentH2 title="Brand Overview" />
+				<section id="brand-overview" className="py-6 sm:py-8">
+					<ContentH3 weight="normal" title="Brand Overview" />
 					<ContentStack>
 						<ContentP>
 							Salvify empowers medical professionals by simplifying medicine management and compliance through intuitive, reliable digital tools. Our purpose is to give healthcare teams confidence in care by reducing administrative burden and preventing waste.
@@ -34,8 +50,8 @@ const BrandGuidlinePage = () => {
 				</section>
 
         {/* INTRODUCTION */}
-        <section id="brand-introduction" className="py-12 sm:py-16">
-          <ContentH2 title="Our Brand" />
+        <section id="brand-introduction" className="py-6 sm:py-8">
+          <ContentH3 weight="normal" title="Our Brand" />
           <ContentStack>
             <ContentP>
              	Salvify stands for clarity, care, and confidence, ensuring medical professionals can work with precision and peace of mind. These guidelines exist to help our partners, suppliers, and collaborators use the Salvify brand correctly and consistently, wherever it appears.
@@ -50,8 +66,8 @@ const BrandGuidlinePage = () => {
         </section>
 
 				{/* CORE VALUES */}
-				<section id="brand-values" className="py-12 sm:py-16">
-					<ContentH2 title="Core Values" />
+				<section id="brand-values" className="py-6 sm:py-8">
+					<ContentH3 weight="normal" title="Core Values" />
 					<ul className="mt-6 list-disc list-inside text-ink/80 space-y-2">
 						<li><strong>Efficiency:</strong> Streamlining processes to save time and reduce risk.</li>
 						<li><strong>Compassion:</strong> Designing with empathy for frontline realities.</li>
@@ -62,8 +78,8 @@ const BrandGuidlinePage = () => {
 				</section>
 
 				{/* CORE VALUES */}
-				<section id="brand-tagline" className="py-12 sm:py-16">
-				<ContentH2 title="Tagline and Messaging" />
+				<section id="brand-tagline" className="py-6 sm:py-8">
+				<ContentH3 weight="normal" title="Tagline and Messaging" />
 					<ContentStack>
 						<ContentP>
 							Our tagline <strong>“Confidence in Care”</strong> is the cornerstone of all brand communication. Use it to reinforce trust and professionalism, never as a slogan or filler.
@@ -271,10 +287,8 @@ const BrandGuidlinePage = () => {
           <ContentH2 title="Typography" />
           <ContentStack>
             <ContentP>
-              Salvify&apos;s typography combines approachability and clarity. Our
-              primary font, <strong>Nunito</strong>, carries warmth and
-              precision for headings and callouts. <strong>Poppins</strong> 
-              complements it for body copy, ensuring readability across digital
+              Salvify&apos;s typography combines approachability and clarity. Our primary font, <strong>Nunito</strong>, carries warmth and
+              precision for headings and callouts. <strong>Poppins</strong> complements it for body copy, ensuring readability across digital
               and print materials.
             </ContentP>
 
@@ -289,20 +303,22 @@ const BrandGuidlinePage = () => {
                 <ul className="mt-6 list-inside list-disc text-ink/80">
                   <li>
                     <span className="font-brand font-extrabold">
-                      Nunito ExtraBold:
+                      Nunito ExtraBold:&nbsp;
                     </span> Headers and key statements
                   </li>
                   <li>
                     <span className="font-brand font-normal">
-                      Nunito Regular:
+                      Nunito Regular:&nbsp;
                     </span> Subheadings and accent text
                   </li>
                   <li>
-                    <span className="font-brand font-light">Nunito Light:</span> Large display text or subtle highlights
+                    <span className="font-brand font-light">
+											Nunito Light:&nbsp;
+										</span> Large display text or subtle highlights
                   </li>
                 </ul>
                 <ContentP className="mt-4 text-sm text-ink/60">
-                  Available on Google Fonts: 
+                  Available on Google Fonts:&nbsp; 
                   <a
                     href="https://fonts.google.com/specimen/Nunito"
                     target="_blank"
@@ -319,6 +335,8 @@ const BrandGuidlinePage = () => {
                     abcdefghijklmnopqrstuvwxyz
                     <br />
                     0123456789
+										<br />
+										Salvify | Confidence in Care
                   </ContentP>
                 </div>
               </div>
@@ -332,20 +350,20 @@ const BrandGuidlinePage = () => {
                 </ContentP>
                 <ul className="mt-6 list-inside list-disc text-ink/80">
                   <li>
-                    <span className="font-normal">Poppins Regular:</span>
+                    <span className="font-normal">Poppins Regular:&nbsp;</span>
                     Default body text
                   </li>
                   <li>
-                    <span className="font-semibold">Poppins SemiBold:</span>
+                    <span className="font-semibold">Poppins SemiBold:&nbsp;</span>
                     Emphasis within paragraphs
                   </li>
                   <li>
-                    <span className="font-light">Poppins Light:</span>
+                    <span className="font-light">Poppins Light:&nbsp;</span>
                     Supporting captions or secondary information
                   </li>
                 </ul>
                 <ContentP className="mt-4 text-sm text-ink/60">
-                  Available on Google Fonts: 
+                  Available on Google Fonts:&nbsp; 
                   <a
                     href="https://fonts.google.com/specimen/Poppins"
                     target="_blank"
@@ -362,6 +380,8 @@ const BrandGuidlinePage = () => {
                     abcdefghijklmnopqrstuvwxyz
                     <br />
                     0123456789
+										<br />
+										Salvify | Confidence in Care
                   </ContentP>
                 </div>
               </div>
@@ -406,15 +426,58 @@ const BrandGuidlinePage = () => {
           </ContentStack>
         </section>
 
-   			{/* Iconography */}
-        <section id="brand-icons" className="py-12 sm:py-16">
-   				<ContentH2 title="Iconography" />
-						<ContentStack>
-							<ContentP>
-								 Salvify uses outline icons from the <code>react-icons/hi2</code> Heroicons 2 set. Icons should be simple, consistent in stroke weight, and used to support meaning — never as decoration.
+				{/* Iconography */}
+				<section id="brand-icons" className="py-12 sm:py-16">
+					<ContentH2 title="Iconography" />
+					<ContentStack>
+						 <ContentP>
+								Icons are a key part of Salvify&apos;s visual language. They provide quick visual cues that support clarity and help users
+								understand actions, statuses, and concepts at a glance. Icons should always reinforce meaning rather than act as decoration.
 							</ContentP>
-						</ContentStack>
-        </section>
+							<ContentP>
+								Salvify uses <span className="font-semibold italic">heroicons.com/outline</span> icons from the <code>react-icons/hi2</code> Heroicons 2 set. This ensures a consistent, professional look throughout the platform with balanced stroke weights and geometry.
+							</ContentP>
+							<ContentP>
+								Icons should be used sparingly and consistently. Match icon size and colour to their context.
+							</ContentP>
+						<ContentP className="mt-4 text-sm text-ink/60">
+							See all icons at&nbsp;
+							<a
+								href="https://heroicons.com/outline"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="underline hover:text-brand-500"
+							>
+								heroicons.com/outline
+							</a>
+						</ContentP>
+					</ContentStack>
+
+					{/* Icon Grid */}
+					<div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 text-center">
+						{[
+							{ icon: HiOutlineCube, label: 'Items' },
+							{ icon: HiOutlineClipboardDocumentList, label: 'Tasks' },
+							{ icon: HiOutlineBuildingOffice, label: 'Holdings' },
+							{ icon: HiOutlineUsers, label: 'Users' },
+							{ icon: HiOutlineUserCircle, label: 'Profile' },
+							{ icon: HiOutlineChartBar, label: 'Reports' },
+							{ icon: HiOutlineClock, label: 'Expiry' },
+							{ icon: HiOutlineDocumentMagnifyingGlass, label: 'Audit' },
+							{ icon: HiOutlineShieldCheck, label: 'Compliance' },
+							{ icon: HiOutlineSquare3Stack3D, label: 'Instance Groups' },
+							{ icon: HiOutlineArrowPath, label: 'Swaps' },
+							{ icon: HiOutlineCheckCircle, label: 'Completed' },
+						].map(({ icon: Icon, label }) => (
+							<div key={label} className="flex flex-col items-center justify-center space-y-2">
+								<div className="rounded-sm bg-surface p-4 text-brand-500 ring-1 ring-surface">
+									<Icon size={32} aria-hidden="true" />
+								</div>
+								<span className="text-sm font-medium text-ink">{label}</span>
+							</div>
+						))}
+					</div>
+				</section>
 
       </Container>
     </main>

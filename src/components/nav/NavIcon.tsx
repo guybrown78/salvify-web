@@ -19,7 +19,11 @@ const NavIcon = ({ icon, size = "md", className }: Props) => {
   return (
     <Icon
       aria-hidden
-      className={clsx("text-gray-600 transition-colors duration-200 ease-in-out group-hover:text-brand-500", sizeClass, className)}
+      className={clsx(
+				"text-gray-600 transition-colors duration-200 ease-in-out group-hover:text-brand-500", 
+				icon === "RiToothLine" ? "stroke-[0.1]" : "stroke-[1.5]",
+				sizeClass, 
+				className)}
     />
   )
 }

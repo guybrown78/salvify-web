@@ -7,6 +7,8 @@ import { PolicyPage } from "@/types/PolicyPage";
 import { Category } from "@/types/Category";
 import { Faq } from "@/types/Faq";
 import { Feature, FeatureMenuItem } from "@/types/Feature";
+import type { IndustrySolution, IndustrySolutionMenuItem } from '@/types/IndustrySolution'
+import { Testimonial } from "@/types/Testimonial";
 
 export async function getProjects():Promise<Project[]> {
 	return createClient(clientConfig).fetch(
@@ -430,3 +432,180 @@ export async function getUseCase(slug: string) {
   return createClient(clientConfig).fetch(useCaseBySlugQuery, { slug })
 }
 
+
+
+// INDUSTRY SOLUTIONS
+export const industrySolutionBySlugQuery = groq`*[_type == "industry-solution" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug": slug.current,
+
+	// Linked base industry
+  industryRef->{ _id, title, "slug": slug.current },
+
+  // Navigation
+  inMenu,
+  menuLabel,
+  menuIcon,
+  menuDescription,
+  menuOrder,
+
+  // Hero
+  "heroEyebrow": coalesce(heroEyebrow, "Industry"),
+  "heroTitle": coalesce(heroTitle, title),
+  heroSubTitle,
+  overview,
+  "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
+
+  // Regulatory / context
+  regulatoryContext,
+
+  // Challenges
+  challengesTitle,
+  challenges[]{ title, summary },
+
+  // How Salvify Helps
+  helpTitle,
+  helpBlocks[]{
+    title,
+    summary,
+    featureRef->{ _id, title, "slug": slug.current }
+  },
+
+  // Benefits (reuse Benefit library)
+  benefitsIntro,
+  industryBenefits[]{
+    industryBenefitTitle,
+    benefit->{ _id, title, statement, icon },
+    featureRef->{ _id, title, "slug": slug.current }
+  },
+
+  // Feature Highlights
+  featureHighlights[]->{ _id, title, "slug": slug.current },
+
+  // Related Use Cases / Features
+  // relatedContent[]->{
+  //   _type,
+  //   _id,
+  //   title,
+  //   "slug": slug.current,
+  //   // for menu cards
+  //   "label": coalesce(menuLabel, title),
+  //   menuIcon,
+  //   menuDescription
+  // },
+
+  // Operational Flow
+  flowTitle,
+  operationalSteps[]{ stepTitle, stepBody },
+
+  // Impact Stats
+  impactStats[]{ value, label, note },
+
+  // Proof
+  testimonials[]->{
+    _id,
+    quote,
+    author,
+    role,
+    organisation
+  },
+  // caseStudies[]->{
+  //   _id,
+  //   title,
+  //   "slug": slug.current,
+  //   summary
+  // },
+
+  // CTA
+  "ctaTitle": coalesce(ctaTitle, "Ready to simplify medicine management for your team?"),
+  ctaBody,
+
+  // SEO
+  metaDescription,
+  keywords,
+  noindex,
+  "ogImage": { "url": ogImage.asset->url, "alt": ogImage.alt },
+  publishedAt
+}`
+
+
+export const industrySolutionsMenuQuery = groq`
+  *[_type == "industry-solution" && defined(slug.current) && coalesce(inMenu, true)]
+  | order(coalesce(menuOrder, 100) asc, coalesce(menuLabel, title) asc)
+  {
+    _id,
+    "slug": slug.current,
+    "label": coalesce(menuLabel, title),
+    menuOrder,
+    menuIcon,
+    menuDescription
+  }
+`
+
+export const industrySolutionsListQuery = groq`
+  *[_type == "industry-solution"]{
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt
+  } | order(coalesce(menuOrder, 100) asc, title asc)
+`
+
+export async function getIndustrySolutionsMenu() {
+  return createClient(clientConfig).fetch(industrySolutionsMenuQuery)
+}
+
+export async function getIndustrySolutions() {
+  return createClient(clientConfig).fetch(industrySolutionsListQuery)
+}
+
+export async function getIndustrySolution(slug: string) {
+  return createClient(clientConfig).fetch(industrySolutionBySlugQuery, { slug })
+}
+
+
+
+// Single list (for admin, pages, or feed)
+export const testimonialsListQuery = groq`
+  *[_type == "testimonial"]{
+    _id,
+    author,
+    message,
+    role,
+    company,
+    companyUrl,
+    "industry": industry[]->{
+      _id,
+      title,
+      "slug": slug.current
+    },
+    publishedAt
+  } | order(coalesce(publishedAt, _createdAt) desc)
+`
+
+export async function getTestimonials(): Promise<Testimonial[]> {
+  return createClient(clientConfig).fetch(testimonialsListQuery)
+}
+
+// Filter by linked Industry (optional helper)
+export const testimonialsByIndustryIdQuery = groq`
+  *[_type == "testimonial" && $industryId in industry[]._ref]{
+    _id,
+    author,
+    message,
+    role,
+    company,
+    companyUrl,
+    "industry": industry[]->{
+      _id,
+      title,
+      "slug": slug.current
+    },
+    publishedAt
+  } | order(coalesce(publishedAt, _createdAt) desc)[0...$limit]
+`
+
+export async function getTestimonialsByIndustryId(industryId: string, limit = 6): Promise<Testimonial[]> {
+  return createClient(clientConfig).fetch(testimonialsByIndustryIdQuery, { industryId, limit })
+}

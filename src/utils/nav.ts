@@ -1,13 +1,17 @@
 import { HiOutlineSquares2X2 } from 'react-icons/hi2'
 
-import { getFeaturesMenu, getLatestInsights, getUseCasesMenu } from '@/sanity/sanity-utils' // adjust path
+import { getFeaturesMenu, getIndustrySolutionsMenu, getLatestInsights, getUseCasesMenu } from '@/sanity/sanity-utils' // adjust path
 
 import { NavItem } from './nav-types'
+import { IndustrySolutionMenuItem } from '@/types/IndustrySolution'
 
+export const revalidate = 60;
 
 export async function buildSections(): Promise<NavItem[]> {
   const features = await getFeaturesMenu()
 	const useCases = await getUseCasesMenu()
+	const industries:IndustrySolutionMenuItem[] = await getIndustrySolutionsMenu();
+
   const latestInsights = await getLatestInsights()
 
   const featureChildren: NavItem[] = features.map((f) => ({
@@ -17,6 +21,15 @@ export async function buildSections(): Promise<NavItem[]> {
     icon: f.menuIcon,
   }))
 
+	const industryChildren: NavItem[] = industries.map((i:IndustrySolutionMenuItem) => ({
+		name: i.label,
+		href: `/solutions/industries/${i.slug}`,
+		description: i.menuDescription,
+		icon: i.menuIcon,
+	}))
+
+	console.log(" ----- ")
+	console.log(industryChildren);
 	const useCaseChildren: NavItem[] = useCases.map((uc) => ({
 		name: uc.label,
 		href: `/solutions/use-cases/${uc.slug}`,
@@ -72,15 +85,19 @@ export async function buildSections(): Promise<NavItem[]> {
           name: 'Industries',
           description: '',
           variant: 'block',
-          children: [
-            {
-              name: 'Industries',
-              description:
-                'Learn how Salvify supports healthcare providers across diverse sectors.',
-              href: '/solutions/industries',
-              icon: 'HiOutlineBuildingOffice2',
-            },
-          ],
+        
+             
+         children: industryChildren.length
+            ? industryChildren
+            : [
+                {
+                  name: 'All industries',
+                  href: '/solutions/industries',
+                  icon: 'HiOutlineBuildingOffice2',
+                },
+              ],
+            
+      
         },
         {
           name: 'Use Cases',
