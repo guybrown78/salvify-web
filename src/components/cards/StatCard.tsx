@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { ImpactTone } from '@/types/IndustrySolution';
 
 
-const toneClasses: { color: Record<ImpactTone, string> } = {
+const toneClasses: { grad: Record<ImpactTone, string>, color: Record<ImpactTone, string>, outline: Record<ImpactTone, string> } = {
 	grad: {
 		success: 'from-success/15',
 		warning: 'from-warning/15',
