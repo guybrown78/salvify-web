@@ -9,6 +9,7 @@ import { Faq } from "@/types/Faq";
 import { Feature, FeatureMenuItem } from "@/types/Feature";
 import type { IndustrySolution, IndustrySolutionMenuItem } from '@/types/IndustrySolution'
 import { Testimonial } from "@/types/Testimonial";
+import { Benefit } from "@/types/Benefit";
 
 export async function getProjects():Promise<Project[]> {
 	return createClient(clientConfig).fetch(
@@ -248,6 +249,19 @@ export async function getFaqs():Promise<Faq[]> {
 	)
 }
 
+
+
+export async function getBenefits():Promise<Benefit[]> {
+	return createClient(clientConfig).fetch(
+		groq`*[_type == "benefit"]{
+      _id,
+    title,
+    statement,
+    icon
+  } | order(_createdAt asc)`
+	)
+}
+
 // FEATURES
 export const featureBySlugQuery = 
 groq`*[_type == "feature" && slug.current == $slug][0]{
@@ -466,10 +480,10 @@ export const industrySolutionBySlugQuery = groq`*[_type == "industry-solution" &
 
   // How Salvify Helps
   helpTitle,
+	helpIntro,
   helpBlocks[]{
     title,
     summary,
-    featureRef->{ _id, title, "slug": slug.current }
   },
 
   // Benefits (reuse Benefit library)
@@ -477,11 +491,19 @@ export const industrySolutionBySlugQuery = groq`*[_type == "industry-solution" &
   industryBenefits[]{
     industryBenefitTitle,
     benefit->{ _id, title, statement, icon },
-    featureRef->{ _id, title, "slug": slug.current }
   },
 
   // Feature Highlights
-  featureHighlights[]->{ _id, title, "slug": slug.current },
+  featureHighlights[]->{   
+		_type,
+    _id,
+    title,
+    "slug": slug.current,
+    // for menu cards
+    "label": coalesce(menuLabel, title),
+    menuIcon,
+    menuDescription 
+	},
 
   // Related Use Cases / Features
   // relatedContent[]->{
@@ -500,7 +522,7 @@ export const industrySolutionBySlugQuery = groq`*[_type == "industry-solution" &
   operationalSteps[]{ stepTitle, stepBody },
 
   // Impact Stats
-  impactStats[]{ value, label, note },
+  impactStats[]{ value, label, note, icon, tone },
 
   // Proof
   testimonials[]->{

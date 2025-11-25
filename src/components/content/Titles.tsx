@@ -29,7 +29,7 @@ export const ContentH2 = ({
 	color = 'brand', 
 	weight = 'extrabold',
 	className,
-	 ...props
+	...props
 }: ContentHeadingProps) => {
 	return (
 		<h2 className={clsx("my-2 font-brand text-2xl tracking-tight text-pretty sm:my-3 sm:text-3xl", colorStyles[color], weightStyles[weight], className)} {...props} >

@@ -28,8 +28,6 @@ export async function buildSections(): Promise<NavItem[]> {
 		icon: i.menuIcon,
 	}))
 
-	console.log(" ----- ")
-	console.log(industryChildren);
 	const useCaseChildren: NavItem[] = useCases.map((uc) => ({
 		name: uc.label,
 		href: `/solutions/use-cases/${uc.slug}`,

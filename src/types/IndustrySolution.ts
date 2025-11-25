@@ -1,7 +1,8 @@
 // /types/IndustrySolution.ts
-import type { Visual } from './Global' // if you render any shared visuals later
+import type { RelatedContentCard, Visual } from './Global' // if you render any shared visuals later
 import type { Benefit } from './Benefit'
 import type { IndustryIconKey } from '@/sanity/shared/industry-icons'
+import { BenefitIconKey } from '@/utils/iconMap'
 
 /** Minimal referenced shapes used across the site */
 
@@ -19,20 +20,11 @@ export interface CaseStudyRef {
   summary?: string
 }
 
-export interface SlugRef {
-  _id: string
-  title?: string
-  slug?: string
-}
 
 export interface ImageRef {
   url: string
   alt?: string
 }
-
-// export type RelatedContentCard =
-//   | ({ _type: 'useCase' } & SlugRef)
-//   | ({ _type: 'feature' } & SlugRef)
 
 /** Section item types */
 export interface IndustryChallenge {
@@ -43,13 +35,11 @@ export interface IndustryChallenge {
 export interface IndustryHelpBlock {
   title: string
   summary?: string
-  featureRef?: SlugRef
 }
 
 export interface IndustryBenefitItem {
   industryBenefitTitle?: string
   benefit: Benefit
-  featureRef?: SlugRef
 }
 
 export interface IndustryOperationalStep {
@@ -57,11 +47,17 @@ export interface IndustryOperationalStep {
   stepBody?: string
 }
 
+export type ImpactTone = 'success' | 'warning' | 'danger' | 'info' | 'highlight'
+
 export interface IndustryImpactStat {
   value?: string     // e.g. "70%"
   label?: string     // e.g. "reduction in expired meds"
   note?: string
+	icon?: BenefitIconKey
+  tone?: ImpactTone
 }
+
+
 
 /** Main document type matching schema: `industry-solution` */
 export interface IndustrySolution {
@@ -96,6 +92,7 @@ export interface IndustrySolution {
 
   // How Salvify Helps
   helpTitle?: string
+	helpIntro?: string
   helpBlocks?: IndustryHelpBlock[]
 
 	// Benefits (reused Benefit library)
@@ -103,7 +100,7 @@ export interface IndustrySolution {
   industryBenefits?: IndustryBenefitItem[]
 
   // Feature Highlights
-  featureHighlights?: SlugRef[]
+  featureHighlights?: RelatedContentCard[]
 
   // Operational Flow
   flowTitle?: string

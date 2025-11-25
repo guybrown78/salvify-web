@@ -3,9 +3,9 @@ import React from 'react'
 import { Container } from '../Container'
 import { ContentH3 } from '../content/Titles'
 import { benefitIconMap } from '@/utils/iconMap'
-import FeatureBenefitCard from '../features/FeatureBenefitCard'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { ContentP } from '../content/Typography'
+import BenefitCard from '../cards/BenefitCard'
 
 type Props = {
 	data:UseCase
@@ -29,11 +29,12 @@ const UseCaseBenefits = ({ data }: Props) => {
               const IconCmp =
                 (benefit.icon && benefitIconMap[benefit.icon]) || HiNoSymbol
               return (
-                <FeatureBenefitCard
+                <BenefitCard
                   key={benefit._id}
                   title={title}
                   desc={benefit.statement}
                   icon={<IconCmp className="size-12" aria-hidden="true" />}
+									className='lg:col-span-2'
                 />
               )
             })}

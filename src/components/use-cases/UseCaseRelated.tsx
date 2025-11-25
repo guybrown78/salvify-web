@@ -3,7 +3,7 @@ import React from 'react'
 import { Container } from '../Container'
 import { HeroEyebrow } from '../hero'
 import { ContentH2 } from '../content/Titles'
-import RelatedContentItem from '../relatedContent/RelatedContentItem'
+import RelatedContentItem from '../cards/RelatedContentItem'
 
 type Props = {
 	data:UseCase

@@ -1,10 +1,10 @@
 import { Benefit } from '@/types/Benefit'
-import FeatureBenefitCard from './FeatureBenefitCard'
 import { benefitIconMap } from '@/utils/iconMap'
 import { HiNoSymbol } from 'react-icons/hi2'
 import { FeatureBenefitItem } from '@/types/Feature'
 import { Container } from '../Container'
 import { ContentH3 } from '../content/Titles'
+import BenefitCard from '../cards/BenefitCard'
 
 type Props = {
   introText: string
@@ -26,11 +26,12 @@ const FeatureBenefits = ({ introText, featureBenefits }: Props) => {
               const IconCmp =
                 (benefit.icon && benefitIconMap[benefit.icon]) || HiNoSymbol
               return (
-                <FeatureBenefitCard
+                <BenefitCard
                   key={benefit._id}
                   title={benefit.title}
                   desc={benefit.statement}
                   icon={<IconCmp className="size-12" aria-hidden="true" />}
+									className='lg:col-span-2'
                 />
               )
             })}

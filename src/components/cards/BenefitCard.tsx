@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react'
 
 import { IconType } from 'react-icons';
@@ -31,18 +32,14 @@ import {
 
 
 type Props = {
-  title: string
-  desc: string
-  icon: React.ReactNode
+	title: string
+	desc: string
+	icon: React.ReactNode
+	className?: string
 }
-
-
-const FeatureBenefitCard = ({ title, desc, icon }: Props) => {
-
-	console.log(title,desc)
-  return (
-    <div className="bg-surface-muted rounded-lg shadow-sm relative lg:col-span-2">
-      <div className="absolute inset-0" />
+const BenefitCard = ({ title, desc, icon, className }: Props) => {
+	return (
+		 <div className={clsx("bg-surface-muted rounded-lg shadow-sm relative", className)}>
       <div className="relative flex h-full flex-col overflow-hidden p-8">
         <div className="infline-flex flex items-center justify-center bg-ink text-surface rounded-md size-16">{icon}</div>
         <div className="py-2">
@@ -51,7 +48,7 @@ const FeatureBenefitCard = ({ title, desc, icon }: Props) => {
         </div>
       </div>
     </div>
-  )
+	)
 }
 
-export default FeatureBenefitCard
+export default BenefitCard
