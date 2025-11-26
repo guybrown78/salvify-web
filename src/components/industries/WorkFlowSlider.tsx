@@ -1,9 +1,9 @@
 'use client'
 import { IndustryOperationalStep } from '@/types/IndustrySolution'
 import clsx from 'clsx'
-import React, { useCallback, useState, useEffect } from 'react'
-import { Button } from '../Button'
+import { useCallback, useEffect, useState } from 'react'
 import { HiOutlineArrowLeft, HiOutlineArrowRight } from 'react-icons/hi2'
+import { Button } from '../Button'
 
 type Props = {
   operationalSteps: IndustryOperationalStep[]
@@ -40,17 +40,17 @@ const WorkFlowSlider = ({ operationalSteps }: Props) => {
     [isTransitioning, total]
   )
 
-	const jumpTo = useCallback(
-		(index: number) => {
-			if (isTransitioning || index === current || !total) return
-			setIsTransitioning(true)
-			setCurrent(index)
-			setTimeout(() => setIsTransitioning(false), TRANSITION_DURATION)
-		},
-		[isTransitioning, current, total]
-	)
+  const jumpTo = useCallback(
+    (index: number) => {
+      if (isTransitioning || index === current || !total) return
+      setIsTransitioning(true)
+      setCurrent(index)
+      setTimeout(() => setIsTransitioning(false), TRANSITION_DURATION)
+    },
+    [isTransitioning, current, total]
+  )
 
-	useEffect(() => {
+  useEffect(() => {
     if (!total || isTransitioning) return
     const id = window.setTimeout(() => go(1), AUTO_DELAY)
     return () => clearTimeout(id)
@@ -58,13 +58,14 @@ const WorkFlowSlider = ({ operationalSteps }: Props) => {
 
   return (
     <div className="flow-root">
-      <div className="flex space-x-10 lg:space-x-4 lg:mb-20">
+      <div className="flex space-x-0 lg:mb-20 lg:space-x-4">
         <Button
           aria-label="Previous step"
           onClick={() => go(-1)}
           variant="solid"
           color="surface"
           disabled={isTransitioning}
+          className="hidden lg:inline-block"
         >
           <HiOutlineArrowLeft />
         </Button>
@@ -84,9 +85,7 @@ const WorkFlowSlider = ({ operationalSteps }: Props) => {
                   isActive ? 'flex-1' : 'flex-0'
                 )}
               >
-                <div
-                  className='relative flex h-full lg:w-full items-center justify-center'
-                >
+                <div className="relative flex h-full items-center justify-center lg:w-full">
                   <div
                     className={clsx(
                       'absolute top-[50%] z-0 hidden h-[2px] bg-brand-500 lg:inline-flex',
@@ -99,7 +98,7 @@ const WorkFlowSlider = ({ operationalSteps }: Props) => {
                   />
                   <div
                     className={clsx(
-                      'left-[50%] absolute z-0 inline-flex w-[2px] bg-brand-500 lg:hidden',
+                      'absolute left-[50%] z-0 inline-flex w-[2px] bg-brand-500 lg:hidden',
                       stepIndex === 0
                         ? 'bottom-0 mt-[50%] h-[50%]'
                         : stepIndex === operationalSteps.length - 1
@@ -109,7 +108,7 @@ const WorkFlowSlider = ({ operationalSteps }: Props) => {
                   />
                   <div className="relative z-10 p-4">
                     <button
-											onClick={() => jumpTo(stepIndex)}
+                      onClick={() => jumpTo(stepIndex)}
                       className={clsx(
                         'flex size-12 items-center justify-center rounded-full border-2 border-brand-500',
                         'transition-all',
@@ -132,13 +131,13 @@ const WorkFlowSlider = ({ operationalSteps }: Props) => {
                 >
                   <div
                     className={clsx(
-                      'top-auto lg:absolute left-0 z-20 mx-2 min-w-56 rounded-md bg-brand-500 px-2 py-4 text-surface shadow-md transition-all ease-in-out lg:left-auto lg:top-2 lg:min-w-96',
+                      'left-0 top-auto z-20 mx-2 min-w-56 rounded-md bg-brand-500 px-2 py-4 text-surface shadow-md transition-all ease-in-out lg:absolute lg:left-auto lg:top-2 lg:min-w-96',
                       isActive
                         ? 'duration-750 scale-100 opacity-100'
                         : 'scale-0 opacity-0 duration-300'
                     )}
                   >
-                    <h5 className="text-pretty text-md font-semibold">
+                    <h5 className="text-md text-pretty font-semibold">
                       {step.stepTitle}
                     </h5>
                     <p className="text-pretty text-sm">{step.stepBody}</p>
@@ -155,6 +154,29 @@ const WorkFlowSlider = ({ operationalSteps }: Props) => {
           variant="solid"
           color="surface"
           disabled={isTransitioning}
+          className="hidden lg:inline-block"
+        >
+          <HiOutlineArrowRight />
+        </Button>
+      </div>
+      <div className="mt-4 flex space-x-4 md:justify-end lg:hidden">
+        <Button
+          aria-label="Previous step"
+          onClick={() => go(-1)}
+          variant="solid"
+          color="surface"
+          disabled={isTransitioning}
+          className="flex-1 md:flex-none"
+        >
+          <HiOutlineArrowLeft />
+        </Button>
+        <Button
+          aria-label="Next step"
+          onClick={() => go(1)}
+          variant="solid"
+          color="surface"
+          disabled={isTransitioning}
+          className="flex-1 md:flex-none"
         >
           <HiOutlineArrowRight />
         </Button>
