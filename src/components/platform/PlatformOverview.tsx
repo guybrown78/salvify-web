@@ -8,15 +8,17 @@ import BentoCard from '@/components/cards/bento/BentoCard'
 import BentoWrapper from '@/components/cards/bento/BentoWrapper'
 import { ContentP } from '../content/Typography'
 import { Button } from '../Button'
+import Link from 'next/link'
+import SectionCTA from '../content/SectionCTA'
 
 const PlatformOverview = () => {
   return (
     <section
       id="platform-overview"
       aria-labelledby="platform-overview-title"
-      className=""
+      className="py-6 sm:py-12"
     >
-      <Container className="py-24 sm:py-32">
+      <Container className="">
         <Eyebrow title="Platform Overview" />
         <ContentH2 title="The Complete Platform for Safe, Seamless Medicine Management" />
         {/* <ContentP></ContentP> */}
@@ -91,19 +93,14 @@ const PlatformOverview = () => {
             />
           </BentoCard>
         </BentoWrapper>
-				<div className="flex flex-col items-end py-6 sm:py-12">
 
-					<p className="text-xs">Discover the full platform that helps teams stay compliant, organised and ready for every shift.</p>
-					<div className="flex space-x-4 mt-2">
-						<Button href="/product/features">
-							Explore Features
-						</Button>
-						<Button href="/product/platform" color="surface">
-							Medicine Management Platform
-						</Button>
-					</div>
-				
-				</div>
+				<SectionCTA 
+					intro="Discover the full platform that helps teams stay compliant, organised and ready for every shift." 
+					links={[
+						{ href:"/product/platform", label:"Explore Medicine Management Platform" },
+						{ href:"/product/features", label:"Explore Features" },
+					]}
+				/>
       </Container>
     </section>
   )
