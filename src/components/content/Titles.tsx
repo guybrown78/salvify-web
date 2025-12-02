@@ -6,6 +6,8 @@ const colorStyles = {
 		'text-brand-500',
 	ink:
 		'text-ink',
+	white:
+		'text-white',
 }
 
 const weightStyles = {
@@ -18,7 +20,7 @@ const weightStyles = {
 }
 interface ContentHeadingProps {
 	title: string
-	color?: 'brand' | 'ink' 
+	color?: 'brand' | 'ink' | 'white'
 	weight?: 'light' | 'normal' | 'extrabold' 
 	className?: string
 }

@@ -47,7 +47,7 @@ export interface IndustryOperationalStep {
   stepBody?: string
 }
 
-export type ImpactTone = 'success' | 'warning' | 'danger' | 'info' | 'highlight'
+export type ImpactTone = 'success' | 'warning' | 'danger' | 'info' | 'highlight' | 'celebrate'
 
 export interface IndustryImpactStat {
   value?: string     // e.g. "70%"

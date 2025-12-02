@@ -81,6 +81,26 @@ export function MobileBrowserOutline({ className }: BaseProps) {
   )
 }
 
+
+export function MobileBrowserWhiteBase({ className }: BaseProps) {
+  return (
+    <svg
+      className={clsx('pointer-events-none absolute inset-0 w-full', className)}
+      viewBox={`0 0 ${VB.w} ${VB.h}`}
+      aria-hidden="true"
+    >
+      <rect
+        x={SHELL.x}
+        y={SHELL.y}
+        width={SHELL.w}
+        height={SHELL.h}
+        rx={SHELL.r}
+        fill="white"
+      />
+    </svg>
+  )
+}
+
 /* Background (bottom layer) */
 /* A simple rounded rect exactly matching the inner screen area. */
 export function MobileBrowserBackground({ className }: BaseProps) {

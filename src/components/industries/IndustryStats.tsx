@@ -14,7 +14,7 @@ const IndustryStats = ({ impactStats }: Props) => {
 	return (
 		<div className='flex justify-center py-8'>
 			
-			<dl className="mt-5 grid grid-cols-1 space-x-0 md:space-x-4 space-y-2 md:space-y-0 rounded-lg md:grid-cols-3">
+			<dl className="mt-5 grid grid-cols-1 gap-x-0 md:gap-x-4 gap-y-2 md:gap-y-0 rounded-lg md:grid-cols-3">
 			{impactStats.map((item:IndustryImpactStat) => {
 				const IconCmp = (item.icon && benefitIconMap[item.icon]) || HiNoSymbol
 				return (

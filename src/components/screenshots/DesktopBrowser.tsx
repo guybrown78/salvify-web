@@ -85,6 +85,22 @@ export function DesktopBrowserOutline({ className }: BaseProps) {
   );
 }
 
+export function DesktopBrowserWhiteBase({ className }: BaseProps) {
+  return (
+    <svg
+      className={clsx('pointer-events-none absolute inset-0 h-full w-full text-surface', className)}
+      viewBox={`0 0 ${VB.w} ${VB.h}`}
+      aria-hidden="true"
+    >
+			<rect x={FRAME.x}
+          y={FRAME.y}
+          width={FRAME.w}
+          height={FRAME.h}
+          rx={FRAME.r} ry={FRAME.r} fill='white' />
+    </svg>
+  );
+}
+
 /* Background (bottom layer) */
 export function DesktopBrowserBackground({ className }: BaseProps) {
   return (

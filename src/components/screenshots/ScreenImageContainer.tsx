@@ -5,11 +5,13 @@ import {
 	DesktopBrowserBackground,
 	DesktopBrowserContent,
 	DesktopBrowserOutline,
+	DesktopBrowserWhiteBase,
 } from './DesktopBrowser'
 import {
 	MobileBrowserBackground,
 	MobileBrowserContent,
 	MobileBrowserOutline,
+	MobileBrowserWhiteBase,
 } from './MobileBrowser'
 
 interface Props {
@@ -44,21 +46,24 @@ const ScreenImageContainer = ({
           aspect === 'responsive' && 'aspect-[1/3] md:aspect-[3/2]'
         )}
       >
+				<MobileBrowserWhiteBase className="z-0 h-[600px] md:hidden " />
+				<DesktopBrowserWhiteBase className="z-0 hidden h-full md:block"/>
+
         {/* Bottom layer (BG) */}
-        <MobileBrowserBackground className="z-0 h-[600px] md:hidden" />
-        <DesktopBrowserBackground className="z-0 hidden h-full md:block" />
+        <MobileBrowserBackground className="z-10 h-[600px] md:hidden " />
+        <DesktopBrowserBackground className="z-10 hidden h-full md:block" />
 
         {/* Middle layer (content) */}
-        <MobileBrowserContent className="z-10 h-[600px] md:hidden">
+        <MobileBrowserContent className="z-20 h-[600px] md:hidden">
           {children}
         </MobileBrowserContent>
-        <DesktopBrowserContent className="z-10 hidden h-full md:block">
+        <DesktopBrowserContent className="z-20 hidden h-full md:block">
           {children}
         </DesktopBrowserContent>
 
         {/* Top layer (outline) */}
-        <MobileBrowserOutline className="z-20 h-[600px] md:hidden" />
-        <DesktopBrowserOutline className="z-20 hidden h-full md:block" />
+        <MobileBrowserOutline className="z-30 h-[600px] md:hidden" />
+        <DesktopBrowserOutline className="z-30 hidden h-full md:block" />
       </div>
     </section>
   )

@@ -10,6 +10,7 @@ const toneClasses: { grad: Record<ImpactTone, string>, color: Record<ImpactTone,
 		danger: 'from-danger/15',
 		info: 'from-blue-500/15',
 		highlight: 'from-violet-500/15',
+		celebrate: 'from-yellow-500/15',
 	},
 	color: {
 		success: 'text-success',
@@ -17,6 +18,7 @@ const toneClasses: { grad: Record<ImpactTone, string>, color: Record<ImpactTone,
 		danger: 'text-danger',
 		info: 'text-blue-300',
 		highlight: 'text-violet-300',
+		celebrate: 'text-yellow-300',
 	},
 	outline: {
 		success: 'outline-success/10',
@@ -24,6 +26,7 @@ const toneClasses: { grad: Record<ImpactTone, string>, color: Record<ImpactTone,
 		danger: 'outline-danger/10',
 		info: 'outline-blue-300/10',
 		highlight: 'outline-violet-300/10',
+		celebrate: 'outline-yellow-300/10',
 	}
 }
 
