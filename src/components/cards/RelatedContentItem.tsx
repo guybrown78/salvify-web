@@ -1,4 +1,4 @@
-import { RelatedContentCard } from '@/types/Global'
+import { RelatedContentCard, RelatedContentType } from '@/types/Global'
 import clsx from 'clsx'
 import Link from 'next/link'
 import React from 'react'
@@ -8,12 +8,37 @@ interface Props {
   relatedContent: RelatedContentCard
   className?: string
 }
+
+const getHREF = (type:RelatedContentType, slug:string) => {
+	switch (type){
+		case 'useCase':
+			return `/solutions/use-cases/${slug}`;
+		case 'feature':
+			return `/product/features/${slug}`;
+		case 'industry':
+			return `/solutions/industry/${slug}`;
+		default:
+			return "";
+	}
+}
+
+const getEyebrow = (type:RelatedContentType) => {
+	switch (type){
+		case 'useCase':
+			return 'Use Case';
+		case 'feature':
+			return 'Feature';
+		case 'industry':
+			return 'Industry';
+		default:
+			return "";
+	}
+}
+
 const RelatedContentItem = ({ relatedContent, className }: Props) => {
-  const href =
-    relatedContent._type == 'useCase'
-      ? `/solutions/use-cases/${relatedContent.slug}`
-      : `/product/features/${relatedContent.slug}`
-  const eyebrow = relatedContent._type == 'useCase' ? 'Use Case' : 'Feature'
+  const href = getHREF(relatedContent._type, relatedContent.slug);
+  const eyebrow = getEyebrow(relatedContent._type);
+	// 
   return (
     <Link
       href={href}

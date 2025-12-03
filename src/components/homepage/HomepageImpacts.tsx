@@ -50,7 +50,7 @@ const HomepageImpacts = () => {
     <section
       id="salvify-platform-impact"
       aria-labelledby="salvify-platform-impact-title"
-      className="py-16 lg:py-24"
+      className="py-12 lg:py-16"
     >
       <Container>
         <Eyebrow title="Impact in Practice" />

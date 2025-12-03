@@ -1,15 +1,11 @@
-import React from 'react'
+import BentoCard from '@/components/cards/bento/BentoCard'
+import BentoText from '@/components/cards/bento/BentoText'
+import BentoWrapper from '@/components/cards/bento/BentoWrapper'
 import { Container } from '../Container'
 import Eyebrow from '../content/Eyebrow'
-import { ContentH2 } from '../content/Titles'
-import BentoText from '@/components/cards/bento/BentoText'
-import BentoImage from '@/components/cards/bento/BentoImage'
-import BentoCard from '@/components/cards/bento/BentoCard'
-import BentoWrapper from '@/components/cards/bento/BentoWrapper'
-import { ContentP } from '../content/Typography'
-import { Button } from '../Button'
-import Link from 'next/link'
 import SectionCTA from '../content/SectionCTA'
+import { ContentH2 } from '../content/Titles'
+import { ContentP } from '../content/Typography'
 
 const PlatformOverview = () => {
   return (
