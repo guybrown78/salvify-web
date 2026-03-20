@@ -19,7 +19,7 @@ export const Header = async () => {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <LogoLink />
-            <DesktopNav sections={sections}/>
+            {/* <DesktopNav sections={sections}/> */}
           </div>
 
           <div className="flex items-center gap-x-5 md:gap-x-8">
@@ -31,7 +31,7 @@ export const Header = async () => {
             </div>
             <BookDemoButton />
             <div className="-mr-1 lg:hidden">
-              <MobileNavigation sections={sections}/>
+              {/* <MobileNavigation sections={sections}/> */}
             </div>
           </div>
         </nav> 

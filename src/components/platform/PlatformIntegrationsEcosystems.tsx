@@ -71,13 +71,13 @@ const PlatformIntegrationsEcosystems = () => {
 					})}
 				</div>
 
-				<SectionCTA 
+				{/* <SectionCTA 
 					intro="Learn more about how Salvify fits into your organisation and the systems you work with today." 
 					links={[
 						{ href:"/product/integrations", label:"View Integrations" },
 						{ href:"/product/features", label:"Explore Features" },
 					]}
-				/>
+				/> */}
 			</Container>
 		</section>
 	)

@@ -37,6 +37,7 @@
 /* Primitives (palette) */
 /* Primitives (palette) */
 :root {
+	--color-brand-300: #A9F5EF;
   --color-brand-500: #00bbb7;
   --color-brand-700: #07828c;
   --color-ink: #172144;

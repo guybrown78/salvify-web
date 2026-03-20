@@ -21,26 +21,26 @@ interface ImpactStat {
 
 const impactStats: ImpactStat[] = [
   {
-    title: 'Less expired stock, more cost savings',
-    stat: '40% reduction',
+    title: 'reduction in expired stock, increased cost saving',//'Less expired stock, more cost savings',
+    stat: '40%',
     tone: 'success',
     icon: HiOutlineTrash,
   },
   {
-    title: 'Automated tasks and audit-ready workflows',
-    stat: '60% less admin',
+    title: 'less time spent on admin and stock checks',//'Automated tasks and audit-ready workflows',
+    stat: '60%',
     tone: 'warning',
     icon: HiOutlineClipboardDocumentCheck,
   },
   {
-    title: 'Every movement, batch and dose accounted for',
-    stat: '100% traceability',
+    title: 'traceability across every medicine movement',//'Every movement, batch and dose accounted for',
+    stat: '100%',
     tone: 'info',
     icon: HiOutlineFingerPrint,
   },
   {
-    title: 'Real-time oversight of stock, anywhere.',
-    stat: '24/7 visibility',
+    title: 'real-time visibility across every vehicle and site',//'Real-time oversight of stock, anywhere.',
+    stat: '24/7',
     tone: 'highlight',
     icon: HiOutlineEye,
   },

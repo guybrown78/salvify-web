@@ -183,8 +183,11 @@ const BrandGuidlinePage = () => {
             <div className="flex-inline sm:p-18 w-full min-w-96 rounded-sm bg-surface-muted p-12 sm:max-w-96">
               <p className="text-fg">Surface-Muted</p>
             </div>
-            <div className="flex-inline sm:p-18 w-full min-w-96 rounded-sm bg-brand-700 p-12 sm:max-w-96">
-              <p className="text-white">Dark-Surface (brand-700)</p>
+						 <div className="flex-inline sm:p-18 w-full min-w-96 rounded-sm bg-brand-300 p-12 sm:max-w-96">
+              <p className="text-white">Light-Brand-Surface<br />(brand-300)</p>
+            </div>
+            <div className="flex-inline sm:p-18 w-full min-w-96 rounded-sm bg-brand-500 p-12 sm:max-w-96">
+              <p className="text-white">Dark-Brand-Surface<br />(brand-700)</p>
             </div>
 
             <div className="flex-inline sm:p-18 w-full min-w-96 rounded-sm bg-accent p-12 sm:max-w-96">
@@ -250,10 +253,23 @@ const BrandGuidlinePage = () => {
                     <li>Hex: #dfecef</li>
                   </ul>
                 </li>
+
+								 <li>
+                  <div className="inline-flex">
+                    <div className="mr-2 size-6 bg-brand-300"></div>
+                    <strong>Light Brand Surface (brand-300)</strong>
+                  </div>
+                  <ul className="mb-1 ml-8 space-y-1 uppercase">
+                    <li>Screen (RGB): R169 G245 B239</li>
+                    {/* <li>Process (CMYK): C84 M26 Y39 K10</li> */}
+                    <li>Hex: #A9F5EF</li>
+                  </ul>
+                </li>
+
                 <li>
                   <div className="inline-flex">
                     <div className="mr-2 size-6 bg-brand-700"></div>
-                    <strong>Dark Surface (brand-700)</strong>
+                    <strong>Dark Brand Surface (brand-700)</strong>
                   </div>
                   <ul className="mb-1 ml-8 space-y-1 uppercase">
                     <li>Screen (RGB): R7 G130 B140</li>

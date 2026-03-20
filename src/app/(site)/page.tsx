@@ -12,24 +12,33 @@ import PlatformHowItWorks from '@/components/platform/PlatformHowItWorks'
 import PlatformIntegrationsEcosystems from '@/components/platform/PlatformIntegrationsEcosystems'
 import PlatformMainFeatures from '@/components/platform/PlatformMainFeatures'
 import PlatformOverview from '@/components/platform/PlatformOverview'
+import OPHomepageHero from '@/components/homepage/OPHomepageHero'
+import OPHomepageProblem from '@/components/homepage/OPHomepageProblem'
+import OPHomepageFeatures from '@/components/homepage/OPHomepageFeatures'
+import OPHomepageIndustries from '@/components/homepage/OPHomepageIndustries'
 
 export const revalidate = 60
 
 export default function Home() {
   return (
     <>
-      <HomepageHero />
+      {/* <HomepageHero /> */}
+			<OPHomepageHero />
       <TrustCredibility />
+			<OPHomepageProblem />
       <PlatformMainFeatures />
-      <PlatformOverview />
+      {/* <PlatformOverview /> */}
+			<OPHomepageFeatures />
       <HomepageMidCTA />
-      <IndustrySolutionsOverview />
+      {/* <IndustrySolutionsOverview /> */}
       <HomepageImpacts />
+			<OPHomepageIndustries />
       <PlatformHowItWorks />
       <OurStorySummary />
       <PlatformIntegrationsEcosystems />
-      <LatestInsights />
-      <SubscribeSmallWrapper />
+      {/* <LatestInsights /> */}
+      {/* <SubscribeSmallWrapper /> */}
+	
       <HomepageBottomCTA />
     </>
   )

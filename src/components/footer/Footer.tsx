@@ -20,9 +20,9 @@ export const Footer = async () => {
             <div className="flex flex-grow lg:flex-grow-0 flex-row lg:flex-col justify-between items-start">
 
               <div className="flex-col justify-start items-start">
-                <LogoLink size='responsive' />
-								<p className="mt-1 pl-0 md:pl-1 text-xs md:text-sm leading-6 text-ink"> 
-									Confidence in Care
+                <LogoLink size='md' />
+								<p className="mt-1 pl-0 md:pl-1 text-xs leading-6 text-ink"> 
+									Medicine Management
 								</p> 
               </div>
               
@@ -35,16 +35,13 @@ export const Footer = async () => {
 
             {/* <FooterNav /> */}
 						<div className="flex-1 hidden lg:block text-xs">
-            	<FooterDesktopNavigation sections={sections} />
+            	{/* <FooterDesktopNavigation sections={sections} /> */}
           	</div>
           </div>
         </div>
         <div className="text-xs">
-          {/* <div className="hidden lg:block">
-            <FooterDesktopNavigation sections={sections} />
-          </div> */}
           <div className="lg:hidden">
-            <FooterMobileNavigation sections={sections} />
+            {/* <FooterMobileNavigation sections={sections} /> */}
           </div>
         </div>
         <div className="mx-0 my-8">

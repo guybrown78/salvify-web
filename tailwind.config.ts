@@ -44,6 +44,7 @@ module.exports = {
 				// "salvify-accent-gray": '#f0f4f8',
 				// "salvify-accent-orange": '#ED9472',
 				// primitives
+				'brand-300': withAlpha('--color-brand-300'),
         'brand-500': withAlpha('--color-brand-500'),
 				// 'brand-500':'var(--color-brand-500)',
         'brand-700': withAlpha('--color-brand-700'),
