@@ -88,7 +88,7 @@ const OPHomepageHero = () => {
               </div>
             </div>
 
-            <div className="z-10 relative my-auto ml-0 top-64 flex max-w-60 flex-col items-end space-y-3 xl:space-y-6 md:ml-5 md:max-w-64 xl:top-32">
+            <div className="z-10 relative my-auto ml-0 xl:ml-28 top-64 flex flex-col items-end space-y-2 xl:space-y-4  max-w-52 xl:top-32">
               <StatementCard
                 color="brand-300"
                 title="Real-time stock"

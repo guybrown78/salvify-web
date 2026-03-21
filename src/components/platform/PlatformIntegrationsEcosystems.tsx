@@ -60,6 +60,7 @@ const PlatformIntegrationsEcosystems = () => {
 						const IconCmp = integrationPillars.icon
 						return (
               <PillarCard
+							color='brand'
                 key={integrationPillars.title}
 								eyebrow={integrationPillars.eyebrow}
                 title={integrationPillars.title}

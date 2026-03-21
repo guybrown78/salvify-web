@@ -28,11 +28,11 @@ const OurStorySummary = () => {
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
             {/* LEFT: remaining paragraphs */}
             <div>
-              <p className="mb-6">
+              <p className="mb-3">
                 Salvify started with a simple but serious problem.
               </p>
 
-              <p className="mb-10">
+              <p className="mb-3">
                 Co-founder Craig Rabbetts, an experienced offshore medic,
                 discovered a stockpile of expired medicines during a routine
                 check. There was no clear record, no alert and no reliable way
@@ -40,13 +40,13 @@ const OurStorySummary = () => {
                 unnoticed.
               </p>
 
-              <p className="mb-6">
+              <p className="mb-3">
                 That moment exposed a wider issue. Medicines were being managed
                 with systems that could not keep up with the reality of
                 pre-hospital care.
               </p>
 
-              <p className="mb-6">Salvify was built to change that.</p>
+              <p className="mb-3">Salvify was built to change that.</p>
 
               <p>
                 Today, ambulance services, event medical providers and
@@ -58,7 +58,7 @@ const OurStorySummary = () => {
 
             {/* RIGHT: image */}
             <div className="relative w-full">
-              <div className="overflow-hidden rounded-xl bg-surface">
+              <div className="overflow-hidden rounded-xl bg-surface-muted">
                 <Image
                   src="/images/guy-brown-craig-rabbetts-salvify-founders.jpg"
                   alt="Guy Brown and Craig Rabbetts, founders of Salvify"
@@ -66,6 +66,10 @@ const OurStorySummary = () => {
                   height={900}
                   className="h-auto w-full object-cover"
                 />
+
+								<div className="m-2 text-sm text-slate-600">
+									Guy Brown, Technical Founder, and Craig Rabbetts, Clinical Founder
+								</div>
               </div>
             </div>
           </div>

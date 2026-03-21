@@ -1,6 +1,7 @@
 import {
 	HiOutlineClock,
 	HiOutlineEye,
+	HiOutlineEyeSlash,
 	HiOutlineShieldExclamation,
 } from 'react-icons/hi2'
 import PillarCard from '../cards/PillarCard'
@@ -27,14 +28,16 @@ const OPHomepageProblem = () => {
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 md:grid-cols-3">
           <PillarCard
+					color='ink'
             key="No real-time visibility"
             eyebrow="Lack of Visibility"
             title="No real-time visibility"
             desc="You have no reliable way to know what stock is on each vehicle, kit or bag right now — until someone checks manually."
-            icon={<HiOutlineEye className="size-8" aria-hidden="true" />}
+            icon={<HiOutlineEyeSlash className="size-8" aria-hidden="true" />}
           />
 
           <PillarCard
+					color='ink'
             key="Compliance gaps under inspection"
             eyebrow="Compliance Risk"
             title="Compliance gaps under inspection"
@@ -48,6 +51,7 @@ const OPHomepageProblem = () => {
           />
 
           <PillarCard
+					color='ink'
             key="Expired stock slipping through"
             eyebrow="Expiry & Waste"
             title="Expired stock slipping through"

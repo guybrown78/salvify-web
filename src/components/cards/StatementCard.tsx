@@ -34,7 +34,7 @@ const StatementCard = ({color, title, icon}: StatementType) => {
 						{icon}
 					</div>
 </div>
-					<span className="text-xs font-semibold text-ink">{title}</span>
+					<span className="text-[10px] font-semibold text-ink">{title}</span>
 					</div>
 					
 					{/* <dt className="flex items-center md:items-start md:flex-col space-x-2 md:space-x-0 space-y-0 md:space-y-2">
