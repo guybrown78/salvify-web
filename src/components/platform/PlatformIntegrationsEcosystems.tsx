@@ -48,7 +48,7 @@ const PlatformIntegrationsEcosystems = () => {
 		<section
       id="salvify-our-story"
       aria-labelledby="salvify-our-story-title"
-      className="py-6 sm:py-12"
+      className="py-6 sm:py-12 bg-surface"
     >
 			<Container>
 				<Eyebrow title="Integrations & Ecosystem" />

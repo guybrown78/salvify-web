@@ -29,7 +29,7 @@ const steps:IndustryOperationalStep[] = [
 ]
 const PlatformHowItWorks = () => {
 	return (
-		<section id="platform-how-it-works" aria-labelledby="platform-how-it-works" className="">
+		<section id="platform-how-it-works" aria-labelledby="platform-how-it-works" className="bg-surface/50">
 			<Container className="py-24 sm:py-32">
 				<ContentH2 title="How It Works" />
 				<ContentH3 title="From store to patient — fully traced" />

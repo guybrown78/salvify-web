@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { Button } from '../Button'
 import { LogoMark } from '../Logo'
 import { ContentH2 } from '../content/Titles'
@@ -5,11 +6,14 @@ import { ContentH2 } from '../content/Titles'
 type Props = {
   title: string
   text: string
+	fadeBG?: boolean
 }
 
-const CTA = ({ title, text }: Props) => {
+const CTA = ({ title, text, fadeBG }: Props) => {
   return (
-    <div className="flex items-center rounded-3xl bg-ink p-8 text-white shadow-lg">
+    <div className={clsx("flex items-center rounded-3xl bg-ink p-8 text-white shadow-lg", fadeBG ? `bg-ink/5` : 'bg-ink')
+
+		}>
       <div className="mr-8 hidden items-center justify-center md:flex">
         <LogoMark className="h-32" palette="teal" accentVar="#FFF" />
       </div>
