@@ -3,7 +3,6 @@ import Eyebrow from '../content/Eyebrow'
 import { ContentH2 } from '../content/Titles'
 import { ContentP } from '../content/Typography'
 
-import clsx from 'clsx'
 import NavIcon from '../nav/NavIcon'
 
 import { NavIconKey } from '@/utils/nav-types'
@@ -24,11 +23,7 @@ const IndustryCard = ({ eyebrow, label, menuIcon, description }: CardProps) => {
       <div className="mt-3 flex flex-col">
         <div className="flex items-center justify-start gap-x-6">
           <div
-            className={clsx(
-              'flex size-8 flex-none items-center justify-center rounded-lg bg-surface',
-              'transition-colors duration-200 ease-in-out',
-              'group-hover:bg-white group-focus-visible:bg-white'
-            )}
+            className="flex size-8 flex-none items-center justify-center rounded-lg bg-surface"
             aria-hidden
           >
             <NavIcon icon={menuIcon} size="lg" />
@@ -40,12 +35,7 @@ const IndustryCard = ({ eyebrow, label, menuIcon, description }: CardProps) => {
             </h5>
 
             <div className="inline-flex items-center gap-1">
-              <span
-                className={clsx(
-                  'truncate pr-1 font-brand text-lg font-extrabold underline-offset-2',
-                  'group-hover:underline group-focus-visible:underline'
-                )}
-              >
+              <span className="pr-1 font-brand text-lg font-extrabold">
                 {label}
               </span>
             </div>
@@ -75,7 +65,7 @@ const OPHomepageIndustries = () => {
           teams work — from private ambulances to maritime medicine. Choose your
           sector to see how Salvify fits your setup.
         </ContentP>
-        <div className="mt-8 grid grid-cols-2 gap-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2">
           <IndustryCard
             eyebrow="Ambulance Services"
             label="NHS and Private Ambulance Services"
