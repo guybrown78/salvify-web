@@ -8,14 +8,43 @@ import { Header } from '@/components/header/Header';
 import { Footer } from '@/components/footer/Footer'
 
 export const metadata = {
-  title: {
-    template: '%s - Salvify',
-    default: 'Salvify - Digital Ointment for your medical inventory system ',
-  },
+  metadataBase: new URL('https://www.salvify.co.uk'),
+  title: 'Salvify | Medical Inventory Management Software',
   description:
-    'Salvify a trusted SaaS platform that streamlines medical inventory management, ensuring compliance, reducing waste, and enhancing efficiency for healthcare providers of all sizes. From private ambulances and even medical providers to large healthcare institutions, Salvify helps maintain critical supplies with ease.',
+    'Salvify is medical inventory management software for healthcare providers. Track stock, batch numbers and expiry dates, strengthen compliance, reduce waste, and improve operational efficiency with one digital platform.',
+  keywords: [
+    'medical inventory management software',
+    'medical inventory',
+    'medicine management',
+    'medical inventory management',
+    'healthcare inventory tracking',
+    'medical stock control software',
+    'medical expiry tracking',
+    'medical batch tracking',
+  ],
+  alternates: {
+    canonical: 'https://www.salvify.co.uk',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.salvify.co.uk',
+    siteName: 'Salvify',
+    title: 'Salvify | Medical Inventory Management Software',
+    description:
+      'Track medical stock, batch numbers and expiry dates, improve compliance, reduce waste, and keep better control of medical inventory with Salvify.',
+    locale: 'en_GB',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Salvify | Medical Inventory Management Software',
+    description:
+      'Medical inventory management software for healthcare providers.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
-
 // const lato = Lato({
 // 	weight:["100","300","400","700","900"],
 //   subsets: ['latin'],
