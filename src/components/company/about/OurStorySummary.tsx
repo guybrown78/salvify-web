@@ -19,8 +19,6 @@ const OurStorySummary = () => {
         <Eyebrow title="Our Story" />
         <ContentH2 title="Built From Real Experience in the Field" />
 
-        <ContentH2 title="Built From Real Experience in the Field" />
-
         <div className="mt-10 text-base leading-8 ">
           {/* FIRST TWO PARAGRAPHS */}
 
