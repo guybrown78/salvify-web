@@ -7,6 +7,8 @@ import FooterLegalLinks from './FooterLegalLinks'
 import FooterMobileNavigation from './FooterMobileNavigation'
 import LogoLink from '../header/LogoLink'
 import BookDemoButton from '../BookDemoButton'
+import OPFooterDesktopNavigation from './OPFooterDesktopNavigation'
+import OPFooterMovileNavigation from './OPFooterMovileNavigation'
 
 export const Footer = async () => {
   const sections = await buildSections()
@@ -36,12 +38,14 @@ export const Footer = async () => {
             {/* <FooterNav /> */}
 						<div className="flex-1 hidden lg:block text-xs">
             	{/* <FooterDesktopNavigation sections={sections} /> */}
+							<OPFooterDesktopNavigation sections={sections} />
           	</div>
           </div>
         </div>
         <div className="text-xs">
           <div className="lg:hidden">
             {/* <FooterMobileNavigation sections={sections} /> */}
+						<OPFooterMovileNavigation sections={sections} />
           </div>
         </div>
         <div className="mx-0 my-8">

@@ -8,6 +8,27 @@ import { IndustrySolutionMenuItem } from '@/types/IndustrySolution'
 export const revalidate = 60;
 
 export async function buildSections(): Promise<NavItem[]> {
+	return [
+		{
+			name: 'Platform',
+			href: '/#salvify-platform-primary-features',
+		},
+		{
+			name: 'Features',
+			href: '/#platform-features',
+		},
+		{
+			name: 'Industries',
+			href: '/#industrial-solutions-overview',
+		},
+		{
+			name: 'About',
+			href: '/#salvify-our-story',
+		}
+	]
+}
+/*
+export async function buildSections(): Promise<NavItem[]> {
   const features = await getFeaturesMenu()
 	const useCases = await getUseCasesMenu()
 	const industries:IndustrySolutionMenuItem[] = await getIndustrySolutionsMenu();
@@ -183,3 +204,4 @@ export async function buildSections(): Promise<NavItem[]> {
   
   ]
 }
+*/

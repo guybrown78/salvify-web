@@ -9,6 +9,8 @@ import LogoLink from './LogoLink'
 import MobileNavigation from './MobileNav'
 import DesktopNav from './DesktopNav'
 import { Button } from '../Button'
+import OPDesktopNav from './OPDesktopNav'
+import OPMobileNavigation from './OPMobileNav'
 
 export const Header = async () => {
 	const sections = await buildSections()
@@ -20,6 +22,7 @@ export const Header = async () => {
           <div className="flex items-center md:gap-x-12">
             <LogoLink />
             {/* <DesktopNav sections={sections}/> */}
+						<OPDesktopNav sections={sections} />
           </div>
 
           <div className="flex items-center gap-x-5 md:gap-x-8">
@@ -32,6 +35,7 @@ export const Header = async () => {
             <BookDemoButton />
             <div className="-mr-1 lg:hidden">
               {/* <MobileNavigation sections={sections}/> */}
+							<OPMobileNavigation sections={sections} />
             </div>
           </div>
         </nav> 

@@ -7,6 +7,7 @@ import ExporPlatformOverview from '@/components/expo/ExporPlatformOverview'
 import BookADemo from '@/components/forms/BookADemo'
 import HomepageImpacts from '@/components/homepage/HomepageImpacts'
 import OPHomepageIndustries from '@/components/homepage/OPHomepageIndustries'
+import TrustCredibility from '@/components/homepage/TrustCredibility'
 import React from 'react'
 
 const ExpoPage = () => {
@@ -15,6 +16,7 @@ const ExpoPage = () => {
 			<ExpoHero />
 
 		
+			<TrustCredibility />
 			<ExporPlatformOverview />
     <HomepageImpacts />
 			<OPHomepageIndustries />
