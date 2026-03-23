@@ -20,10 +20,7 @@ const OPHomepageProblem = () => {
         {/* <Eyebrow title="Who We Support" /> */}
         <ContentH2 title="Paper registers and spreadsheets aren't good enough anymore" />
         <ContentP>
-          Pre-hospital care is fast-moving, distributed and high-pressure.
-          Managing medicines with paper registers and spreadsheets creates gaps
-          in visibility, delays in decision-making and unnecessary risk across
-          your operation.
+          Pre-hospital care is fast-moving, spread across vehicles, kits and locations, and high-pressure. Managing medicines with paper registers and spreadsheets creates gaps in visibility, delays in decision-making and unnecessary risk across your operation.
         </ContentP>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 md:grid-cols-3">
