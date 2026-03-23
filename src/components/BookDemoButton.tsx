@@ -21,7 +21,7 @@ const BookDemoButton = () => {
 
 
 	return (
-		<Button href="/#book-demo" onClick={(e) => handleAnchor('/#book-demo')} color="green">
+		<Button href="/contact/book-a-demo" color="brand" className="w-full">
 			<span>
 				Request a demo <span className="hidden lg:inline">today</span>
 			</span>

@@ -1,41 +1,59 @@
-import React from 'react'
+import { Logo } from '@/components/Logo'
+import { buildSections } from '@/utils/nav'
 import { Container } from '../Container'
 import FooterBasement from './FooterBasement'
-import { Logo } from '@/components/Logo'
+import FooterDesktopNavigation from './FooterDesktopNavigation'
 import FooterLegalLinks from './FooterLegalLinks'
-import FooterNav from './FooterNav'
+import FooterMobileNavigation from './FooterMobileNavigation'
+import LogoLink from '../header/LogoLink'
+import BookDemoButton from '../BookDemoButton'
+import OPFooterDesktopNavigation from './OPFooterDesktopNavigation'
+import OPFooterMovileNavigation from './OPFooterMovileNavigation'
 
-export const Footer = () => {
-	return (
-		<footer className="border-t border-slate-200/50 bg-slate-50">
-			<Container>
-				<div className="pb-8 pt-24 lg:pt-32">
-					<div className="xl:grid xl:grid-cols-3 xl:gap-8">
+export const Footer = async () => {
+  const sections = await buildSections()
+  const loginURL = process.env.NEXT_PUBLIC_SIGN_IN_URL
 
-						<div className="space-y-8">
-							<div className="w-32">
-								<Logo/>
-							</div>
-							
-            	<p className="text-sm leading-6 text-slate-600">
-								The Digital Ointment for your Medical Inventory Pain
-							</p>
+  return (
+    <footer className="border-t border-surface-muted bg-surface">
+      <Container>
+        <div className="pb-8 pt-24 lg:pt-32">
+          <div className="flex gap-8">
+            <div className="flex flex-grow lg:flex-grow-0 flex-row lg:flex-col justify-between items-start">
 
+              <div className="flex-col justify-start items-start">
+                <LogoLink size='md' />
+								<p className="mt-1 pl-0 md:pl-1 text-xs leading-6 text-ink"> 
+									Medicine Management
+								</p> 
+              </div>
+              
+
+						<div className="mt-0 lg:mt-8">
+							<BookDemoButton />
 						</div>
+							
+            </div>
 
-						<FooterNav />
-					</div>
-				</div>
+            {/* <FooterNav /> */}
+						<div className="flex-1 hidden lg:block text-xs">
+            	{/* <FooterDesktopNavigation sections={sections} /> */}
+							<OPFooterDesktopNavigation sections={sections} />
+          	</div>
+          </div>
+        </div>
+        <div className="text-xs">
+          <div className="lg:hidden">
+            {/* <FooterMobileNavigation sections={sections} /> */}
+						<OPFooterMovileNavigation sections={sections} />
+          </div>
+        </div>
+        <div className="mx-0 my-8">
+          <FooterLegalLinks />
+        </div>
+      </Container>
 
-				<div className="flex flex-col md:flex-row items-center justify-center md:justify-between mx-0 my-8">
-					<FooterLegalLinks />
-				</div>
-			</Container>
-
-			<FooterBasement />
-		</footer>
-	)
+      <FooterBasement />
+    </footer>
+  )
 }
-
-
-

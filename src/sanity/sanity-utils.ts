@@ -6,6 +6,10 @@ import { Insight } from "@/types/Insight";
 import { PolicyPage } from "@/types/PolicyPage";
 import { Category } from "@/types/Category";
 import { Faq } from "@/types/Faq";
+import { Feature, FeatureMenuItem } from "@/types/Feature";
+import type { IndustrySolution, IndustrySolutionMenuItem } from '@/types/IndustrySolution'
+import { Testimonial } from "@/types/Testimonial";
+import { Benefit } from "@/types/Benefit";
 
 export async function getProjects():Promise<Project[]> {
 	return createClient(clientConfig).fetch(
@@ -243,4 +247,387 @@ export async function getFaqs():Promise<Faq[]> {
 			answer
     }`
 	)
+}
+
+
+
+export async function getBenefits():Promise<Benefit[]> {
+	return createClient(clientConfig).fetch(
+		groq`*[_type == "benefit"]{
+      _id,
+    title,
+    statement,
+    icon
+  } | order(_createdAt asc)`
+	)
+}
+
+// FEATURES
+export const featureBySlugQuery = 
+groq`*[_type == "feature" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug": slug.current,
+  template,
+
+	heroEyebrow,
+  "heroTitle": coalesce(heroTitle, title),
+  "heroEyebrow": coalesce(heroEyebrow, "Platform feature"),
+	heroSubTitle,
+  overview,
+	heroVisual,
+	heroComponentKey,
+	"heroSvg": { "url": heroSvg.asset->url, "alt": heroSvg.alt },
+	"heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
+
+	"problemEyebrow": coalesce(problemEyebrow, "Why this matters"),
+	problemTitle,
+	problemIntro,
+	problemPoints,
+	"problemImage": { "url": problemImage.asset->url, "alt": problemImage.alt },
+	problemComponentKey,
+
+
+	howItWorks,
+	howVisual,
+	howComponentKey,
+	"howImage": { "url": howImage.asset->url, "alt": howImage.alt },
+
+
+  benefitsIntro,
+  benefits[]{
+    featureBenefitTitle,
+    benefit->{ _id, title, statement, icon }
+  },
+
+	ctaTitle,
+	ctaBody,
+
+  body,
+  metaDescription,
+  keywords,
+  publishedAt
+}`;
+
+
+export const featuresMenuQuery = groq`
+	*[_type == "feature" && defined(slug.current) && coalesce(inMenu, true)]
+	| order(coalesce(menuOrder, 100) asc, coalesce(menuLabel, title) asc)
+	{
+		_id,
+		"slug": slug.current,
+		"label": coalesce(menuLabel, title),
+		template,
+		menuOrder,  
+		menuIcon,
+  	menuDescription
+	}`;
+
+export async function getFeaturesMenu(): Promise<FeatureMenuItem[]> {
+  return createClient(clientConfig).fetch(featuresMenuQuery);
+}
+
+
+export async function getFeatures():Promise<Feature[]> {
+	return createClient(clientConfig).fetch(
+		groq`*[_type == "feature"]{
+      _id,
+  title,
+  subTitle,
+  "slug": slug.current,
+    }`
+	)
+}
+
+export async function getFeature(slug: string):Promise<Feature> {
+  return createClient(clientConfig).fetch(featureBySlugQuery, { slug });
+}
+
+// USE CASES
+export const useCaseBySlugQuery = groq`*[_type == "useCase" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug": slug.current,
+  template,
+
+  // Hero
+  "heroEyebrow": coalesce(heroEyebrow, "Use case"),
+  "heroTitle": coalesce(heroTitle, title),
+  heroSubTitle,
+  overview,
+  heroVisual,
+  heroComponentKey,
+  "heroSvg": { "url": heroSvg.asset->url, "alt": heroSvg.alt },
+  "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
+
+  // Problem / Challenge
+  "problemEyebrow": coalesce(problemEyebrow, "Why this matters"),
+  problemTitle,
+  problemIntro,
+  problemPoints,
+  "problemImage": { "url": problemImage.asset->url, "alt": problemImage.alt },
+  problemComponentKey,
+
+  // How Salvify helps
+  howItWorks,
+  howVisual,
+  howComponentKey,
+  "howImage": { "url": howImage.asset->url, "alt": howImage.alt },
+
+  // Benefits (reuse Benefit library)
+  benefitsIntro,
+  benefits[]{
+    useCaseBenefitTitle,
+    benefit->{ _id, title, statement, icon }
+  },
+
+  // Who it’s for
+	audiencesTitle,
+  audiencesIntro,
+  audiences,
+
+  // Related content (use cases + features)
+  relatedContent[]->{
+    _type,
+    _id,
+    title,
+    "slug": slug.current,
+    // for menu cards
+    "label": coalesce(menuLabel, title),
+    menuIcon,
+    menuDescription
+  },
+
+  // CTA
+  "ctaTitle": coalesce(ctaTitle, "Ready to simplify your inventory?"),
+  ctaBody,
+
+  // SEO
+  metaDescription,
+  keywords,
+  publishedAt
+}`
+
+// Menu list (same ordering approach as Features)
+export const useCasesMenuQuery = groq`
+  *[_type == "useCase" && defined(slug.current) && coalesce(inMenu, true)]
+  | order(coalesce(menuOrder, 100) asc, coalesce(menuLabel, title) asc)
+  {
+    _id,
+    "slug": slug.current,
+    "label": coalesce(menuLabel, title),
+    template,
+    menuOrder,
+    menuIcon,
+    menuDescription
+  }
+`
+
+// Lightweight list (for indexes/sitemaps/admin)
+export const useCasesListQuery = groq`
+  *[_type == "useCase"]{
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt
+  } | order(coalesce(menuOrder, 100) asc, title asc)
+`
+
+// Helpers (match your Feature helpers style)
+export async function getUseCasesMenu() {
+  return createClient(clientConfig).fetch(useCasesMenuQuery)
+}
+
+export async function getUseCases() {
+  return createClient(clientConfig).fetch(useCasesListQuery)
+}
+
+export async function getUseCase(slug: string) {
+  return createClient(clientConfig).fetch(useCaseBySlugQuery, { slug })
+}
+
+
+
+// INDUSTRY SOLUTIONS
+export const industrySolutionBySlugQuery = groq`*[_type == "industry-solution" && slug.current == $slug][0]{
+  _id,
+  title,
+  "slug": slug.current,
+
+	// Linked base industry
+  industryRef->{ _id, title, "slug": slug.current },
+
+  // Navigation
+  inMenu,
+  menuLabel,
+  menuIcon,
+  menuDescription,
+  menuOrder,
+
+  // Hero
+  "heroEyebrow": coalesce(heroEyebrow, "Industry"),
+  "heroTitle": coalesce(heroTitle, title),
+  heroSubTitle,
+  overview,
+  "heroImage": { "url": heroImage.asset->url, "alt": heroImage.alt },
+
+  // Regulatory / context
+  regulatoryContext,
+
+  // Challenges
+  challengesTitle,
+  challenges[]{ title, summary },
+
+  // How Salvify Helps
+  helpTitle,
+	helpIntro,
+  helpBlocks[]{
+    title,
+    summary,
+  },
+
+  // Benefits (reuse Benefit library)
+  benefitsIntro,
+  industryBenefits[]{
+    industryBenefitTitle,
+    benefit->{ _id, title, statement, icon },
+  },
+
+  // Feature Highlights
+  featureHighlights[]->{   
+		_type,
+    _id,
+    title,
+    "slug": slug.current,
+    // for menu cards
+    "label": coalesce(menuLabel, title),
+    menuIcon,
+    menuDescription 
+	},
+
+  // Related Use Cases / Features
+  // relatedContent[]->{
+  //   _type,
+  //   _id,
+  //   title,
+  //   "slug": slug.current,
+  //   // for menu cards
+  //   "label": coalesce(menuLabel, title),
+  //   menuIcon,
+  //   menuDescription
+  // },
+
+  // Operational Flow
+  flowTitle,
+  operationalSteps[]{ stepTitle, stepBody },
+
+  // Impact Stats
+  impactStats[]{ value, label, note, icon, tone },
+
+  // Proof
+  testimonials[]->{
+    _id,
+    quote,
+    author,
+    role,
+    organisation
+  },
+  // caseStudies[]->{
+  //   _id,
+  //   title,
+  //   "slug": slug.current,
+  //   summary
+  // },
+
+  // CTA
+  "ctaTitle": coalesce(ctaTitle, "Ready to simplify medicine management for your team?"),
+  ctaBody,
+
+  // SEO
+  metaDescription,
+  keywords,
+  noindex,
+  "ogImage": { "url": ogImage.asset->url, "alt": ogImage.alt },
+  publishedAt
+}`
+
+
+export const industrySolutionsMenuQuery = groq`
+  *[_type == "industry-solution" && defined(slug.current) && coalesce(inMenu, true)]
+  | order(coalesce(menuOrder, 100) asc, coalesce(menuLabel, title) asc)
+  {
+    _id,
+    "slug": slug.current,
+    "label": coalesce(menuLabel, title),
+    menuOrder,
+    menuIcon,
+    menuDescription
+  }
+`
+
+export const industrySolutionsListQuery = groq`
+  *[_type == "industry-solution"]{
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt
+  } | order(coalesce(menuOrder, 100) asc, title asc)
+`
+
+export async function getIndustrySolutionsMenu() {
+  return createClient(clientConfig).fetch(industrySolutionsMenuQuery)
+}
+
+export async function getIndustrySolutions() {
+  return createClient(clientConfig).fetch(industrySolutionsListQuery)
+}
+
+export async function getIndustrySolution(slug: string) {
+  return createClient(clientConfig).fetch(industrySolutionBySlugQuery, { slug })
+}
+
+
+
+// Single list (for admin, pages, or feed)
+export const testimonialsListQuery = groq`
+  *[_type == "testimonial"]{
+    _id,
+    author,
+    message,
+    role,
+    company,
+    companyUrl,
+    "industry": industry[]->{
+      _id,
+      title,
+      "slug": slug.current
+    },
+    publishedAt
+  } | order(coalesce(publishedAt, _createdAt) desc)
+`
+
+export async function getTestimonials(): Promise<Testimonial[]> {
+  return createClient(clientConfig).fetch(testimonialsListQuery)
+}
+
+// Filter by linked Industry (optional helper)
+export const testimonialsByIndustryIdQuery = groq`
+  *[_type == "testimonial" && $industryId in industry[]._ref]{
+    _id,
+    author,
+    message,
+    role,
+    company,
+    companyUrl,
+    "industry": industry[]->{
+      _id,
+      title,
+      "slug": slug.current
+    },
+    publishedAt
+  } | order(coalesce(publishedAt, _createdAt) desc)[0...$limit]
+`
+
+export async function getTestimonialsByIndustryId(industryId: string, limit = 6): Promise<Testimonial[]> {
+  return createClient(clientConfig).fetch(testimonialsByIndustryIdQuery, { industryId, limit })
 }

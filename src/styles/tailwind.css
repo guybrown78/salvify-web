@@ -29,3 +29,47 @@
   to { transform: translateX(-30px); }
 }
 
+@keyframes bg-gradient-line-flow {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200%; }
+}
+
+/* Primitives (palette) */
+/* Primitives (palette) */
+:root {
+	--color-brand-300: #A9F5EF;
+  --color-brand-500: #00bbb7;
+  --color-brand-700: #07828c;
+  --color-ink: #172144;
+  --color-surface: #f0f4f8;
+  --color-surface-muted: #dfecef;
+  --color-accent: #ed9472;
+
+  /* Semantic roles (light) */
+  --color-bg: var(--color-surface);
+  --color-fg: var(--color-ink);
+  --color-card: var(--color-surface-muted);
+  --color-cta: var(--color-brand-500);
+  --color-cta-hover: var(--color-brand-700);
+  --color-border: oklch(0.92 0.01 240);
+  --color-link: var(--color-brand-700);
+  --color-danger: #AF554F;
+  --color-warning: #C19650;
+  --color-success: #4F9C67;
+}
+
+/* Dark */
+:root.dark,
+[data-theme="dark"] {
+  --color-bg: #0b1024;
+  --color-fg: #e6e9ee;
+  --color-card: color-mix(in oklab, var(--color-ink), white 85%);
+  --color-cta: var(--color-brand-500);
+  --color-cta-hover: var(--color-brand-700);
+  --color-border: oklch(0.35 0.02 240);
+  --color-link: var(--color-brand-500);
+}
+
+@layer base {
+  h1, h2, h3, h4 { @apply font-brand font-extrabold; }
+}

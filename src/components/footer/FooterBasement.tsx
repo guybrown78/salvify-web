@@ -7,7 +7,7 @@ import {
 
 const FooterBasement = () => {
 	return (
-		<div className="mt-4 border-t border-slate-200/50 bg-salvify-secondary" >
+		<div className="mt-4 border-t border-slate-200/50 bg-ink" >
 			<Container>
 				<div className="flex items-center justify-between py-10">
 					
@@ -19,7 +19,7 @@ const FooterBasement = () => {
 							<a 
 								href="https://linkedin.com/company/salvify" 
 								target="_blank" 
-								className="text-slate-300 hover:text-salvify-primary transition"
+								className="text-surface-muted hover:text-brand-500 transition-colors duration-200 ease-in-out"
 								aria-label="Salvify on LinkedIn">
 									<FaLinkedinIn />
 								</a>
