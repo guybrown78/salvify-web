@@ -50,8 +50,8 @@ const ScreenImageContainer = ({
 				<DesktopBrowserWhiteBase className="z-0 hidden h-full md:block"/>
 
         {/* Bottom layer (BG) */}
-        <MobileBrowserBackground className="z-10 h-[600px] md:hidden " />
-        <DesktopBrowserBackground className="z-10 hidden h-full md:block" />
+        <MobileBrowserBackground className="z-10 h-[600px] md:hidden text-white" />
+        <DesktopBrowserBackground className="z-10 hidden h-full md:block text-white" />
 
         {/* Middle layer (content) */}
         <MobileBrowserContent className="z-20 h-[600px] md:hidden">
