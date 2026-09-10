@@ -3,12 +3,12 @@ import CdrSection from './CdrSection'
 import CdrList from './CdrList'
 
 const points: string[] = [
-  'Independent second-person witnessing for administration and destruction',
+  'Independent second-person witnessing across controlled drug events',
   'Witness permission is separate from permission to administer, so a witness does not need to be authorised to give the drug',
   'Every user has an individual, authenticated account; shared logins are not used',
   'The acting user and the witness are both recorded, with date and time',
   'Witnessed activity is retained in the audit record',
-  'Everyday low-risk wastage is recorded but does not require a witness, a deliberate choice to stay practical',
+  'Which events require a witness is configurable, so routine, low-risk activity stays quick to record',
 ]
 
 const CdrWitnessing = () => {
@@ -17,7 +17,7 @@ const CdrWitnessing = () => {
       id="cdr-witnessing"
       eyebrow="Witnessing"
       title="Independent witnessing, without unnecessary complexity"
-      lead="Administration and destruction of controlled drugs are witnessed. A second eligible person signs in with their own account and confirms what they saw, the same two-person principle a paper register requires."
+      lead="Controlled drug events can be independently witnessed. A second eligible person signs in with their own account and confirms what they saw, the same two-person principle a paper register requires."
       tone="light"
       align="center"
     >
@@ -31,7 +31,7 @@ const CdrWitnessing = () => {
               Acting user
             </span>
             <span className="block text-xs text-fg/60">
-              Administers · own account
+              Records the event · own account
             </span>
           </span>
         </div>
