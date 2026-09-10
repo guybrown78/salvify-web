@@ -104,26 +104,31 @@ export default function CdrJourneyStepper() {
                   {i < total - 1 && (
                     <span
                       className={clsx(
-                        'absolute left-1/2 top-1/2 h-0.5 w-full -translate-y-1/2 rounded-full transition-colors duration-500',
+                        'absolute left-1/2 top-1/2 z-0 h-0.5 w-full -translate-y-1/2 rounded-full transition-colors duration-500',
                         i < current ? 'bg-brand-500' : 'bg-white/15'
                       )}
                     />
                   )}
-                  <button
-                    type="button"
-                    onClick={() => setCurrent(i)}
-                    tabIndex={-1}
-                    className={clsx(
-                      'relative z-10 flex shrink-0 items-center justify-center rounded-full font-brand font-extrabold transition-all duration-500',
-                      isActive
-                        ? 'size-11 bg-brand-500 text-base text-white ring-[6px] ring-brand-500/20'
-                        : isDone
-                          ? 'size-8 bg-brand-500/80 text-xs text-white hover:bg-brand-500'
-                          : 'size-8 border-2 border-white/25 text-xs text-surface/50 hover:border-brand-300 hover:text-white'
-                    )}
-                  >
-                    {i + 1}
-                  </button>
+                  {/* Opaque halo masks the connector line so every node reads as a
+                      clean circle with space around it. Colour must match the
+                      CdrSection ink tone. */}
+                  <span className="relative z-10 rounded-full bg-ink p-2">
+                    <button
+                      type="button"
+                      onClick={() => setCurrent(i)}
+                      tabIndex={-1}
+                      className={clsx(
+                        'flex shrink-0 items-center justify-center rounded-full font-brand font-extrabold transition-all duration-500',
+                        isActive
+                          ? 'size-11 bg-brand-500 text-base text-white ring-[6px] ring-brand-500/20'
+                          : isDone
+                            ? 'size-8 bg-brand-500/80 text-xs text-white hover:bg-brand-500'
+                            : 'size-8 border-2 border-white/25 bg-ink text-xs text-surface/50 hover:border-brand-300 hover:text-white'
+                      )}
+                    >
+                      {i + 1}
+                    </button>
+                  </span>
                 </div>
                 <button
                   type="button"

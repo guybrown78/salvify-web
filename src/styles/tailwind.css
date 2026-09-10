@@ -88,18 +88,21 @@
   to { opacity: 1; transform: translateY(0); }
 }
 /* Hero activity chips: fade a chip in, hold, fade out, stay hidden for the rest
-   of the cycle. Three chips per slot at staggered delays hand off to each other. */
+   of the cycle. The chip is on screen for the first 22.5% of its cycle; the gap
+   before the next chip is baked into each chip's animation-delay in
+   CdrHeroAlert, and is a fresh random value so hand-offs never feel metronomic.
+   Keep the 22.5% in sync with VISIBLE_FRAC there. */
 @keyframes cdr-alert {
   0% { opacity: 0; transform: translateY(6px); }
-  4% { opacity: 1; transform: translateY(0); }
-  26% { opacity: 1; transform: translateY(0); }
-  30% { opacity: 0; transform: translateY(6px); }
+  3.5% { opacity: 1; transform: translateY(0); }
+  19% { opacity: 1; transform: translateY(0); }
+  22.5% { opacity: 0; transform: translateY(6px); }
   100% { opacity: 0; transform: translateY(6px); }
 }
 @keyframes cdr-alert-fade {
   0%, 100% { opacity: 0; }
-  4%, 26% { opacity: 1; }
-  30% { opacity: 0; }
+  3.5%, 19% { opacity: 1; }
+  22.5% { opacity: 0; }
 }
 
 .cdr-float { animation: cdr-float 6s ease-in-out infinite; }
