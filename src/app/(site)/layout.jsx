@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Lato, Nunito, Poppins } from 'next/font/google'
 import clsx from 'clsx'
 
@@ -84,7 +85,9 @@ export default function RootLayout({ children }) {
         nunito.variable, poppins.variable
       )}
     >
-			<GoogleAnalytics GA_MEASUREMENT_ID='G-ZFG4K61VXN'/>
+			<Suspense fallback={null}>
+				<GoogleAnalytics GA_MEASUREMENT_ID='G-ZFG4K61VXN'/>
+			</Suspense>
       <body className="flex h-full flex-col font-sans">
 				<Header />
 					<main className="flex-1">

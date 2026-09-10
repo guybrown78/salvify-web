@@ -16,6 +16,7 @@ import OPHomepageHero from '@/components/homepage/OPHomepageHero'
 import OPHomepageProblem from '@/components/homepage/OPHomepageProblem'
 import OPHomepageFeatures from '@/components/homepage/OPHomepageFeatures'
 import OPHomepageIndustries from '@/components/homepage/OPHomepageIndustries'
+import HomepageControlledDrugs from '@/components/homepage/HomepageControlledDrugs'
 
 export const revalidate = 60
 
@@ -29,6 +30,7 @@ export default function Home() {
       <PlatformMainFeatures />
       {/* <PlatformOverview /> */}
 			<OPHomepageFeatures />
+      <HomepageControlledDrugs />
       <HomepageMidCTA />
       {/* <IndustrySolutionsOverview /> */}
       <HomepageImpacts />

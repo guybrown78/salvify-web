@@ -73,3 +73,41 @@
 @layer base {
   h1, h2, h3, h4 { @apply font-brand font-extrabold; }
 }
+
+/* Controlled Drug Register page: subtle motion + reveal */
+@keyframes cdr-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes cdr-float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes cdr-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Hero activity chips: fade a chip in, hold, fade out, stay hidden for the rest
+   of the cycle. Three chips per slot at staggered delays hand off to each other. */
+@keyframes cdr-alert {
+  0% { opacity: 0; transform: translateY(6px); }
+  4% { opacity: 1; transform: translateY(0); }
+  26% { opacity: 1; transform: translateY(0); }
+  30% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 0; transform: translateY(6px); }
+}
+@keyframes cdr-alert-fade {
+  0%, 100% { opacity: 0; }
+  4%, 26% { opacity: 1; }
+  30% { opacity: 0; }
+}
+
+.cdr-float { animation: cdr-float 6s ease-in-out infinite; }
+.cdr-float-slow { animation: cdr-float-slow 9s ease-in-out infinite; }
+.cdr-rise { animation: cdr-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.cdr-alert { opacity: 0; animation: cdr-alert 8.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cdr-float, .cdr-float-slow, .cdr-rise { animation: none; }
+  .cdr-alert { animation-name: cdr-alert-fade; }
+}

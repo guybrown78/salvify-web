@@ -6,16 +6,16 @@ version 2 multi-page site goes live.
 
 ---
 
-## 1. Nested `<html>` / `<body>` — invalid markup
+## 1. Nested `<html>` / `<body>`: invalid markup
 
 ### Current state
 
 Three layouts each render their own `<html>` and `<body>`:
 
-- `src/app/layout.tsx` — the required App Router root layout
-- `src/app/(site)/layout.jsx` — site chrome (Header/Footer/fonts/analytics)
-- `src/app/(studio)/layout.tsx` — Sanity Studio shell
-- `src/app/(studio)/admin/layout.tsx` — a **third** nested `<html>`/`<body>` on the
+- `src/app/layout.tsx`: the required App Router root layout
+- `src/app/(site)/layout.jsx`: site chrome (Header/Footer/fonts/analytics)
+- `src/app/(studio)/layout.tsx`: Sanity Studio shell
+- `src/app/(studio)/admin/layout.tsx`: a **third** nested `<html>`/`<body>` on the
   `/admin` route specifically
 
 Because `app/layout.tsx` already provides `<html>`/`<body>`, the route-group layouts
@@ -35,8 +35,8 @@ Use the Next.js **"multiple root layouts"** pattern:
    layout for the marketing site. Move the shared/default `metadata` (currently in
    the deleted root: `metadataBase`, `title.default` + `title.template`, `robots`)
    into it, merged with what it already exports. Keep `title` as `{ absolute: ... }`
-   only if we still want the homepage title to skip the `%s | Salvify` template —
-   otherwise switch the homepage `page.tsx` to set its own title and let the
+   only if we still want the homepage title to skip the `%s | Salvify` template.
+   Otherwise switch the homepage `page.tsx` to set its own title and let the
    template apply.
 3. `src/app/(studio)/layout.tsx` keeps its `<html>`/`<body>` and becomes the root
    layout for the studio. Keep `robots: { index: false, follow: false }`.
@@ -56,7 +56,7 @@ Use the Next.js **"multiple root layouts"** pattern:
 
 ### Reference
 
-Next.js docs — "Creating multiple root layouts" (App Router / project organisation).
+Next.js docs, "Creating multiple root layouts" (App Router / project organisation).
 
 ---
 
@@ -76,8 +76,8 @@ branding. Confirmed in the build output as `○ /404 (pages)`.
 
 Add `src/app/not-found.tsx` (root-level) so all unmatched routes get a branded
 page. If task 1 is done first and `app/layout.tsx` is removed, put the root
-`not-found` inside the `(site)` group instead, or wherever the catch-all ends up —
-the current `(site)/not-found.jsx` can likely just be promoted/renamed.
+`not-found` inside the `(site)` group instead, or wherever the catch-all ends up.
+The current `(site)/not-found.jsx` can likely just be promoted/renamed.
 
 Keep it a Server Component. Reuse the existing markup from
 `src/app/(site)/not-found.jsx`.
