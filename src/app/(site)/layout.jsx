@@ -9,7 +9,9 @@ import { Footer } from '@/components/footer/Footer'
 
 export const metadata = {
   metadataBase: new URL('https://www.salvify.co.uk'),
-  title: 'Salvify | Medical Inventory Management Software',
+  title: {
+    absolute: 'Salvify | Medical Inventory Management Software',
+  },
   description:
     'Salvify is medical inventory management software for healthcare providers. Track stock, batch numbers and expiry dates, strengthen compliance, reduce waste, and improve operational efficiency with one digital platform.',
   keywords: [

@@ -6,8 +6,12 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Salvify studio admin',
+  title: { absolute: 'Salvify Studio' },
   description: 'Admin only area for salvify.co.uk',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default function RootLayout({
