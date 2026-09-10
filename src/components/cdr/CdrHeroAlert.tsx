@@ -20,8 +20,8 @@ type Slot = {
 
 const slots: Slot[] = [
   {
-    // top-left, hanging off the edge
-    anchor: '-left-4 top-8 xl:-left-12',
+    // mid-left, hanging off the edge (clear of the card header)
+    anchor: '-left-4 top-32 xl:-left-12',
     chip: 'left-0 top-0',
     cycle: 10.4,
     offset: 1.8,
