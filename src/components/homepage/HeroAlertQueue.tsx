@@ -120,18 +120,25 @@ export default function HeroAlertQueue() {
         // fading in place; only once it's actually removed do the survivors
         // promote. Position among survivors decides the cascade delay.
         const activeIndex = activeSlots.findIndex((s) => s.key === slot.key)
+        const pillDelay = activeIndex === 1 ? 0.1 : 0
         return (
           <motion.div
             key={slot.key}
             layout
             initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
             animate={slot.exiting ? { opacity: 0, y: -12 } : { opacity: 1, y: 0 }}
-            transition={{ ...TRANSITION, delay: activeIndex === 1 ? 0.1 : 0 }}
+            transition={{ ...TRANSITION, delay: pillDelay }}
             onAnimationComplete={() => {
               if (slot.exiting) handleExitComplete(slot.key)
             }}
           >
-            <StatementCard color="brand-300" title={ALERTS[slot.idx]} icon={<HiOutlineCheck />} />
+            <StatementCard
+              color="brand-300"
+              title={ALERTS[slot.idx]}
+              icon={<HiOutlineCheck />}
+              animateIcon={!shouldReduceMotion}
+              iconDelay={pillDelay + TRANSITION.duration}
+            />
           </motion.div>
         )
       })}

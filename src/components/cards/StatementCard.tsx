@@ -1,5 +1,8 @@
+'use client'
+
 import clsx from 'clsx';
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export type StatementColor = 'brand-300' | 'brand-500' | 'brand-700' | 'accent'
 
@@ -7,6 +10,10 @@ export interface StatementType {
 	title: string;
 	color: StatementColor;
 	icon: React.ReactNode,
+	/** Pop the icon circle in with a punchy spring instead of rendering it static. */
+	animateIcon?: boolean,
+	/** Seconds to hold before the pop starts (e.g. to wait out the card's own entrance). */
+	iconDelay?: number,
 }
 
 const toneClasses: { grad: Record<StatementColor, string> } = {
@@ -22,18 +29,23 @@ const toneClasses: { grad: Record<StatementColor, string> } = {
 
 
 
-const StatementCard = ({color, title, icon}: StatementType) => {
+const StatementCard = ({color, title, icon, animateIcon = false, iconDelay = 0}: StatementType) => {
 	return (
 			<div
 					className={clsx("inline-block px-2 py-1 rounded-md shadow-sm","bg-gradient-to-r from-surface", toneClasses.grad[color])}
 				>
 					<div className='flex items-center space-x-2'>
-<div className='relative bg-brand-300 rounded-full border-2 border-white h-7 w-7 flex justify-center items-center'>
+<motion.div
+	className='relative bg-brand-300 rounded-full border-2 border-white h-7 w-7 flex justify-center items-center'
+	initial={animateIcon ? { scale: 0 } : false}
+	animate={{ scale: 1 }}
+	transition={{ delay: iconDelay, type: 'spring', stiffness: 550, damping: 14 }}
+>
 
 					<div className="relative flex justify-center items-center">
 						{icon}
 					</div>
-</div>
+</motion.div>
 					<span className="text-[10px] font-semibold text-ink">{title}</span>
 					</div>
 					
