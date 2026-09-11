@@ -5,43 +5,65 @@ import clsx from 'clsx'
 import { useInView } from '@/hooks/useInView'
 
 /**
- * Animated chain-of-custody illustration. Steps through the same drug's
- * journey used in CdrRegisterPreview (CDR-014, batch 22B441), pulsing the
- * active location and revealing what Salvify actually captures at that step,
- * so the diagram explains the claim rather than just naming the locations.
- * Loops while in view, pauses on hover, and settles on the final frame under
- * reduced-motion.
+ * Animated stock-check illustration. A simplified diagram of the real flow
+ * (check each batch in turn, adjust if the count is different, then see the
+ * effect on the register), in the same visual language as CdrCustodyPath.
+ * This is intentionally NOT a recreation of the product UI: no buttons, no
+ * counters, no modal chrome, just the site's own timeline/tag idiom used to
+ * explain what happens. Loops while in view, pauses on hover, and settles on
+ * the final frame under reduced-motion.
  */
-type Node = { label: string; ref: string; detail: string }
+type Status = 'ok' | 'flag' | 'brand'
+
+type Node = { label: string; tag: string; status: Status; detail: string }
 
 const nodes: Node[] = [
   {
-    label: 'Central store',
-    ref: 'CDR-014',
-    detail: 'Receipt logged with supplier, batch and expiry. Balance updated.',
+    label: 'Batch 22B441 checked',
+    tag: 'Confirmed',
+    status: 'ok',
+    detail: 'Counted on the spot. It matches the expected balance.',
   },
   {
-    label: 'Station A',
-    ref: 'Approved location',
+    label: 'Batch M2601 checked',
+    tag: '12 vs 10',
+    status: 'flag',
+    detail: 'Counted 12 against an expected 10. Recorded, not overwritten.',
+  },
+  {
+    label: 'Discrepancy opened',
+    tag: 'Flagged',
+    status: 'flag',
     detail:
-      'The system checks the destination is an approved location before the transfer is allowed.',
+      'Logged for the CD team to review. Nothing more is needed from the person checking.',
   },
   {
-    label: 'Ambulance 3',
-    ref: 'Batch 22B441 · Exp 06/27',
-    detail: 'Batch, expiry and quantity travel with the stock, not just the location.',
-  },
-  {
-    label: 'Response bag',
-    ref: 'Signed out · 12h',
-    detail:
-      'Personal custody sign-out records who is accountable for the bag, and until when.',
+    label: 'Register updated',
+    tag: 'Recorded',
+    status: 'brand',
+    detail: "The stock check and any discrepancies join the register's history.",
   },
 ]
 
+const dotColor: Record<Status, string> = {
+  ok: 'bg-success',
+  flag: 'bg-warning',
+  brand: 'bg-brand-500',
+}
+const ringColor: Record<Status, string> = {
+  ok: 'ring-success/20',
+  flag: 'ring-warning/20',
+  brand: 'ring-brand-500/20',
+}
+const tagColor: Record<Status, string> = {
+  ok: 'bg-success/12 text-success',
+  flag: 'bg-warning/12 text-warning',
+  brand: 'bg-brand-500/12 text-brand-700',
+}
+
 const STEP_MS = 2800
 
-export default function CdrCustodyPath() {
+export default function CdrStockCheckPath() {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
   const [reduced, setReduced] = useState(false)
@@ -58,8 +80,7 @@ export default function CdrCustodyPath() {
     if (paused || reduced || !inView) return
     let raf = 0
     const t = window.setTimeout(() => {
-      // requestAnimationFrame wrap keeps this timer-driven update from
-      // sitting committed-but-unpainted until a click; see CdrJourneyStepper.
+      // requestAnimationFrame wrap: see CdrCustodyPath / CdrJourneyStepper.
       raf = window.requestAnimationFrame(() =>
         setActive((a) => (a + 1) % nodes.length)
       )
@@ -79,7 +100,7 @@ export default function CdrCustodyPath() {
     >
       <div className="flex items-center justify-between gap-3">
         <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-700">
-          Chain of custody
+          Stock check
         </p>
         <span className="font-mono text-[11px] text-fg/40">
           Morphine sulfate 10mg/ml
@@ -90,6 +111,7 @@ export default function CdrCustodyPath() {
         {nodes.map((n, i) => {
           const done = i < active
           const isActive = i === active
+          const reached = done || isActive
           return (
             <li key={n.label} className="relative flex gap-3">
               <span className="flex flex-col items-center">
@@ -97,11 +119,10 @@ export default function CdrCustodyPath() {
                   <span
                     className={clsx(
                       'relative z-10 shrink-0 rounded-full transition-all duration-500',
+                      reached ? dotColor[n.status] : 'bg-ink/20',
                       isActive
-                        ? 'size-3 bg-brand-500 ring-4 ring-brand-500/20 animate-pulse'
-                        : done
-                          ? 'size-2.5 bg-brand-500'
-                          : 'size-2.5 bg-ink/20'
+                        ? clsx('size-3 ring-4', ringColor[n.status])
+                        : 'size-2.5'
                     )}
                     aria-hidden="true"
                   />
@@ -130,12 +151,10 @@ export default function CdrCustodyPath() {
                   <span
                     className={clsx(
                       'shrink-0 rounded-full px-2 py-0.5 text-[11px] font-medium transition-colors duration-500',
-                      isActive
-                        ? 'bg-brand-500/12 text-brand-700'
-                        : 'bg-surface text-fg/55'
+                      reached ? tagColor[n.status] : 'bg-surface text-fg/55'
                     )}
                   >
-                    {n.ref}
+                    {n.tag}
                   </span>
                 </span>
                 <span

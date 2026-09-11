@@ -7,6 +7,7 @@ import {
 import CdrSection from './CdrSection'
 import CdrList from './CdrList'
 import CdrCard from './CdrCard'
+import CdrStockCheckPath from './CdrStockCheckPath'
 
 const checkPoints: string[] = [
   'Mismatches create a discrepancy record that has to be investigated and resolved before it can be closed',
@@ -15,8 +16,6 @@ const checkPoints: string[] = [
   'Governance teams can see unresolved discrepancies across every location',
   'Expired and expiring controlled drug stock is surfaced on a dashboard, not discovered by chance',
 ]
-
-const states = ['Open', 'Under investigation', 'Resolved']
 
 const roles: {
   eyebrow: string
@@ -55,28 +54,6 @@ const roles: {
   },
 ]
 
-const DiscrepancyCard = () => (
-  <div className="w-full max-w-md rounded-2xl border border-border bg-white p-6 shadow-sm">
-    <p className="font-mono text-[11px] font-semibold uppercase tracking-widest text-brand-700">
-      Discrepancy lifecycle
-    </p>
-    <ol className="mt-5 space-y-3">
-      {states.map((s, i) => (
-        <li key={s} className="flex items-center gap-3">
-          <span className="inline-flex size-6 items-center justify-center rounded-full bg-ink text-xs font-bold text-surface">
-            {i + 1}
-          </span>
-          <span className="text-sm font-medium text-ink">{s}</span>
-        </li>
-      ))}
-    </ol>
-    <p className="mt-5 border-t border-border pt-4 text-xs leading-relaxed text-fg/55">
-      Investigation notes are append-only. A resolution is either explained or
-      adjusted, and it stays on the record either way.
-    </p>
-  </div>
-)
-
 const CdrGovernance = () => {
   return (
     <CdrSection
@@ -85,7 +62,7 @@ const CdrGovernance = () => {
       title="Stock checks, discrepancies and governance"
       lead="Physical stock can be checked against the recorded balance at any time. When they don't match, Salvify won't let anyone quietly adjust the number. It opens a formal investigation that has to be written up and resolved."
       tone="muted"
-      aside={<DiscrepancyCard />}
+      aside={<CdrStockCheckPath />}
     >
       <div className="max-w-3xl">
         <CdrList items={checkPoints} columns={2} />
