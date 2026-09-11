@@ -1,7 +1,6 @@
-import { HiOutlineCheck, HiOutlineCheckCircle } from 'react-icons/hi2'
 import { Button } from '../Button'
-import StatementCard from '../cards/StatementCard'
 import { Container } from '../Container'
+import HeroAlertQueue from './HeroAlertQueue'
 import {
   HeroCTAButtonWrapper,
   HeroEyebrow,
@@ -88,24 +87,8 @@ const OPHomepageHero = () => {
               </div>
             </div>
 
-            <div className="z-10 relative my-auto ml-0 xl:ml-28 top-64 flex flex-col items-end space-y-2 xl:space-y-4  max-w-52 xl:top-32">
-              <StatementCard
-                color="brand-300"
-                title="Real-time stock"
-                icon={<HiOutlineCheck />}
-              />
-
-              <StatementCard
-                color="brand-300"
-                title="Every medicine fully traceable"
-                icon={<HiOutlineCheck />}
-              />
-
-              <StatementCard
-                color="brand-300"
-                title="Ready for every shift"
-                icon={<HiOutlineCheck />}
-              />
+            <div className="z-10 relative my-auto ml-0 xl:ml-28 top-64 max-w-52 xl:top-32">
+              <HeroAlertQueue />
             </div>
           </div>
         </div>
