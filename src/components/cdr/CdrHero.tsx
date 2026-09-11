@@ -63,7 +63,7 @@ const CdrHero = () => {
               </Button>
             </div>
 
-            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-fg/60">
+            <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-2 text-sm text-fg/60 sm:grid-cols-2 sm:w-fit">
               {chips.map((c) => (
                 <li key={c} className="flex items-center gap-2">
                   <span className="size-1.5 rounded-full bg-brand-500" />

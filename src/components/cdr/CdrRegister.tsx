@@ -9,6 +9,7 @@ const registerPoints: string[] = [
   'Corrections handled through linked amendments and addenda, with the original always visible',
   'Every entry attributed to an individual user, with date and time',
   'Register-level controls and a full activity history',
+  'Each register is scoped to a single location, so responsibility for stock is never ambiguous',
 ]
 
 type Kind = 'in' | 'out' | 'neutral'

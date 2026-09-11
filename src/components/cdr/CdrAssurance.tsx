@@ -7,6 +7,7 @@ const points: string[] = [
   'Role-based access control and individual authentication',
   'A complete, attributable audit history of register activity',
   'Automated backups and point-in-time recovery',
+  'Controlled drug access is granted individually, separate from general system permissions',
 ]
 
 const standards = [
