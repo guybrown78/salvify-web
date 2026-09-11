@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { ReactNode } from 'react'
 
-type Accent = 'brand' | 'ink' | 'danger' | 'accent'
+type Accent = 'brand' | 'ink' | 'danger' | 'accent' | 'success'
 type Variant = 'light' | 'ink'
 
 type Props = {
@@ -14,10 +14,11 @@ type Props = {
 }
 
 const iconTile: Record<Accent, string> = {
-  brand: 'bg-brand-500/12 text-brand-700',
+  brand: 'bg-brand-500/20 text-brand-700',
   ink: 'bg-ink text-surface',
-  danger: 'bg-danger/12 text-danger',
+  danger: 'bg-danger/20 text-danger',
   accent: 'bg-accent/20 text-ink',
+  success: 'bg-success/15 text-success',
 }
 
 const variantStyles: Record<

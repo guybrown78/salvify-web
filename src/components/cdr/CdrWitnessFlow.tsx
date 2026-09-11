@@ -57,11 +57,19 @@ export default function CdrWitnessFlow() {
 
   useEffect(() => {
     if (paused || reduced || !inView) return
-    const t = window.setTimeout(
-      () => setStep((s) => (s + 1) % SCRIPT.length),
-      SCRIPT[step].ms
-    )
-    return () => window.clearTimeout(t)
+    let raf = 0
+    const t = window.setTimeout(() => {
+      // requestAnimationFrame wrap: see CdrJourneyStepper for why. Without
+      // it, this setTimeout-driven update can end up committed but unpainted
+      // until the visitor clicks somewhere on the page.
+      raf = window.requestAnimationFrame(() =>
+        setStep((s) => (s + 1) % SCRIPT.length)
+      )
+    }, SCRIPT[step].ms)
+    return () => {
+      window.clearTimeout(t)
+      window.cancelAnimationFrame(raf)
+    }
   }, [step, paused, reduced, inView])
 
   useEffect(() => {
@@ -78,7 +86,7 @@ export default function CdrWitnessFlow() {
     setPin(0)
     const id = window.setInterval(() => {
       n += 1
-      setPin(n)
+      window.requestAnimationFrame(() => setPin(n))
       if (n >= 6) window.clearInterval(id)
     }, 330)
     return () => window.clearInterval(id)

@@ -59,8 +59,19 @@ export default function CdrJourneyStepper() {
   useEffect(() => {
     if (paused || !inView) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const id = window.setTimeout(() => go(1), AUTO_DELAY)
-    return () => window.clearTimeout(id)
+    let raf = 0
+    const id = window.setTimeout(() => {
+      // Route the state update through requestAnimationFrame so the browser
+      // treats it as render-critical and paints it on the next frame. Plain
+      // setTimeout-driven updates can otherwise sit committed-but-unpainted
+      // until the next real user gesture (e.g. a click), since Chrome
+      // deprioritises paint for JS-scheduled work with no pending input.
+      raf = window.requestAnimationFrame(() => go(1))
+    }, AUTO_DELAY)
+    return () => {
+      window.clearTimeout(id)
+      window.cancelAnimationFrame(raf)
+    }
   }, [current, paused, inView, go])
 
   const active = steps[current]

@@ -23,7 +23,7 @@ const roles: {
   title: string
   desc: string
   icon: React.ReactNode
-  accent: 'brand' | 'ink' | 'accent'
+  accent: 'brand' | 'ink' | 'accent' | 'success'
 }[] = [
   {
     eyebrow: 'Frontline',
@@ -44,7 +44,7 @@ const roles: {
     title: 'Medicines governance teams',
     desc: 'Organisation-wide oversight, with the ability to drill into any location or register and review activity, discrepancies, expiry and movement history.',
     icon: <HiOutlineUserGroup className="size-6" aria-hidden="true" />,
-    accent: 'brand',
+    accent: 'success',
   },
   {
     eyebrow: 'Accountable Officer',
