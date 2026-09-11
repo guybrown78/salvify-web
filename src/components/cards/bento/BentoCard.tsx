@@ -92,7 +92,7 @@ const BentoCard = ({
       : 'outline outline-surface-muted'
 
   const inner = clsx(
-    'w-full overflow-hidden shadow-sm',
+    'group w-full overflow-hidden shadow-sm',
     baseRound,
    	resolvedBg,
 		resolvedOutline,

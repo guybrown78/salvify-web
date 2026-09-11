@@ -9,6 +9,9 @@ import { ContentP } from '../content/Typography'
 import FeatureVisualStock from './features/FeatureVisualStock'
 import FeatureVisualChecklist from './features/FeatureVisualChecklist'
 import FeatureVisualRoles from './features/FeatureVisualRoles'
+import FeatureVisualExpiry from './features/FeatureVisualExpiry'
+import FeatureVisualAudit from './features/FeatureVisualAudit'
+import FeatureVisualIntegrations from './features/FeatureVisualIntegrations'
 
 
 const OPHomepageFeatures = () => {
@@ -42,6 +45,7 @@ const OPHomepageFeatures = () => {
  					<BentoCard
             lgColSpan={2}
           >
+            <FeatureVisualExpiry />
             <BentoText
               eyebrow="Expiry Control"
               title="Automated Expiry & Batch Alerts"
@@ -50,6 +54,7 @@ const OPHomepageFeatures = () => {
           </BentoCard>
 
           <BentoCard lgColSpan={2} roundedLg={['tr']}>
+            <FeatureVisualAudit />
             <BentoText
               eyebrow="Traceability"
               title="Complete Audit Trail"
@@ -82,8 +87,9 @@ const OPHomepageFeatures = () => {
             lgColSpan={2}
             roundedLg={['br']}
             smallBottom
-      
+
           >
+            <FeatureVisualIntegrations />
             <BentoText
               eyebrow="Works With Your Workflow"
               title="Interoperability"
