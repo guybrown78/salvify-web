@@ -6,6 +6,9 @@ import Eyebrow from '../content/Eyebrow'
 import SectionCTA from '../content/SectionCTA'
 import { ContentH2 } from '../content/Titles'
 import { ContentP } from '../content/Typography'
+import FeatureVisualStock from './features/FeatureVisualStock'
+import FeatureVisualChecklist from './features/FeatureVisualChecklist'
+import FeatureVisualRoles from './features/FeatureVisualRoles'
 
 
 const OPHomepageFeatures = () => {
@@ -19,7 +22,7 @@ const OPHomepageFeatures = () => {
         <Eyebrow title="Platform Features" />
         <ContentH2 title="Complete control of your medicines, wherever your team works" />
         <ContentP>
-					Salvify is purpose-built for the realities of pre-hospital and mobile healthcare. Manage every medicine, bag and holding with complete clarity — from central store to clinical kit to patient.
+					Salvify is purpose-built for the realities of pre-hospital and mobile healthcare. Manage every medicine, bag and holding with complete clarity, from central store to clinical kit to patient.
 				</ContentP>
         <BentoWrapper lgCols={6} lgRows={2}>
           <BentoCard
@@ -28,16 +31,11 @@ const OPHomepageFeatures = () => {
             smallTop
 
           >
-            {/* <BentoImage
-              src="/img/admin.png"
-              alt="Admin configuration"
-              positionClassName="object-left"
-            /> */}
-						{/* A kit/bag icon expands → items appear with batch + expiry labels → a green tick appears when compliant. */}
+            <FeatureVisualStock />
             <BentoText
               eyebrow="Visibility"
               title="Real-Time Stock Visibility"
-              text="See the status of every medicine holding across your entire fleet in one dashboard. Know what is stocked, what is low and what needs attention — without picking up the phone."
+              text="See the status of every medicine holding across your entire fleet in one dashboard. Know what is stocked, what is low and what needs attention, without picking up the phone."
             />
           </BentoCard>
 
@@ -63,8 +61,7 @@ const OPHomepageFeatures = () => {
             lgColSpan={2}
             roundedLg={['bl']}
           >
-            {/* <BentoImage src="/img/compliance.png" alt="Compliance dashboard" /> */}
-						{/* A CD icon → a witness icon appears beside it → a “dual confirmation” marker locks in. */}
+            <FeatureVisualChecklist />
             <BentoText
               eyebrow="Readiness"
               title="MakeReady Shift Checklists"
@@ -73,8 +70,7 @@ const OPHomepageFeatures = () => {
           </BentoCard>
 
           <BentoCard lgColSpan={2}>
-            {/* <BentoImage src="/img/cd.png" alt="Controlled drugs" /> */}
-						{/* A dashboard grows from a single tile → more tiles fade in showing expiry, usage, and movement graphs. */}
+            <FeatureVisualRoles />
             <BentoText
               eyebrow="Control"
               title="Role-Based Access Control"
@@ -88,11 +84,6 @@ const OPHomepageFeatures = () => {
             smallBottom
       
           >
-            {/* <BentoImage
-              src="/img/make-ready.png"
-              alt="Make Ready kits"
-              positionClassName="object-left"
-            /> */}
             <BentoText
               eyebrow="Works With Your Workflow"
               title="Interoperability"

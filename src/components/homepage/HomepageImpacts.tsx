@@ -11,6 +11,8 @@ import { Container } from '../Container'
 import Eyebrow from '../content/Eyebrow'
 import { ContentH2 } from '../content/Titles'
 import { ContentP } from '../content/Typography'
+import ScrollReveal from '../motion/ScrollReveal'
+import CountUpStat from '../motion/CountUpStat'
 
 interface ImpactStat {
   title: string
@@ -62,16 +64,17 @@ const HomepageImpacts = () => {
         </ContentP>
 
         <dl className="mt-5 grid grid-cols-1 gap-x-0 gap-y-2 rounded-lg md:grid-cols-2 md:gap-x-4 md:gap-y-4 lg:grid-cols-4 lg:gap-y-0">
-          {impactStats.map((item: ImpactStat) => {
+          {impactStats.map((item: ImpactStat, i) => {
             const IconCmp = item.icon
             return (
-              <StatCard
-                key={item.title}
-                title={item.title}
-                stat={item.stat}
-                tone={item.tone}
-                icon={<IconCmp className="size-8" aria-hidden="true" />}
-              />
+              <ScrollReveal key={item.title} delayMs={i * 100}>
+                <StatCard
+                  title={item.title}
+                  stat={<CountUpStat value={item.stat} />}
+                  tone={item.tone}
+                  icon={<IconCmp className="size-8" aria-hidden="true" />}
+                />
+              </ScrollReveal>
             )
           })}
         </dl>

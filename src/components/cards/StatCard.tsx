@@ -33,7 +33,7 @@ const toneClasses: { grad: Record<ImpactTone, string>, color: Record<ImpactTone,
 
 export interface StatCardType {
 	title: string;
-	stat: string;
+	stat: React.ReactNode;
 	tone: ImpactTone;
 	icon: React.ReactNode,
 }
