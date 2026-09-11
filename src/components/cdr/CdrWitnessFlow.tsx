@@ -7,7 +7,9 @@ import {
   HiOutlineUserGroup,
   HiCheckCircle,
   HiOutlineBellAlert,
+  HiOutlineClock,
 } from 'react-icons/hi2'
+import { useInView } from '@/hooks/useInView'
 
 /**
  * Animated witnessing illustration. Loops through two flows:
@@ -41,6 +43,7 @@ export default function CdrWitnessFlow() {
   const [pin, setPin] = useState(0)
   const [paused, setPaused] = useState(false)
   const [reduced, setReduced] = useState(false)
+  const { ref, inView } = useInView<HTMLDivElement>()
 
   const { flow, stage } = SCRIPT[step]
 
@@ -53,13 +56,13 @@ export default function CdrWitnessFlow() {
   }, [])
 
   useEffect(() => {
-    if (paused || reduced) return
+    if (paused || reduced || !inView) return
     const t = window.setTimeout(
       () => setStep((s) => (s + 1) % SCRIPT.length),
       SCRIPT[step].ms
     )
     return () => window.clearTimeout(t)
-  }, [step, paused, reduced])
+  }, [step, paused, reduced, inView])
 
   useEffect(() => {
     if (stage !== 'pin') {
@@ -70,6 +73,7 @@ export default function CdrWitnessFlow() {
       setPin(6)
       return
     }
+    if (!inView) return
     let n = 0
     setPin(0)
     const id = window.setInterval(() => {
@@ -78,18 +82,20 @@ export default function CdrWitnessFlow() {
       if (n >= 6) window.clearInterval(id)
     }, 330)
     return () => window.clearInterval(id)
-  }, [stage, flow, reduced])
+  }, [stage, flow, reduced, inView])
 
   const actingActive = stage === 'event'
   const witnessActive =
     stage === 'requested' || stage === 'accepted' || stage === 'pin'
   const done = stage === 'recorded'
+  const pending = flow === 'add' && stage === 'requested'
 
   const cardActive = 'border-brand-500/40 ring-4 ring-brand-500/10'
   const cardDone = 'border-success/40 ring-4 ring-success/10'
 
   return (
     <div
+      ref={ref}
       className="mx-auto max-w-3xl rounded-2xl border border-border bg-surface/40 p-5 sm:p-7"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -121,7 +127,7 @@ export default function CdrWitnessFlow() {
         {flowCopy[flow]}
       </p>
 
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-0">
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-0">
         <div
           className={clsx(
             'flex flex-1 flex-col gap-3 rounded-xl border bg-white p-4 shadow-sm transition-all duration-500 sm:min-h-[8.5rem]',
@@ -139,21 +145,53 @@ export default function CdrWitnessFlow() {
               <span className="block text-xs text-fg/55">Records the event</span>
             </span>
           </div>
-          <div className="flex items-center justify-between rounded-lg bg-surface/60 px-3 py-2 text-xs">
-            <span className="text-fg/70">Morphine sulfate 10mg/ml</span>
+          <div className="rounded-lg bg-surface/60 px-3 py-2.5 text-xs">
+            <span className="block text-fg/70">Morphine sulfate 10mg/ml</span>
             <span
               className={clsx(
-                'flex items-center gap-1 font-semibold text-success transition-opacity duration-500',
-                done ? 'opacity-100' : 'opacity-0'
+                'mt-1.5 flex items-center gap-1 font-semibold transition-opacity duration-500',
+                pending
+                  ? 'text-warning opacity-100'
+                  : done
+                    ? 'text-success opacity-100'
+                    : 'opacity-0'
               )}
             >
-              <HiCheckCircle className="size-4" aria-hidden="true" />
-              Signed
+              {pending ? (
+                <>
+                  <HiOutlineClock
+                    className="size-4 shrink-0 animate-pulse"
+                    aria-hidden="true"
+                  />
+                  Pending until the witness accepts
+                </>
+              ) : (
+                <>
+                  <HiCheckCircle className="size-4 shrink-0" aria-hidden="true" />
+                  Signed
+                </>
+              )}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center justify-center px-1 py-1 sm:mt-12 sm:w-14 sm:flex-col">
+        <div className="flex items-center justify-center py-1 sm:w-16 sm:flex-col">
+          {/* mobile: vertical connector */}
+          <div
+            className={clsx(
+              'relative h-8 w-0.5 rounded-full transition-colors duration-500 sm:hidden',
+              done ? 'bg-success' : 'bg-border'
+            )}
+          >
+            {(stage === 'requested' || stage === 'pin') && !reduced && (
+              <span
+                key={`${stage}-y`}
+                className="cdr-travel-y absolute left-1/2 top-0 size-2.5 -translate-x-1/2 rounded-full bg-brand-500 ring-4 ring-brand-500/20"
+              />
+            )}
+          </div>
+
+          {/* desktop: horizontal connector */}
           <div
             className={clsx(
               'relative hidden h-0.5 w-full rounded-full transition-colors duration-500 sm:block',
@@ -162,14 +200,11 @@ export default function CdrWitnessFlow() {
           >
             {(stage === 'requested' || stage === 'pin') && !reduced && (
               <span
-                key={stage}
-                className="cdr-travel absolute -top-[4px] left-0 size-2.5 rounded-full bg-brand-500 ring-4 ring-brand-500/20"
+                key={`${stage}-x`}
+                className="cdr-travel-x absolute -top-[4px] left-0 size-2.5 rounded-full bg-brand-500 ring-4 ring-brand-500/20"
               />
             )}
           </div>
-          <span className="text-fg/30 sm:hidden" aria-hidden="true">
-            &darr;
-          </span>
         </div>
 
         <div

@@ -106,21 +106,31 @@
 }
 
 /* Witness flow: a dot travelling along the connector while a request is in
-   flight or a PIN is being entered. */
-@keyframes cdr-travel {
-  0% { transform: translateX(-2px); opacity: 0; }
+   flight or a PIN is being entered. Travel distance = connector length minus
+   the dot's own diameter (0.625rem), so it lands flush at each end rather than
+   over- or under-shooting: desktop line is w-16 (4rem), mobile line is h-8
+   (2rem). Keep these in sync if the connector size in CdrWitnessFlow changes. */
+@keyframes cdr-travel-x {
+  0% { transform: translateX(0); opacity: 0; }
   15% { opacity: 1; }
   85% { opacity: 1; }
-  100% { transform: translateX(3.25rem); opacity: 0; }
+  100% { transform: translateX(3.375rem); opacity: 0; }
+}
+@keyframes cdr-travel-y {
+  0% { transform: translateY(0) translateX(-50%); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(1.375rem) translateX(-50%); opacity: 0; }
 }
 
 .cdr-float { animation: cdr-float 6s ease-in-out infinite; }
 .cdr-float-slow { animation: cdr-float-slow 9s ease-in-out infinite; }
 .cdr-rise { animation: cdr-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .cdr-alert { opacity: 0; animation: cdr-alert 8.4s ease-in-out infinite; }
-.cdr-travel { animation: cdr-travel 1.2s ease-in-out infinite; }
+.cdr-travel-x { animation: cdr-travel-x 1.2s ease-in-out infinite; }
+.cdr-travel-y { animation: cdr-travel-y 1.2s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
-  .cdr-float, .cdr-float-slow, .cdr-rise, .cdr-travel { animation: none; }
+  .cdr-float, .cdr-float-slow, .cdr-rise, .cdr-travel-x, .cdr-travel-y { animation: none; }
   .cdr-alert { animation-name: cdr-alert-fade; }
 }

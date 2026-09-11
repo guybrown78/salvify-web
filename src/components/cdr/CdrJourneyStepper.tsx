@@ -11,6 +11,7 @@ import {
   HiOutlineArrowLeft,
   HiOutlineArrowRight,
 } from 'react-icons/hi2'
+import { useInView } from '@/hooks/useInView'
 
 type Step = { label: string; note: string; icon: React.ReactNode }
 
@@ -48,6 +49,7 @@ export default function CdrJourneyStepper() {
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
   const total = steps.length
+  const { ref, inView } = useInView<HTMLDivElement>()
 
   const go = useCallback(
     (delta: number) => setCurrent((c) => (c + delta + total) % total),
@@ -55,16 +57,17 @@ export default function CdrJourneyStepper() {
   )
 
   useEffect(() => {
-    if (paused) return
+    if (paused || !inView) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const id = window.setTimeout(() => go(1), AUTO_DELAY)
     return () => window.clearTimeout(id)
-  }, [current, paused, go])
+  }, [current, paused, inView, go])
 
   const active = steps[current]
 
   return (
     <div
+      ref={ref}
       className="mx-auto max-w-4xl"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
