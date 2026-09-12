@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import clsx from 'clsx'
 import { motion, useReducedMotion } from 'framer-motion'
 import { HiOutlineCheck } from 'react-icons/hi2'
 import StatementCard from '../cards/StatementCard'
@@ -47,7 +48,12 @@ type Slot = { key: number; idx: number; exiting: boolean }
  * normal flow while it fades, in place, so its neighbours don't promote
  * until it's actually removed from the list.
  */
-export default function HeroAlertQueue() {
+type Props = {
+  /** Which edge the pills line their (variable-width) right/left edge up against. Defaults to 'end' (desktop). */
+  align?: 'start' | 'end'
+}
+
+export default function HeroAlertQueue({ align = 'end' }: Props) {
   const shouldReduceMotion = useReducedMotion()
   const [slots, setSlots] = useState<Slot[]>([])
   const nextIndexRef = useRef(3)
@@ -113,7 +119,12 @@ export default function HeroAlertQueue() {
   const activeSlots = slots.filter((s) => !s.exiting)
 
   return (
-    <div className="relative flex flex-col items-end space-y-2 xl:space-y-4">
+    <div
+      className={clsx(
+        'relative flex flex-col space-y-2 xl:space-y-4',
+        align === 'start' ? 'items-start' : 'items-end'
+      )}
+    >
       {slots.map((slot) => {
         // The exiting pill stays in normal flow (not yet removed from the
         // array) so it doesn't push its neighbours up while it's still
