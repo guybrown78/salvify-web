@@ -17,12 +17,35 @@ import OPHomepageProblem from '@/components/homepage/OPHomepageProblem'
 import OPHomepageFeatures from '@/components/homepage/OPHomepageFeatures'
 import OPHomepageIndustries from '@/components/homepage/OPHomepageIndustries'
 import HomepageControlledDrugs from '@/components/homepage/HomepageControlledDrugs'
+import Script from 'next/script'
 
 export const revalidate = 60
 
 export default function Home() {
   return (
     <>
+      <Script
+        id="structured-data-organization"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Salvify',
+            url: 'https://www.salvify.co.uk',
+            logo: 'https://www.salvify.co.uk/favicon.png',
+            description:
+              'Salvify is medicine management software for pre-hospital care, helping ambulance services and EMS providers manage stock, controlled drugs and compliance across every vehicle and site.',
+            sameAs: ['https://www.linkedin.com/company/salvify'],
+            contactPoint: {
+              '@type': 'ContactPoint',
+              contactType: 'Sales',
+              email: 'hello@salvify.co.uk',
+              url: 'https://www.salvify.co.uk/contact',
+            },
+          }),
+        }}
+      />
       {/* <HomepageHero /> */}
 			<OPHomepageHero />
       <TrustCredibility />

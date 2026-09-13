@@ -11,19 +11,20 @@ import { Footer } from '@/components/footer/Footer'
 export const metadata = {
   metadataBase: new URL('https://www.salvify.co.uk'),
   title: {
-    absolute: 'Salvify | Medical Inventory Management Software',
+    absolute: 'Salvify | Medicine Management Software for Pre-Hospital Care',
   },
   description:
-    'Salvify is medical inventory management software for healthcare providers. Track stock, batch numbers and expiry dates, strengthen compliance, reduce waste, and improve operational efficiency with one digital platform.',
+    'Medicine management software for pre-hospital care and EMS. Track stock, manage controlled drugs and stay audit-ready across every vehicle and site.',
   keywords: [
-    'medical inventory management software',
-    'medical inventory',
     'medicine management',
-    'medical inventory management',
-    'healthcare inventory tracking',
-    'medical stock control software',
-    'medical expiry tracking',
-    'medical batch tracking',
+    'medicine management software',
+    'medicine management for pre-hospital care',
+    'EMS medicine management',
+    'ambulance medicine management',
+    'medicine management software for ambulance services',
+    'controlled drug register',
+    'controlled drug management',
+    'controlled drugs pre-hospital care',
   ],
   alternates: {
     canonical: 'https://www.salvify.co.uk',
@@ -32,16 +33,16 @@ export const metadata = {
     type: 'website',
     url: 'https://www.salvify.co.uk',
     siteName: 'Salvify',
-    title: 'Salvify | Medical Inventory Management Software',
+    title: 'Salvify | Medicine Management Software for Pre-Hospital Care',
     description:
-      'Track medical stock, batch numbers and expiry dates, improve compliance, reduce waste, and keep better control of medical inventory with Salvify.',
+      'Keep track of every medicine across your vehicles, kits and sites. Stay compliant, reduce risk and know exactly what is available, at any moment.',
     locale: 'en_GB',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Salvify | Medical Inventory Management Software',
+    title: 'Salvify | Medicine Management Software for Pre-Hospital Care',
     description:
-      'Medical inventory management software for healthcare providers.',
+      'Medicine management software for ambulance services and pre-hospital care.',
   },
   robots: {
     index: true,
